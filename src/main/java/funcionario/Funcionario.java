@@ -63,6 +63,17 @@ public class Funcionario
         this.status = status;
     }
 
+    public Funcionario(FuncionarioDTO funcionarioDTO)
+    {
+        this.id = funcionarioDTO.getId();
+        this.filial = funcionarioDTO.getFilial();
+        this.nome = funcionarioDTO.getNome();
+        this.cpf = funcionarioDTO.getCpf();
+        this.funcao = funcionarioDTO.getFuncao();
+        this.password = funcionarioDTO.getPassword();
+        this.status = funcionarioDTO.getStatus();
+    }
+
     public void setId(Long id)
     {
         this.id = id;

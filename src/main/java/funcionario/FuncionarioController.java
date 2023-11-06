@@ -71,7 +71,7 @@ public class FuncionarioController
     public ResponseEntity<Void> deleteFuncionario(@PathVariable Long id)
     {
         funcionarioService.deleteFuncionario(id);
-        return ResponseEntity.noContent().build(); 
+        return ResponseEntity.noContent().build();
     }
 
 }

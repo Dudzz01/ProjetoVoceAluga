@@ -1,86 +1,54 @@
 package cliente;
 
 import filial.Filial;
-import funcionario.Funcionario;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+
 import java.util.Date;
 import java.util.Objects;
 
-@Entity
-@Table(name = Cliente.CLIENTE_NAME_TABLE)
-public class Cliente
+public class ClienteDTO
 {
-    public static final String CLIENTE_NAME_TABLE = "cliente";
-
-    @Id
-    @Column(name = "id",unique = true,nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "filial_id")
     private Filial filial;
-
-    @Column(name = "nome", unique = false, nullable = false)
-    @NotNull
-    @NotEmpty
     private String nome;
-
-    @Column(name = "cpf", unique = true, nullable = false)
-    @NotNull
-    @NotEmpty
     private String cpf;
-
-    @Column(name = "telefone",unique = true,nullable = false)
-    @NotNull
-    @NotEmpty
     private String telefone;
-
-    @Column(name = "data_cadastro",unique = false,nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @NotNull
-    @NotEmpty
     private Date dataCadastro;
-
-    @Column(name = "totalFidelidade",unique = false,nullable = true)
-    @NotNull
-    @NotEmpty
     private double totalFidelidade;
 
-    public Cliente()
+    public ClienteDTO()
     {
 
     }
 
-    public Cliente(Long id, Filial filial, String nome, String cpf, String telefone, Date dataCadastro, double totalFidelidade)
+    public ClienteDTO(Long id, Filial filial, String nome, String cpf, String telefone, Date dataCadastro, double totalFidelidade)
     {
         this.id = id;
         this.filial = filial;
         this.nome = nome;
         this.cpf = cpf;
+
         this.telefone = telefone;
         this.dataCadastro = dataCadastro;
         this.totalFidelidade = totalFidelidade;
     }
 
-    public Cliente(ClienteDTO clienteDTO)
+    public ClienteDTO(Cliente cliente)
     {
-        this.id = clienteDTO.getId();;
-        this.filial = clienteDTO.getFilial();
-        this.nome = clienteDTO.getNome();
-        this.cpf = clienteDTO.getCpf();
-        this.telefone = clienteDTO.getTelefone();
-        this.dataCadastro = clienteDTO.getDataCadastro();
-        this.totalFidelidade = clienteDTO.getTotalFidelidade();
+        this.id = cliente.getId();;
+        this.filial = cliente.getFilial();
+        this.nome = cliente.getNome();
+        this.cpf = cliente.getCpf();
+        this.telefone = cliente.getTelefone();
+        this.dataCadastro = cliente.getDataCadastro();
+        this.totalFidelidade = cliente.getTotalFidelidade();
     }
 
-    public ClienteDTO converterClienteParaDto()
+    public Cliente converterDtoParaCliente()
     {
-        return new ClienteDTO(this);
+        return new Cliente(this);
     }
+
 
     public Long getId() {
         return id;
@@ -154,7 +122,7 @@ public class Cliente
             return  false;
         }
 
-        Cliente other = (Cliente) obj;
+        ClienteDTO other = (ClienteDTO) obj;
 
         if(this.id == null)
         {
@@ -169,7 +137,7 @@ public class Cliente
 
         }
 
-        return Objects.equals(this.id,other.id) && Objects.equals(this.nome,other.nome) && Objects.equals(this.cpf, other.cpf)   && Objects.equals(this.telefone, other.telefone) && Objects.equals(this.dataCadastro, other.dataCadastro) && Objects.equals(this.totalFidelidade, other.totalFidelidade);
+        return Objects.equals(this.id,other.id) && Objects.equals(this.nome,other.nome) && Objects.equals(this.cpf, other.cpf)  && Objects.equals(this.telefone, other.telefone) && Objects.equals(this.dataCadastro, other.dataCadastro) && Objects.equals(this.totalFidelidade, other.totalFidelidade);
     }
 
     @Override
