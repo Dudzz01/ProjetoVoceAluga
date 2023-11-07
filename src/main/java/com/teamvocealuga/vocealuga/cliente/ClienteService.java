@@ -3,6 +3,7 @@ package cliente;
 import filial.FilialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +51,7 @@ public class ClienteService
         }
     }
 
+    @Transactional
     public ClienteDTO createCliente(ClienteDTO clienteDTO)
     {
         filialService.findFilialById(clienteDTO.getFilial().getId()); // verifica se existe filial
@@ -59,7 +61,7 @@ public class ClienteService
         clienteDTO = cliente.converterClienteParaDto();
         return clienteDTO;
     }
-
+    @Transactional
     public ClienteDTO updateTelefoneCliente(ClienteDTO clienteDTO)
     {
         ClienteDTO clienteDtoOld = findClienteById(clienteDTO.getId());
@@ -69,7 +71,7 @@ public class ClienteService
         clienteDTO = cliente.converterClienteParaDto();
         return clienteDTO;
     }
-
+    @Transactional
     public ClienteDTO updateTotalFidelidade(ClienteDTO clienteDTO)
     {
         ClienteDTO clienteDtoOld = findClienteById(clienteDTO.getId());

@@ -42,7 +42,7 @@ public class ClienteController
         return ResponseEntity.created(uri).build();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/telefone/{id}")
     public ResponseEntity<Void> updateTelefoneCliente(@RequestBody ClienteDTO clienteDTO, @PathVariable Long id)
     {
         clienteDTO.setId(id);
@@ -50,7 +50,7 @@ public class ClienteController
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/totalfidelidade/{id}")
     public ResponseEntity<Void> updateTotalFidelidade(@RequestBody ClienteDTO clienteDTO, @PathVariable Long id)
     {
         clienteDTO.setId(id);

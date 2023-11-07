@@ -1,9 +1,12 @@
 package cliente;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import filial.Filial;
+import motorista.Motorista;
 
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class ClienteDTO
@@ -15,22 +18,23 @@ public class ClienteDTO
     private String telefone;
     private Date dataCadastro;
     private double totalFidelidade;
+    private List<Motorista> motoristaList;
 
     public ClienteDTO()
     {
 
     }
 
-    public ClienteDTO(Long id, Filial filial, String nome, String cpf, String telefone, Date dataCadastro, double totalFidelidade)
+    public ClienteDTO(Long id, Filial filial, String nome, String cpf, String telefone, Date dataCadastro, double totalFidelidade, List<Motorista> motoristaList)
     {
         this.id = id;
         this.filial = filial;
         this.nome = nome;
         this.cpf = cpf;
-
         this.telefone = telefone;
         this.dataCadastro = dataCadastro;
         this.totalFidelidade = totalFidelidade;
+        this.motoristaList = motoristaList;
     }
 
     public ClienteDTO(Cliente cliente)
@@ -42,6 +46,7 @@ public class ClienteDTO
         this.telefone = cliente.getTelefone();
         this.dataCadastro = cliente.getDataCadastro();
         this.totalFidelidade = cliente.getTotalFidelidade();
+        this.motoristaList = cliente.getMotoristaList();
     }
 
     public Cliente converterDtoParaCliente()
@@ -106,6 +111,15 @@ public class ClienteDTO
         this.totalFidelidade = totalFidelidade;
     }
 
+    @JsonIgnore
+    public List<Motorista> getMotoristaList() {
+        return motoristaList;
+    }
+
+    public void setMotoristaList(List<Motorista> motoristaList) {
+        this.motoristaList = motoristaList;
+    }
+
     @Override
     public boolean equals(Object obj)
     {
@@ -151,4 +165,6 @@ public class ClienteDTO
         return hashCode;
 
     }
+
+
 }

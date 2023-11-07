@@ -1,12 +1,15 @@
 package cliente;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import filial.Filial;
 import funcionario.Funcionario;
+import motorista.Motorista;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -23,6 +26,9 @@ public class Cliente
     @ManyToOne
     @JoinColumn(name = "filial_id")
     private Filial filial;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Motorista> motoristaList;
 
     @Column(name = "nome", unique = false, nullable = false)
     @NotNull
@@ -46,8 +52,6 @@ public class Cliente
     private Date dataCadastro;
 
     @Column(name = "totalFidelidade",unique = false,nullable = true)
-    @NotNull
-    @NotEmpty
     private double totalFidelidade;
 
     public Cliente()
@@ -55,7 +59,7 @@ public class Cliente
 
     }
 
-    public Cliente(Long id, Filial filial, String nome, String cpf, String telefone, Date dataCadastro, double totalFidelidade)
+    public Cliente(Long id, Filial filial, String nome, String cpf, String telefone, Date dataCadastro, double totalFidelidade,List<Motorista> motoristaList)
     {
         this.id = id;
         this.filial = filial;
@@ -64,6 +68,7 @@ public class Cliente
         this.telefone = telefone;
         this.dataCadastro = dataCadastro;
         this.totalFidelidade = totalFidelidade;
+        this.motoristaList = motoristaList;
     }
 
     public Cliente(ClienteDTO clienteDTO)
@@ -75,6 +80,7 @@ public class Cliente
         this.telefone = clienteDTO.getTelefone();
         this.dataCadastro = clienteDTO.getDataCadastro();
         this.totalFidelidade = clienteDTO.getTotalFidelidade();
+        this.motoristaList = clienteDTO.getMotoristaList();
     }
 
     public ClienteDTO converterClienteParaDto()
@@ -138,6 +144,15 @@ public class Cliente
         this.totalFidelidade = totalFidelidade;
     }
 
+    @JsonIgnore
+    public List<Motorista> getMotoristaList() {
+        return motoristaList;
+    }
+
+    public void setMotoristaList(List<Motorista> motoristaList) {
+        this.motoristaList = motoristaList;
+    }
+
     @Override
     public boolean equals(Object obj)
     {
@@ -169,7 +184,7 @@ public class Cliente
 
         }
 
-        return Objects.equals(this.id,other.id) && Objects.equals(this.nome,other.nome) && Objects.equals(this.cpf, other.cpf)   && Objects.equals(this.telefone, other.telefone) && Objects.equals(this.dataCadastro, other.dataCadastro) && Objects.equals(this.totalFidelidade, other.totalFidelidade);
+        return Objects.equals(this.id,other.id) && Objects.equals(this.nome,other.nome) && Objects.equals(this.cpf, other.cpf)   && Objects.equals(this.telefone, other.telefone) && Objects.equals(this.dataCadastro, other.dataCadastro) && Objects.equals(this.totalFidelidade, other.totalFidelidade) && Objects.equals(this.filial, other.filial);
     }
 
     @Override
@@ -183,4 +198,6 @@ public class Cliente
         return hashCode;
 
     }
+
+
 }

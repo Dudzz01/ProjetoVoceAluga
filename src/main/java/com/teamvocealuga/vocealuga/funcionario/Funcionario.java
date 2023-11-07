@@ -170,7 +170,7 @@ public class Funcionario
 
         }
 
-        return Objects.equals(this.id,other.id) && Objects.equals(this.nome,other.nome) && Objects.equals(this.cpf, other.cpf) && Objects.equals(this.funcao, other.funcao) && Objects.equals(this.password, other.password) && Objects.equals(this.status, other.status);
+        return Objects.equals(this.id,other.id) && Objects.equals(this.nome,other.nome) && Objects.equals(this.cpf, other.cpf) && Objects.equals(this.funcao, other.funcao) && Objects.equals(this.password, other.password) && Objects.equals(this.status, other.status) && Objects.equals(this.filial, other.filial);
     }
 
     @Override
