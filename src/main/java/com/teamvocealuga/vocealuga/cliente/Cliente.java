@@ -1,13 +1,15 @@
-package cliente;
+package com.teamvocealuga.vocealuga.cliente;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import filial.Filial;
-import funcionario.Funcionario;
-import motorista.Motorista;
+import com.teamvocealuga.vocealuga.filial.Filial;
+import com.teamvocealuga.vocealuga.locacao.Locacao;
+import com.teamvocealuga.vocealuga.motorista.Motorista;
+import com.teamvocealuga.vocealuga.transacao.Transacao;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -26,6 +28,12 @@ public class Cliente
     @ManyToOne
     @JoinColumn(name = "filial_id")
     private Filial filial;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Locacao> locacaoList = new ArrayList<Locacao>();
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Transacao> transacaoList = new ArrayList<Transacao>();
 
     @OneToMany(mappedBy = "cliente")
     private List<Motorista> motoristaList;
@@ -59,7 +67,7 @@ public class Cliente
 
     }
 
-    public Cliente(Long id, Filial filial, String nome, String cpf, String telefone, Date dataCadastro, double totalFidelidade,List<Motorista> motoristaList)
+    public Cliente(Long id, Filial filial, String nome, String cpf, String telefone, Date dataCadastro, double totalFidelidade,List<Motorista> motoristaList, List<Locacao> locacaoList,List<Transacao> transacaoList)
     {
         this.id = id;
         this.filial = filial;
@@ -69,6 +77,8 @@ public class Cliente
         this.dataCadastro = dataCadastro;
         this.totalFidelidade = totalFidelidade;
         this.motoristaList = motoristaList;
+        this.locacaoList = locacaoList;
+        this.transacaoList = transacaoList;
     }
 
     public Cliente(ClienteDTO clienteDTO)
@@ -81,6 +91,8 @@ public class Cliente
         this.dataCadastro = clienteDTO.getDataCadastro();
         this.totalFidelidade = clienteDTO.getTotalFidelidade();
         this.motoristaList = clienteDTO.getMotoristaList();
+        this.locacaoList = clienteDTO.getLocacaoList();
+        this.transacaoList = clienteDTO.getTransacaoList();
     }
 
     public ClienteDTO converterClienteParaDto()
@@ -151,6 +163,24 @@ public class Cliente
 
     public void setMotoristaList(List<Motorista> motoristaList) {
         this.motoristaList = motoristaList;
+    }
+
+    @JsonIgnore
+    public List<Locacao> getLocacaoList() {
+        return locacaoList;
+    }
+
+    public void setLocacaoList(List<Locacao> locacaoList) {
+        this.locacaoList = locacaoList;
+    }
+
+    @JsonIgnore
+    public List<Transacao> getTransacaoList() {
+        return transacaoList;
+    }
+
+    public void setTransacaoList(List<Transacao> transacaoList) {
+        this.transacaoList = transacaoList;
     }
 
     @Override

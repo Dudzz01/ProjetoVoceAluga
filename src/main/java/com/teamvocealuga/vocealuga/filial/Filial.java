@@ -1,10 +1,10 @@
-package filial;
+package com.teamvocealuga.vocealuga.filial;
 
 
 
-import cliente.Cliente;
+import com.teamvocealuga.vocealuga.cliente.Cliente;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import funcionario.Funcionario;
+import com.teamvocealuga.vocealuga.funcionario.Funcionario;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -18,7 +18,7 @@ import java.util.Objects;
 @Table(name = Filial.FILIAL_TABLE_NAME)
 public class Filial
 {
-    public static final String FILIAL_TABLE_NAME = "filial";
+    public static final String FILIAL_TABLE_NAME = " filial";
 
     @Id
     @Column(name = "id",unique = true,nullable = false)
@@ -43,10 +43,10 @@ public class Filial
     @Size(min = 0, max = 255)
     private String endereco;
 
-    @OneToMany(mappedBy = "filial")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "filial")
     private List<Funcionario> funcionarioList = new ArrayList<Funcionario>();
 
-    @OneToMany(mappedBy = "filial")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "filial")
     private List<Cliente> clienteList = new ArrayList<Cliente>();
 
 

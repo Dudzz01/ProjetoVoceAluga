@@ -1,7 +1,8 @@
-package motorista;
+package com.teamvocealuga.vocealuga.motorista;
 
-import cliente.Cliente;
-import filial.Filial;
+import com.teamvocealuga.vocealuga.cliente.Cliente;
+import com.teamvocealuga.vocealuga.filial.Filial;
+import com.teamvocealuga.vocealuga.locacao.Locacao;
 
 
 import java.util.Date;
@@ -14,6 +15,8 @@ public class MotoristaDTO
 
 
     private Cliente cliente; //Many Motorista(1,N) To One Cliente(1)
+
+    private Locacao locacao;
 
 
     private String nome;
@@ -33,7 +36,7 @@ public class MotoristaDTO
 
     }
 
-    public MotoristaDTO(Long id, Cliente cliente, String nome, String cpf, String cnh, Date dataNascimento)
+    public MotoristaDTO(Long id, Cliente cliente,Locacao locacao, String nome, String cpf, String cnh, Date dataNascimento)
     {
         this.id = id;
         this.cliente = cliente;
@@ -41,6 +44,7 @@ public class MotoristaDTO
         this.cpf = cpf;
         this.cnh = cnh;
         this.dataNascimento = dataNascimento;
+        this.locacao = locacao;
     }
 
     public MotoristaDTO(Motorista motorista)
@@ -51,6 +55,12 @@ public class MotoristaDTO
         this.cpf = motorista.getCpf();
         this.cnh = motorista.getCnh();
         this.dataNascimento = motorista.getDataNascimento();
+        this.locacao = motorista.getLocacao();
+    }
+
+    public Motorista converterDTOParaMotorista()
+    {
+        return new Motorista(this);
     }
 
     public Long getId() {
@@ -100,6 +110,13 @@ public class MotoristaDTO
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+    public Locacao getLocacao() {
+        return locacao;
+    }
+
+    public void setLocacao(Locacao locacao) {
+        this.locacao = locacao;
+    }
 
     @Override
     public boolean equals(Object obj)
@@ -132,7 +149,7 @@ public class MotoristaDTO
 
         }
 
-        return Objects.equals(this.id,other.id) && Objects.equals(this.nome,other.nome) && Objects.equals(this.cpf, other.cpf) && Objects.equals(this.cnh, other.cnh) && Objects.equals(this.cliente, other.cliente) && Objects.equals(this.dataNascimento, other.dataNascimento);
+        return Objects.equals(this.id,other.id) && Objects.equals(this.nome,other.nome) && Objects.equals(this.cpf, other.cpf) && Objects.equals(this.cnh, other.cnh) && Objects.equals(this.cliente, other.cliente) && Objects.equals(this.locacao, other.locacao) && Objects.equals(this.dataNascimento, other.dataNascimento);
     }
 
     @Override
@@ -146,4 +163,6 @@ public class MotoristaDTO
         return hashCode;
 
     }
+
+
 }

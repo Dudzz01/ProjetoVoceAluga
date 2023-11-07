@@ -1,7 +1,7 @@
-package cliente;
+package com.teamvocealuga.vocealuga.cliente;
 
 
-import filial.FilialService;
+import com.teamvocealuga.vocealuga.filial.FilialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

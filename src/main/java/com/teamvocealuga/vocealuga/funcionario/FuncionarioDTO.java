@@ -1,9 +1,12 @@
-package funcionario;
+package com.teamvocealuga.vocealuga.funcionario;
 
-import filial.Filial;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.teamvocealuga.vocealuga.filial.Filial;
+import com.teamvocealuga.vocealuga.locacao.Locacao;
 
 
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class FuncionarioDTO
@@ -12,6 +15,8 @@ public class FuncionarioDTO
 
 
         private Filial filial;
+
+        private List<Locacao> locacaoList = new ArrayList<Locacao>();
 
 
         private String nome;
@@ -32,7 +37,7 @@ public class FuncionarioDTO
 
     }
 
-    public FuncionarioDTO(Long id, Filial filial, String nome, String cpf, String funcao, String password, int status)
+    public FuncionarioDTO(Long id, Filial filial,List<Locacao> locacaoList, String nome, String cpf, String funcao, String password, int status)
     {
         this.id = id;
         this.filial = filial;
@@ -41,6 +46,19 @@ public class FuncionarioDTO
         this.funcao = funcao;
         this.password = password;
         this.status = status;
+        this.locacaoList = locacaoList;
+    }
+
+    public FuncionarioDTO(Funcionario funcionario)
+    {
+        this.id = funcionario.getId();;
+        this.filial = funcionario.getFilial();
+        this.nome = funcionario.getNome();
+        this.cpf = funcionario.getCpf();
+        this.funcao = funcionario.getFuncao();
+        this.password = funcionario.getPassword();
+        this.status = funcionario.getStatus();
+        this.locacaoList = funcionario.getLocacaoList();
     }
         public void setId(Long id)
         {
@@ -102,8 +120,17 @@ public class FuncionarioDTO
 
         public Funcionario converterDtoParaFuncionario()
         {
-            Funcionario funcionario = new Funcionario(id,filial,nome,cpf,funcao,password,status);
+            Funcionario funcionario = new Funcionario(this);
             return funcionario;
+        }
+
+        @JsonIgnore
+        public List<Locacao> getLocacaoList() {
+            return locacaoList;
+        }
+
+        public void setLocacaoList(List<Locacao> locacaoList) {
+            this.locacaoList = locacaoList;
         }
 
 

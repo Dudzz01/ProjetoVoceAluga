@@ -1,10 +1,14 @@
-package funcionario;
+package com.teamvocealuga.vocealuga.funcionario;
 
-import filial.Filial;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.teamvocealuga.vocealuga.filial.Filial;
+import com.teamvocealuga.vocealuga.locacao.Locacao;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -21,6 +25,9 @@ public class Funcionario
     @ManyToOne
     @JoinColumn(name = "filial_id")
     private Filial filial;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionario")
+    private List<Locacao> locacaoList = new ArrayList<Locacao>();
 
     @Column(name = "nome",unique = false,nullable = false)
     @NotNull
@@ -52,7 +59,7 @@ public class Funcionario
 
     }
 
-    public Funcionario(Long id, Filial filial, String nome, String cpf, String funcao,String password, int status)
+    public Funcionario(Long id, Filial filial,List<Locacao> locacaoList, String nome, String cpf, String funcao,String password, int status)
     {
         this.id = id;
         this.filial = filial;
@@ -61,6 +68,7 @@ public class Funcionario
         this.funcao = funcao;
         this.password = password;
         this.status = status;
+        this.locacaoList = locacaoList;
     }
 
     public Funcionario(FuncionarioDTO funcionarioDTO)
@@ -72,6 +80,7 @@ public class Funcionario
         this.funcao = funcionarioDTO.getFuncao();
         this.password = funcionarioDTO.getPassword();
         this.status = funcionarioDTO.getStatus();
+        this.locacaoList = funcionarioDTO.getLocacaoList();
     }
 
     public void setId(Long id)
@@ -131,11 +140,18 @@ public class Funcionario
         this.status = status;
     }
 
+    @JsonIgnore
+    public List<Locacao> getLocacaoList() {
+        return locacaoList;
+    }
 
+    public void setLocacaoList(List<Locacao> locacaoList) {
+        this.locacaoList = locacaoList;
+    }
 
     public FuncionarioDTO converterFuncionarioParaDTO()
     {
-        FuncionarioDTO funcionarioDTO = new FuncionarioDTO(id,filial,nome,cpf,funcao,password,status);
+        FuncionarioDTO funcionarioDTO = new FuncionarioDTO(this);
         return funcionarioDTO;
     }
 

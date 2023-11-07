@@ -1,6 +1,5 @@
-package cliente;
+package com.teamvocealuga.vocealuga.cliente;
 
-import funcionario.Funcionario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

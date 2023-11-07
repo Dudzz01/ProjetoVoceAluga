@@ -1,10 +1,10 @@
-package filial;
+package com.teamvocealuga.vocealuga.filial;
 
 
 
-import cliente.Cliente;
+import com.teamvocealuga.vocealuga.cliente.Cliente;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import funcionario.Funcionario;
+import com.teamvocealuga.vocealuga.funcionario.Funcionario;
 
 
 

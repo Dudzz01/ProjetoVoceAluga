@@ -1,4 +1,4 @@
-package filial;
+package com.teamvocealuga.vocealuga.filial;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
