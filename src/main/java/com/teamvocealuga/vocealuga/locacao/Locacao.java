@@ -4,6 +4,7 @@ import com.teamvocealuga.vocealuga.cliente.Cliente;
 import com.teamvocealuga.vocealuga.funcionario.Funcionario;
 import com.teamvocealuga.vocealuga.motorista.Motorista;
 import com.teamvocealuga.vocealuga.transacao.Transacao;
+import com.teamvocealuga.vocealuga.veiculo.Veiculo;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class Locacao
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "locacao")
-    private List<Transacao> transacaoList = new ArrayList<Transacao>();
+    @OneToOne(mappedBy = "locacao")
+    private Veiculo veiculo;
+
+
 }

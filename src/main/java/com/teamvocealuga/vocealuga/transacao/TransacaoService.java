@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,6 +23,27 @@ public class TransacaoService
         TransacaoDTO transacaoDTO = transacao.get().converterTransacaoParaDTO();
         return transacaoDTO;
     }
+
+    public List<TransacaoDTO> findTransacaoByClienteId(Long id)
+    {
+        List<Transacao> transacaoList = transacaoRepository.findByCliente_Id(id);
+        List<TransacaoDTO> transacaoDTOList = new ArrayList<TransacaoDTO>();
+
+        if(transacaoList.isEmpty() || transacaoList == null)
+        {
+            throw new RuntimeException("Erro ao encontrar as transacoes do cliente");
+        }
+        else
+        {
+            for(Transacao transacao: transacaoList)
+            {
+                transacaoDTOList.add(transacao.converterTransacaoParaDTO());
+            }
+
+            return transacaoDTOList;
+        }
+    }
+
     @Transactional
     public TransacaoDTO createTransacao(TransacaoDTO transacaoDTO)
     {

@@ -5,6 +5,7 @@ package com.teamvocealuga.vocealuga.filial;
 import com.teamvocealuga.vocealuga.cliente.Cliente;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.teamvocealuga.vocealuga.funcionario.Funcionario;
+import com.teamvocealuga.vocealuga.veiculo.Veiculo;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -43,11 +44,13 @@ public class Filial
     @Size(min = 0, max = 255)
     private String endereco;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "filial")
+    @OneToMany(mappedBy = "filial")
     private List<Funcionario> funcionarioList = new ArrayList<Funcionario>();
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "filial")
+    @OneToMany(mappedBy = "filial")
     private List<Cliente> clienteList = new ArrayList<Cliente>();
+    @OneToMany(mappedBy = "filial")
+    private List<Veiculo> veiculo = new ArrayList<>();
 
 
     public Filial()
@@ -62,7 +65,7 @@ public class Filial
         this.endereco = endereco;
     }
 
-    public Filial(Long id, String nome, String cnpj, String endereco, List<Funcionario> funcionarioList, List<Cliente> clienteList)
+    public Filial(Long id, String nome, String cnpj, String endereco, List<Funcionario> funcionarioList, List<Cliente> clienteList, List<Veiculo> veiculo)
     {
         this.id = id;
         this.nome = nome;
@@ -70,6 +73,7 @@ public class Filial
         this.endereco = endereco;
         this.funcionarioList = funcionarioList;
         this.clienteList = clienteList;
+        this.veiculo = veiculo;
     }
 
     public Filial(FilialDTO filialDTO)
@@ -80,6 +84,7 @@ public class Filial
         this.endereco = filialDTO.getEndereco();
         this.funcionarioList = filialDTO.getFuncionarioList();
         this.clienteList = filialDTO.getClienteList();
+        this.veiculo = filialDTO.getVeiculo();
     }
 
 
@@ -133,9 +138,18 @@ public class Filial
         this.clienteList = clienteList;
     }
 
+    @JsonIgnore
+    public List<Veiculo> getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(List<Veiculo> veiculoList) {
+        this.veiculo = veiculoList;
+    }
+
     public FilialDTO converterFilialParaDto()
     {
-        FilialDTO filialDTO = new FilialDTO(id,nome,cnpj,endereco,funcionarioList,clienteList);
+        FilialDTO filialDTO = new FilialDTO(id,nome,cnpj,endereco,funcionarioList,clienteList, veiculo);
         return filialDTO;
     }
 
@@ -184,6 +198,7 @@ public class Filial
         return hashCode;
 
     }
+
 
 
 }
