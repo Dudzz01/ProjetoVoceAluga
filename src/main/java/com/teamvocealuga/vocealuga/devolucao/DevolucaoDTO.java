@@ -144,6 +144,13 @@ public class DevolucaoDTO
         this.valorMulta = valorMulta;
     }
 
+    public Devolucao converterDtoParaDevolucao()
+    {
+        Devolucao devolucao = new Devolucao(this);
+        return devolucao;
+    }
+
+
     @Override
     public boolean equals(Object obj)
     {
