@@ -27,6 +27,7 @@ public class Veiculo
     @JoinColumn(name = "locacao_id")
     private Locacao locacao;
 
+
     @ManyToOne
     @JoinColumn(name = "filial_id")
     private Filial filial;

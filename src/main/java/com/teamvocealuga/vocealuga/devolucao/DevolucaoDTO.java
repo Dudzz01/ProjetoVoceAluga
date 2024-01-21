@@ -1,71 +1,53 @@
 package com.teamvocealuga.vocealuga.devolucao;
 
 import com.teamvocealuga.vocealuga.cliente.Cliente;
-import com.teamvocealuga.vocealuga.filial.Filial;
-import com.teamvocealuga.vocealuga.funcionario.Funcionario;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
 import com.teamvocealuga.vocealuga.transacao.Transacao;
 import com.teamvocealuga.vocealuga.veiculo.Veiculo;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity
-@Table(name = Devolucao.DEVOLUCAO_TABLE_NAME)
-public class Devolucao
+public class DevolucaoDTO
 {
-    public static final String DEVOLUCAO_TABLE_NAME = "devolucao";
-
-    @Id
-    @Column(name = "id",unique = true,nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "cliente_id")
+
     private Cliente cliente;
 
-    @OneToOne
-    @JoinColumn(name = "veiculo_id")
+
     private Veiculo veiculo;
 
-    @ManyToOne
-    @JoinColumn(name = "locacao_id")
+
     private Locacao locacao;
 
-    @OneToOne
-    @JoinColumn(name = "transacao_id")
+
     private Transacao transacao;
 
-    @Column(name = "datapedido",unique = false,nullable = false)
-    @NotNull
-    @NotEmpty
+
     private Date dataPedido;
 
-   @Column(name = "datafimesperado",unique = false,nullable = false)
-   @NotNull
-   @NotEmpty
-   private Date dataFimEsperado;
 
-    @Column(name = "datadevolucao",unique = false,nullable = false)
-    @NotNull
-    @NotEmpty
+    private Date dataFimEsperado;
+
+
     private Date dataDevolucao;
 
-    @Column(name = "valorMulta",unique = false,nullable = true)
-    @NotNull
-    @NotEmpty
+
     private float valorMulta;
 
-    public Devolucao()
+    public DevolucaoDTO()
     {
 
     }
 
-    public Devolucao(Long id, Cliente cliente, Veiculo veiculo, Locacao locacao, Transacao transacao, Date dataPedido, Date dataFimEsperado, Date dataDevolucao, float valorMulta) {
+    public DevolucaoDTO(Long id, Cliente cliente, Veiculo veiculo, Locacao locacao, Transacao transacao, Date dataPedido, Date dataFimEsperado, Date dataDevolucao, float valorMulta) {
         this.id = id;
         this.cliente = cliente;
         this.veiculo = veiculo;
@@ -77,19 +59,18 @@ public class Devolucao
         this.valorMulta = valorMulta;
     }
 
-    public Devolucao(DevolucaoDTO devolucaoDTO)
+    public DevolucaoDTO(Devolucao devolucao)
     {
-        this.id = devolucaoDTO.getId();
-        this.cliente = devolucaoDTO.getCliente();
-        this.veiculo = devolucaoDTO.getVeiculo();
-        this.locacao = devolucaoDTO.getLocacao();
-        this.transacao = devolucaoDTO.getTransacao();
-        this.dataPedido = devolucaoDTO.getDataPedido();
-        this.dataFimEsperado = devolucaoDTO.getDataFimEsperado();
-        this.dataDevolucao = devolucaoDTO.getDataDevolucao();
-        this.valorMulta = devolucaoDTO.getValorMulta();
+        this.id = devolucao.getId();
+        this.cliente = devolucao.getCliente();
+        this.veiculo = devolucao.getVeiculo();
+        this.locacao = devolucao.getLocacao();
+        this.transacao = devolucao.getTransacao();
+        this.dataPedido = devolucao.getDataPedido();
+        this.dataFimEsperado = devolucao.getDataFimEsperado();
+        this.dataDevolucao = devolucao.getDataDevolucao();
+        this.valorMulta = devolucao.getValorMulta();
     }
-
 
     public Long getId() {
         return id;
@@ -179,7 +160,7 @@ public class Devolucao
             return  false;
         }
 
-        Devolucao other = (Devolucao) obj;
+        DevolucaoDTO other = (DevolucaoDTO) obj;
 
         if(this.id == null)
         {
