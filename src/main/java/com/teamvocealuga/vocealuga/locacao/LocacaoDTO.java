@@ -4,21 +4,16 @@ import com.teamvocealuga.vocealuga.cliente.Cliente;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.funcionario.Funcionario;
 import com.teamvocealuga.vocealuga.motorista.Motorista;
-import com.teamvocealuga.vocealuga.transacao.Transacao;
 import com.teamvocealuga.vocealuga.veiculo.Veiculo;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
-@Entity
-@Table(name = Locacao.LOCACAO_TABLE_NAME)
-public class Locacao
+public class LocacaoDTO
 {
     public static final String LOCACAO_TABLE_NAME = "locacao";
 
@@ -105,12 +100,12 @@ public class Locacao
     @NotEmpty
     private boolean contratoLocacao;
 
-    public Locacao()
+    public LocacaoDTO()
     {
 
     }
 
-    public Locacao(Long id, Motorista motorista, Funcionario funcionario, Cliente cliente, Veiculo veiculo, int codLocacao, Date dataLocacao, String categoriaVeiculo, String cnhMotorista, Date dataPedido, Date dataInicio, Date dataFim, String enderecoRetirada, String enderecoDevolucao, String statusLocacao, boolean contratoLocacao)
+    public LocacaoDTO(Long id, Motorista motorista, Funcionario funcionario, Cliente cliente, Veiculo veiculo, int codLocacao, Date dataLocacao, String categoriaVeiculo, String cnhMotorista, Date dataPedido, Date dataInicio, Date dataFim, String enderecoRetirada, String enderecoDevolucao, String statusLocacao, boolean contratoLocacao)
     {
         this.id = id;
         this.motorista = motorista;
@@ -130,30 +125,30 @@ public class Locacao
         this.contratoLocacao = contratoLocacao;
     }
 
-    public Locacao(LocacaoDTO locacaoDTO)
+    public LocacaoDTO(Locacao locacao)
     {
-        this.id = locacaoDTO.getId();
-        this.motorista = locacaoDTO.getMotorista();
-        this.funcionario = locacaoDTO.getFuncionario();
-        this.cliente = locacaoDTO.getCliente();
-        this.veiculo = locacaoDTO.getVeiculo();
-        this.codLocacao = locacaoDTO.getCodLocacao();
-        this.dataLocacao = locacaoDTO.getDataLocacao();
-        this.categoriaVeiculo = locacaoDTO.getCategoriaVeiculo();
-        this.cnhMotorista = locacaoDTO.getCnhMotorista();
-        this.dataPedido = locacaoDTO.getDataPedido();
-        this.dataInicio = locacaoDTO.getDataInicio();
-        this.dataFim = locacaoDTO.getDataFim();
-        this.enderecoRetirada = locacaoDTO.getEnderecoRetirada();
-        this.enderecoDevolucao = locacaoDTO.getEnderecoDevolucao();
-        this.statusLocacao = locacaoDTO.getStatusLocacao();
-        this.contratoLocacao = locacaoDTO.getContratoLocacao();
+        this.id = locacao.getId();
+        this.motorista = locacao.getMotorista();
+        this.funcionario = locacao.getFuncionario();
+        this.cliente = locacao.getCliente();
+        this.veiculo = locacao.getVeiculo();
+        this.codLocacao = locacao.getCodLocacao();
+        this.dataLocacao = locacao.getDataLocacao();
+        this.categoriaVeiculo = locacao.getCategoriaVeiculo();
+        this.cnhMotorista = locacao.getCnhMotorista();
+        this.dataPedido = locacao.getDataPedido();
+        this.dataInicio = locacao.getDataInicio();
+        this.dataFim = locacao.getDataFim();
+        this.enderecoRetirada = locacao.getEnderecoRetirada();
+        this.enderecoDevolucao = locacao.getEnderecoDevolucao();
+        this.statusLocacao = locacao.getStatusLocacao();
+        this.contratoLocacao = locacao.getContratoLocacao();
     }
 
-    public LocacaoDTO converterLocacaoParaDTO()
+    public Locacao converterDtoParaLocacao()
     {
-        LocacaoDTO locacaoDTO = new LocacaoDTO(this);
-        return locacaoDTO;
+        Locacao locacao = new Locacao(this);
+        return locacao;
     }
 
     public Long getId() {
@@ -300,7 +295,7 @@ public class Locacao
             return  false;
         }
 
-        Locacao other = (Locacao) obj;
+        LocacaoDTO other = (LocacaoDTO) obj;
 
         if(this.id == null)
         {
@@ -330,5 +325,4 @@ public class Locacao
         return hashCode;
 
     }
-
 }
