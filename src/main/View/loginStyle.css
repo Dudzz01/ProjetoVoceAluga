@@ -41,22 +41,45 @@ body
 
 .card-login
 {
-    width: 19vw;
-    height: 27vh;
+    width: 14vw;
+    height: 20vh;
     display: flex;
     flex-direction: column;
     background-color: #181818;
     justify-content: center;
     align-items: center;
+    padding: 60px 25px 60px 25px;
+    border-radius: 20px;
+    box-shadow: 0px 25px rgba(3, 3, 3, 0.12);
+}
+
+.card-login > h1
+{
+    margin-top: 0px;
+    margin-bottom: 20px;
 }
 
 .textfield
+{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.textfield > label
+{
+
+}
+
+.textfield > input
 {
 
 }
 
 .button-Login
 {
-
+    margin-top: 20px;
 }
 
