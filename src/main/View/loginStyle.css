@@ -26,7 +26,8 @@ body
 
 .left-login > h1
 {
-    color: #77ffc0;
+    font-family: Arvo;
+    color: white;
 }
 
 .right-login
@@ -50,17 +51,21 @@ body
     align-items: center;
     padding: 60px 25px 60px 25px;
     border-radius: 20px;
-    box-shadow: 0px 25px rgba(3, 3, 3, 0.12);
+    box-shadow: 15px 15px rgba(3, 3, 3, 0.1);
+
 }
 
 .card-login > h1
 {
+    color: white;
+    font-family: Arvo;
     margin-top: 0px;
     margin-bottom: 20px;
 }
 
 .textfield
 {
+
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -68,8 +73,13 @@ body
     justify-content: center;
 }
 
+
+
 .textfield > label
 {
+    font-family: Arvo;
+    margin-bottom: 10px;
+    color: white;
 
 }
 
