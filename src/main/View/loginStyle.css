@@ -15,6 +15,7 @@ body
 
 .left-login
 {
+    padding-top: 100px;
     width: 50vw;
     height: 100vh;
     display: flex;
@@ -28,6 +29,16 @@ body
 {
     font-family: Arvo;
     color: white;
+}
+
+.img-login
+{
+    transition: transform 0.3s ease;
+}
+
+.img-login:hover
+{
+    transform: scale(1.5);
 }
 
 .right-login
@@ -92,4 +103,6 @@ body
 {
     margin-top: 20px;
 }
+
+
 
