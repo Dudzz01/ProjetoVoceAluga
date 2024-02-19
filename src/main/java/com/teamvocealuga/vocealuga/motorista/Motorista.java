@@ -22,7 +22,7 @@ public class Motorista
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "motorista")
-    private Locacao locacao;
+    private Locacao locacao; //DIRECAO NAO É IMPORTANTE, VAMOS REMPOVER
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")

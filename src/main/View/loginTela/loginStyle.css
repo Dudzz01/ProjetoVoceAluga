@@ -101,6 +101,10 @@ body
 
 .button-Login
 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-family: Arvo;
     margin-top: 20px;
 }

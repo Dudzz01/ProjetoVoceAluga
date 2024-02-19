@@ -21,8 +21,8 @@ body
     font-family: Arvo;
     font-size: 48px;
     color: #FFC107;
-    padding-top: 80px;
-    padding-bottom: 170px;
+    padding-top: 50px;
+    padding-bottom: 150px;
 }
 
 
@@ -30,7 +30,7 @@ body
 .cadastro-cliente
 {
     width: 20vw;
-    height: 52vh;
+    height: 60vh;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -79,5 +79,3 @@ body
     font-family: Arvo;
 
 }
-
-

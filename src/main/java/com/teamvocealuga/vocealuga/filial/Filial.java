@@ -26,7 +26,7 @@ public class Filial
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nome",unique = false,nullable = false,length = 255)
+    @Column(name = "nome",unique = true,nullable = false,length = 255)
     @NotNull
     @NotEmpty
     @Size(min = 0,max = 255)
