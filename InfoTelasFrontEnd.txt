@@ -1,0 +1,13 @@
+1: tela de login
+
+2: tela de cadastro de cliente
+
+3: tela de locacao de carro (nessa tela você vai exibir os campos da transacao)
+
+4: tela de busca de cliente
+
+5: tela de escolha de veiculo
+
+6: tela de cadastro de motorista
+
+7: tela de devolucao de carro (nessa tela voce busca uma locacao, e seleciona o status se ela foi devolvida, e quando voce seleciona isso, ela é exibida na tela)
