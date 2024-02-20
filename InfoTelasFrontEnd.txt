@@ -1,16 +1,16 @@
-1: tela de login
+1: tela de login--
 
-2: tela de cadastro de cliente
+2: tela de cadastro de cliente--
 
 3: tela de locacao de carro (nessa tela você vai exibir os campos da transacao)
 
-4: tela de busca de cliente
+4: tela de busca de cliente--
 
 4.2: tela de busca de motorista por cliente (lembrando que a relacao cliente-motorista é 1 por 1 e sempre que fizer essa busca só pode retornar 1 motorista)
-ps: se for cadastrar um motorista diferente para um cliente que ja tem um motorista, voce vai atualizar(UPDATE) o registro desse cliente
+ps: se for cadastrar um motorista diferente para um cliente que ja tem um motorista, voce vai atualizar(UPDATE) o registro desse cliente--
 
 5: tela de escolha de veiculo
 
-6: tela de cadastro de motorista
+6: tela de cadastro de motorista--
 
 7: tela de devolucao de carro (nessa tela voce busca uma locacao, e seleciona o status se ela foi devolvida, e quando voce seleciona isso, ela é exibida na tela)
