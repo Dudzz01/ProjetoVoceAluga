@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="locacaoCarro.css">
+    <title>LocacaoCarro VoceAluga</title>
+</head>
+<body>
+
+<div class="main-locacao">
+
+    <div class="left-locacao">
+        <h1>Cadastro da locação de carro</h1>
+        <div class="card-locacao-left">
+            <h2>Insira os dados</h2>
+            <form action="http://localhost:8080" method="post">
+                <div class="textfield">
+                    <label for="motorista">CNH(Motorista)</label>
+                    <input type="text" id="motorista" name="motorista" placeholder="Insira o CNH do motorista" required>
+                </div>
+                <div class="textfield">
+                    <label for="cliente">CPF cliente</label>
+                    <input type="text" id="cliente" name="cliente" placeholder="Insira o cpf do cliente" required>
+                </div>
+                <div class="textfield">
+                    <label for="veiculo">Código do veiculo</label>
+                    <input type="text" id="veiculo" name="veiculo" placeholder="Insira o código do veiculo que deseja alugar" required>
+                </div>
+                <div class="textfield">
+                    <label for="dataLocacao">Data da locação</label>
+                    <input type="date" id="dataLocacao" name="dataLocacao" placeholder="Insira a data da locacao" required>
+                </div>
+                <div class="textfield">
+                    <label for="dataFim">Data de encerramento</label>
+                    <input type="date" id="dataFim" name="dataFim" placeholder="Insira a data de encerramento da locacao" required>
+                </div>
+                <div class="textfield">
+                    <label for="enderecoRetirada">Endereço Retirada </label>
+                    <input type="text" id="enderecoRetirada" name="enderecoRetirada" placeholder="Insira o endereço de retirada do veiculo" required>
+                </div>
+
+                <div class="textfield">
+                    <label for="enderecoDevolucao">Endereço Devolução </label>
+                    <input type="text" id="enderecoDevolucao" name="enderecoDevolucao" placeholder="Insira o endereço de devolução do veiculo" required>
+                </div>
+
+                <div class="textfield">
+                    <label for="contratoLocacao">Contrato Locação </label>
+                    <input type="text" id="contratoLocacao" name="contratoLocacao" placeholder="Informe se o contrato foi assinado" required>
+                </div>
+
+                <div class="button-locacao">
+                    <button type="button">Cadastrar📤</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="right-locacao">
+        <h1>Informações Transacionais</h1>
+        <div class="card-locacao">
+            <h2>Informe os dados</h2>
+            <form action="http://localhost:8080" method="post">
+                <div class="textfield">
+                    <label for="locacao">Código Locação</label>
+                    <input type="text" id="locacao" name="locacao" placeholder="Insira o código da locação" required>
+                </div>
+                <div class="textfield">
+                    <label for="valorTotal">Valor total locação</label>
+                    <input type="valorTotal" id="valorTotal" name="valorTotal" placeholder="Valor total da locação" required>
+                </div>
+                <div class="textfield">
+                    <label for="dataPagamento">Data de pagamento</label>
+                    <input type="date" id="dataPagamento" name="dataPagamento" placeholder="Data de pagamento da locação" required>
+                </div>
+
+                <div class="textfield">
+                    <label for="formaDePagamento">Forma de Pagamento</label>
+                    <select id="formaDePagamento" name="formaDePagamento">
+                        <option value="pix">Pix</option>
+                        <option value="cartao_de_credito">Cartão de Crédito</option>
+                        <option value="cartao_de_debito">Cartão de Débito</option>
+                        <option value="dinheiro">Dinheiro</option>
+                    </select>
+                </div>
+
+                <div class="textfield">
+                    <label for="numNotaFiscal">Número Nota Fiscal</label>
+                    <input type="text" id="numNotaFiscal" name="numNotaFiscal" placeholder="Número nota fiscal" required>
+                </div>
+
+                <div class="button-locacao">
+                    <button type="button">Salvar📤</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

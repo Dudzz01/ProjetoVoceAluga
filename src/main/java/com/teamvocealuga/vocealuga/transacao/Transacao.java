@@ -22,7 +22,7 @@ public class Transacao
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne //ONE TO ONE
     @JoinColumn(name = "locacao_id")
     private Locacao locacao;
 
