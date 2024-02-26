@@ -1,0 +1,176 @@
+body
+{
+    margin: 0;
+}
+
+.main-devolucao
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: #222222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-devolucao
+{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.left-devolucao > h1
+{
+    font-family: Arvo;
+    color: #FFC107;
+}
+
+.img-locacao
+{
+    transition: transform 0.3s ease;
+}
+
+.img-locacao:hover
+{
+    transform: scale(1.5);
+}
+
+.right-devolucao
+{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-devolucao
+{
+    width: 20vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 25px 60px 25px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 0px 15px rgba(255, 255, 0, 0.91);
+    margin-bottom: 270px;
+
+}
+
+
+.card-devolucao-left
+{
+    width: 14vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 25px 40px 25px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 0px 15px rgba(255, 255, 0, 0.91);
+    margin-bottom: 60px;
+
+}
+
+.card-devolucao > h1
+{
+    color: #FFC107;
+    font-family: Arvo;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.card-devolucao > h2
+{
+    color: #FFC107;
+    font-family: Arvo;
+    margin-top: 0px;
+    margin-left: 60px;
+
+    margin-bottom: 60px;
+}
+
+.card-devolucao-left > h1
+{
+    color: #FFC107;
+    font-family: Arvo;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.card-devolucao-left > h2
+{
+    color: #FFC107;
+    font-family: Arvo;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.left-devolucao > h1
+{
+    color: #FFC107;
+    font-family: Arvo;
+    font-size: 42px;
+    margin-bottom: 100px;
+}
+
+.right-devolucao > h1
+{
+    color: #FFC107;
+    font-family: Arvo;
+    font-size: 42px;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+.textfield
+{
+
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+
+.textfield > label
+{
+    font-family: Arvo;
+    margin-bottom: 10px;
+    color: #FFC107;
+
+}
+
+.textfield > input
+{
+
+}
+
+.textfield input#buscaDevolucao
+{
+    width: 300px;
+}
+
+.button-devolucao
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arvo;
+    margin-top: 50px;
+}
+

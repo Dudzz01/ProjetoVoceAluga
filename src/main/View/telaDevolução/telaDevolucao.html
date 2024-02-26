@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="telaDevolucao.css">
+    <title>Devolucao Carro VoceAluga</title>
+</head>
+<body>
+
+<div class="main-devolucao">
+
+    <div class="left-devolucao">
+        <h1>Cadastro da locação de carro</h1>
+        <div class="card-devolucao-left">
+            <h2>Insira os dados</h2>
+            <form action="http://localhost:8080" method="post">
+                <div class="textfield">
+                    <label for="cliente">CPF cliente</label>
+                    <input type="text" id="cliente" name="cliente" placeholder="Insira o cpf do cliente" required>
+                </div>
+                <div class="textfield">
+                    <label for="veiculo">Código do veiculo</label>
+                    <input type="text" id="veiculo" name="veiculo" placeholder="Insira o código do veiculo que deseja alugar" required>
+                </div>
+                <div class="textfield">
+                    <label for="locacao">Código Locação</label>
+                    <input type="text" id="locacao" name="locacao" placeholder="Insira o código da locação" required>
+                </div>
+
+                <div class="textfield">
+                    <label for="transacao">Código transação</label>
+                    <input type="text" id="transacao" name="transacao" placeholder="Insira o código da transação" required>
+                </div>
+
+                <div class="textfield">
+                    <label for="dataFim">Data de devolução</label>
+                    <input type="date" id="dataFim" name="dataFim" placeholder="Insira a data de encerramento da locacao" required>
+                </div>
+
+                <div class="textfield">
+                    <label for="valorMulta">Valor Multa </label>
+                    <input type="text" id="valorMulta" name="valorMulta" placeholder="Insira o valor da multa" required>
+                </div>
+
+                <div class="button-devolucao">
+                    <button type="button">Salvar📤</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="right-devolucao">
+        <h1>Encontre a devolução por seu código</h1>
+        <div class="card-devolucao">
+            <h2>Insira o código de uma devolução existente</h2>
+            <form action="http://localhost:8080" method="post">
+
+                <div class="textfield">
+                    <label for="buscaDevolucao">Código Devolução</label>
+                    <input type="text" id="buscaDevolucao" name="buscaDevolucao" placeholder="Insira o código da devolução para encontra-lá" required>
+                </div>
+
+                <div class="button-devolucao">
+                    <button type="button">Buscar📤</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

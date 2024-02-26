@@ -13,4 +13,4 @@ ps: se for cadastrar um motorista diferente para um cliente que ja tem um motori
 
 6: tela de cadastro de motorista--
 
-7: tela de devolucao de carro (nessa tela voce busca uma locacao, e seleciona o status se ela foi devolvida, e quando voce seleciona isso, ela é exibida na tela)
+7: Tela de busca de devoluçao/tela de setar uma devolução
