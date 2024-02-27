@@ -1,0 +1,67 @@
+body
+{
+    margin: 0px;
+}
+
+.selecionar-carro
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: #222222;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.grupo-carros
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: #222222;
+}
+
+.row
+{
+    width: 100vw;
+    height: 50vh;
+    background-color: #222222;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+
+}
+
+#row1
+{
+    margin-top: 200px;
+}
+
+.card-car
+{
+    width: 20vw;
+    height: 35vh;
+    background-color: #403f3f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 15px rgba(255, 255, 0, 0.91);
+}
+
+.card-car > h2
+{
+    margin-top: 0;
+    padding-top: 80px;
+    font-family: Arvo;
+    color: #FFC107;
+}
+
+.card-car > P
+{
+    margin-top: 0;
+    padding-bottom: 65px;
+    font-family: Arvo;
+    color: #FFC107;
+}
