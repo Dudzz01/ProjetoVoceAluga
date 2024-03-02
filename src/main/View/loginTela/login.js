@@ -21,16 +21,24 @@ document.getElementById("loginForm").addEventListener("submit",
             }
 
 
-             ).then(response => response.text()).then(data => {
+             ).then(response => {if(response.status === 401)
+                                          {
+                                              return response.text().then(errorMessage => {throw new Error(errorMessage)})
+                                          }
+                                            return response.text();
+                                          }).then(data => {
                                                                                 console.log("FUNCIONOUUU");
                                                                                 const elementHtmlResponse = document.getElementById("textoLogin");
                                                                                 elementHtmlResponse.style.display = "block";
                                                                                 elementHtmlResponse.innerText = data;
-                                                                               }).catch(function (error){
+                                                                                elementHtmlResponse.style.color = "rgb(13,188,57)";
+                                                                               }).catch(function (){
                                                                                                         console.log("AVISA O EROOOOO");
                                                                                                         const elementHtmlResponse = document.getElementById("textoLogin");
                                                                                                         elementHtmlResponse.style.display = "block";
-                                                                                                        elementHtmlResponse.innerText = error;
+                                                                                                        elementHtmlResponse.style.color = "rgb(219, 0, 0)";
+                                                                                                        elementHtmlResponse.innerText = "Cpf ou Senha inválido(s)";
+
                                                                                                         })
     }
 
