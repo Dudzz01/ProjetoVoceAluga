@@ -1,6 +1,8 @@
 package com.teamvocealuga.vocealuga.funcionario;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
 
@@ -37,6 +39,7 @@ public class Funcionario
     @Column(name = "cpf",unique = true,nullable = false)
     @NotNull
     @NotEmpty
+    @JsonSerialize(using = ToStringSerializer.class)
     private String cpf;
 
     @Column(name = "funcao",unique = false,nullable = false)
@@ -140,7 +143,7 @@ public class Funcionario
         this.status = status;
     }
 
-    @JsonIgnore
+
     public List<Locacao> getLocacaoList() {
         return locacaoList;
     }

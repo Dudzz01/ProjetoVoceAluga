@@ -8,6 +8,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/funcionario")
@@ -31,6 +32,19 @@ public class FuncionarioController
         filialService.findFilialById(id);
         List<FuncionarioDTO> funcionarioDTOList = funcionarioService.findFuncionariosByFilialId(id);
         return ResponseEntity.ok().body(funcionarioDTOList);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> createAcessLogin(@RequestBody FuncionarioDTO funcionarioDTO)
+    {
+        String response = funcionarioService.createAcessLogin(funcionarioDTO);
+
+        if(Objects.equals(response, "Login autorizado com sucesso"))
+        {
+            return ResponseEntity.status(200).body(response);
+        }
+
+        return ResponseEntity.status(401).body(response);
     }
 
     @PostMapping

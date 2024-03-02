@@ -1,6 +1,8 @@
 package com.teamvocealuga.vocealuga.funcionario;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
 
@@ -21,7 +23,7 @@ public class FuncionarioDTO
 
         private String nome;
 
-
+        @JsonSerialize(using = ToStringSerializer.class)
         private String cpf;
 
 
@@ -124,7 +126,7 @@ public class FuncionarioDTO
             return funcionario;
         }
 
-        @JsonIgnore
+
         public List<Locacao> getLocacaoList() {
             return locacaoList;
         }

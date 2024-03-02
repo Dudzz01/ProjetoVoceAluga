@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="loginStyle.css">
+    <script src="login.js"></script>
     <title>Login VoceAluga</title>
 </head>
 <body>
@@ -20,18 +21,21 @@
             <div class="right-login">
                 <div class="card-login">
                     <h1>Login</h1>
-                    <form action="http://localhost:8080" method="post">
+                    <form id="loginForm">
                     <div class="textfield">
-                        <label for="usuario">Usuário(CPF)</label>
-                        <input type="text" id="usuario" name="usuario" placeholder="Insira o seu CPF aqui" required>
+                        <label for="cpf">Usuário(CPF)</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="Insira o seu CPF aqui" required>
                     </div>
                     <div class="textfield">
-                        <label for="senha">Senha</label>
-                        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" placeholder="Senha" required>
                     </div>
                     <div class="button-Login">
-                        <button type="button">Entrar🔒</button>
+                        <button type="submit">Entrar🔒</button>
                     </div>
+                        <div class="textfield">
+                            <p id="textoLogin" style="display: none;">Não autorizado</p>
+                        </div>
                     </form>
                 </div>
             </div>

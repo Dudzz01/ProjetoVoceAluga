@@ -33,6 +33,21 @@ public class FuncionarioService
         }
     }
 
+    public FuncionarioDTO findFuncionarioByCpf(String cpf)
+    {
+        Optional<Funcionario> funcionario = funcionarioRepository.findByCpf(cpf);
+
+        if(funcionario.isEmpty())
+        {
+            return null;
+        }
+
+
+        FuncionarioDTO funcionarioDTO = funcionario.get().converterFuncionarioParaDTO();
+
+        return funcionarioDTO;
+    }
+
     public List<FuncionarioDTO> findFuncionariosByFilialId(Long id)
     {
         List<Funcionario> funcionarioList = funcionarioRepository.findByFilial_Id(id);
@@ -61,6 +76,30 @@ public class FuncionarioService
         Funcionario funcionario = funcionarioDTO.converterDtoParaFuncionario();
         funcionario = funcionarioRepository.save(funcionario);
         return funcionario.converterFuncionarioParaDTO();
+    }
+
+    @Transactional
+    public String createAcessLogin(FuncionarioDTO funcionarioDTO)
+    {
+        System.out.println("FUNCIONARIO DO JSON(FRONTEND) PASSWORD ANTES DO IF: "+funcionarioDTO.getPassword());
+        if(findFuncionarioByCpf(funcionarioDTO.getCpf()) != null)
+        {
+            FuncionarioDTO funcionario = findFuncionarioByCpf(funcionarioDTO.getCpf());
+
+            System.out.println("FUNCIONARIO DO BANCO PASSWORD: "+ funcionario.getPassword());
+            System.out.println("FUNCIONARIO DO JSON(FRONTEND) PASSWORD: "+funcionarioDTO.getPassword());
+            System.out.println("FUNCIONARIO DO JSON(FRONTEND) CPF: "+funcionarioDTO.getCpf());
+
+            if(funcionarioDTO.getCpf().equals(funcionario.getCpf()) && funcionarioDTO.getPassword().equals(funcionario.getPassword()))
+            {
+                return "Login autorizado com sucesso";
+            }
+        }
+
+
+            return "Senha ou Cpf incorreto(s)";
+
+
     }
 
     @Transactional
