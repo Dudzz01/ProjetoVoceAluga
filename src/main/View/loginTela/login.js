@@ -23,7 +23,7 @@ document.getElementById("loginForm").addEventListener("submit",
 
              ).then(response => {if(response.status === 401)
                                           {
-                                              return response.text().then(errorMessage => {throw new Error(errorMessage)})
+                                              response.text().then(errorMessage => {throw new Error(errorMessage)})
                                           }
                                             return response.text();
                                           }).then(data => {
@@ -38,8 +38,8 @@ document.getElementById("loginForm").addEventListener("submit",
                                                                                                         elementHtmlResponse.style.display = "block";
                                                                                                         elementHtmlResponse.style.color = "rgb(219, 0, 0)";
                                                                                                         elementHtmlResponse.innerText = "Cpf ou Senha inválido(s)";
-
-                                                                                                        })
+         
+                                                                                                         })
     }
 
 
