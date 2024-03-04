@@ -16,15 +16,12 @@ public class ClienteDTO
 {
     private Long id;
     private Filial filial;
-
-    private List<Locacao> locacaoList = new ArrayList<Locacao>();
     private String nome;
     private String cpf;
     private String telefone;
     private Date dataCadastro;
     private double totalFidelidade;
-    private List<Motorista> motoristaList;
-    private List<Transacao> transacaoList = new ArrayList<Transacao>();
+
 
     public ClienteDTO()
     {
@@ -40,9 +37,7 @@ public class ClienteDTO
         this.telefone = telefone;
         this.dataCadastro = dataCadastro;
         this.totalFidelidade = totalFidelidade;
-        this.motoristaList = motoristaList;
-        this.locacaoList = locacaoList;
-        this.transacaoList = transacaoList;
+
     }
 
     public ClienteDTO(Cliente cliente)
@@ -54,9 +49,7 @@ public class ClienteDTO
         this.telefone = cliente.getTelefone();
         this.dataCadastro = cliente.getDataCadastro();
         this.totalFidelidade = cliente.getTotalFidelidade();
-        this.motoristaList = cliente.getMotoristaList();
-        this.locacaoList = cliente.getLocacaoList();
-        this.transacaoList = cliente.getTransacaoList();
+
     }
 
     public Cliente converterDtoParaCliente()
@@ -121,32 +114,7 @@ public class ClienteDTO
         this.totalFidelidade = totalFidelidade;
     }
 
-    @JsonIgnore
-    public List<Motorista> getMotoristaList() {
-        return motoristaList;
-    }
 
-    public void setMotoristaList(List<Motorista> motoristaList) {
-        this.motoristaList = motoristaList;
-    }
-
-    @JsonIgnore
-    public List<Locacao> getLocacaoList() {
-        return locacaoList;
-    }
-
-    public void setLocacaoList(List<Locacao> locacaoList) {
-        this.locacaoList = locacaoList;
-    }
-
-    @JsonIgnore
-    public List<Transacao> getTransacaoList() {
-        return transacaoList;
-    }
-
-    public void setTransacaoList(List<Transacao> transacaoList) {
-        this.transacaoList = transacaoList;
-    }
 
     @Override
     public boolean equals(Object obj)

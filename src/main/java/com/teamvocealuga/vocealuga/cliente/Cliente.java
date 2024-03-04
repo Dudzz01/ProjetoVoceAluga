@@ -29,14 +29,6 @@ public class Cliente
     @JoinColumn(name = "filial_id")
     private Filial filial;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Locacao> locacaoList = new ArrayList<Locacao>();
-
-    @OneToMany(mappedBy = "cliente")
-    private List<Transacao> transacaoList = new ArrayList<Transacao>();
-
-    @OneToMany(mappedBy = "cliente")
-    private List<Motorista> motoristaList;
 
     @Column(name = "nome", unique = false, nullable = false)
     @NotNull
@@ -53,7 +45,7 @@ public class Cliente
     @NotEmpty
     private String telefone;
 
-    @Column(name = "data_cadastro",unique = false,nullable = false)
+    @Column(name = "data_cadastro",unique = false,nullable = true)
     @Temporal(TemporalType.TIMESTAMP)
     @NotNull
     @NotEmpty
@@ -76,9 +68,8 @@ public class Cliente
         this.telefone = telefone;
         this.dataCadastro = dataCadastro;
         this.totalFidelidade = totalFidelidade;
-        this.motoristaList = motoristaList;
-        this.locacaoList = locacaoList;
-        this.transacaoList = transacaoList;
+
+
     }
 
     public Cliente(ClienteDTO clienteDTO)
@@ -90,9 +81,8 @@ public class Cliente
         this.telefone = clienteDTO.getTelefone();
         this.dataCadastro = clienteDTO.getDataCadastro();
         this.totalFidelidade = clienteDTO.getTotalFidelidade();
-        this.motoristaList = clienteDTO.getMotoristaList();
-        this.locacaoList = clienteDTO.getLocacaoList();
-        this.transacaoList = clienteDTO.getTransacaoList();
+
+
     }
 
     public ClienteDTO converterClienteParaDto()
@@ -156,32 +146,9 @@ public class Cliente
         this.totalFidelidade = totalFidelidade;
     }
 
-    @JsonIgnore
-    public List<Motorista> getMotoristaList() {
-        return motoristaList;
-    }
 
-    public void setMotoristaList(List<Motorista> motoristaList) {
-        this.motoristaList = motoristaList;
-    }
 
-    @JsonIgnore
-    public List<Locacao> getLocacaoList() {
-        return locacaoList;
-    }
 
-    public void setLocacaoList(List<Locacao> locacaoList) {
-        this.locacaoList = locacaoList;
-    }
-
-    @JsonIgnore
-    public List<Transacao> getTransacaoList() {
-        return transacaoList;
-    }
-
-    public void setTransacaoList(List<Transacao> transacaoList) {
-        this.transacaoList = transacaoList;
-    }
 
     @Override
     public boolean equals(Object obj)

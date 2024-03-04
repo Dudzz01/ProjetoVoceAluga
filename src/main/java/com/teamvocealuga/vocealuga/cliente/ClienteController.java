@@ -23,7 +23,7 @@ public class ClienteController
     public ResponseEntity<ClienteDTO> findClientById(@PathVariable Long id)
     {
         ClienteDTO clienteDTO = clienteService.findClienteById(id);
-        return ResponseEntity.ok().body(clienteDTO);
+        return ResponseEntity.ok().body(clienteDTO); 
     }
 
     @GetMapping("/filial/{id}")
@@ -37,6 +37,7 @@ public class ClienteController
     @PostMapping
     public ResponseEntity<Void> createCliente(@RequestBody ClienteDTO clienteDTO)
     {
+        System.out.println("ID FILIAL CLIENTE: " + clienteDTO.getFilial().getId());
         ClienteDTO clienteDTONew = clienteService.createCliente(clienteDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(clienteDTONew.getId()).toUri();
         return ResponseEntity.created(uri).build();

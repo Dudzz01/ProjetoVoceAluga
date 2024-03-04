@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="cadastroCliente.css">
+  <script src="cadastroCliente.js"></script>
   <title>Cadastro Cliente VoceAluga</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
 
       <h2>Cadastro do cliente</h2>
 
-      <form action="http://localhost:8080" method="post">
+      <form id="cadastroCliente">
 
         <div class="style-field">
           <label for="cpf">CPF</label>
@@ -42,12 +43,17 @@
         </div>
 
         <div class="button-cadastro">
-          <button type="button">Cadastrar📤</button>
+          <button type="submit">Cadastrar📤</button>
+        </div>
+
+        <div class="style-field">
+          <p id="textoResultCadastro" style="display: none">Erro ao cadastrar o cliente</p>
         </div>
 
       </form>
 
     </div>
+
 
 
 
