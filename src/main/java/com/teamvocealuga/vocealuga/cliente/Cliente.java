@@ -45,10 +45,9 @@ public class Cliente
     @NotEmpty
     private String telefone;
 
-    @Column(name = "data_cadastro",unique = false,nullable = true)
+    @Column(name = "data_cadastro",unique = false,nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @NotNull
-    @NotEmpty
     private Date dataCadastro;
 
     @Column(name = "totalFidelidade",unique = false,nullable = true)

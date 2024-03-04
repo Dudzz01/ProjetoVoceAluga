@@ -125,7 +125,7 @@ public class Filial
     public List<Funcionario> getFuncionarioList() {
         return funcionarioList;
     }
-
+    @JsonIgnore
     public void setFuncionarioList(List<Funcionario> funcionarioList) {
         this.funcionarioList = funcionarioList;
     }
@@ -133,7 +133,7 @@ public class Filial
     public List<Cliente> getClienteList() {
         return clienteList;
     }
-
+    @JsonIgnore
     public void setClienteList(List<Cliente> clienteList) {
         this.clienteList = clienteList;
     }
@@ -142,7 +142,7 @@ public class Filial
     public List<Veiculo> getVeiculo() {
         return veiculo;
     }
-
+    @JsonIgnore
     public void setVeiculo(List<Veiculo> veiculoList) {
         this.veiculo = veiculoList;
     }
