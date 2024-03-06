@@ -11,8 +11,11 @@ document.addEventListener("DOMContentLoaded", function (ev)
                     console.log("Id filial javascript: "+idFilial);
                     fetch("http://localhost:8080/filial/"+idFilial).then(response => response.json()).then(function (filialObject)
                     {
-                        if(filialObject != null)
+                        console.log(filialObject)
+                        if(filialObject.id != null)
                         {
+
+                            console.log("Entrando no post");
 
                             var dataJsonCliente =
                                 {
@@ -33,6 +36,9 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                     body: JSON.stringify(dataJsonCliente)
                                 }
                             ).then(function (response){
+
+                                console.log(response.status)
+
                                 if(response.ok)
                                 {
                                     console.log(response.ok);
@@ -42,13 +48,23 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                 }
                                 else
                                 {
-                                    throw new Error("Erro ao cadastrar o cliente.")
+                                    if(response.status === 409)
+                                    {
+                                        console.log("Cadastro ENTROU NO 409");
+                                        throw new Error("Cpf já cadastrado no sistema.");
+                                    }
+                                    else
+                                    {
+                                        console.log("NAO ENTREI NO 409");
+                                        throw new Error("Conflito ao cadastrar cliente");
+                                    }
+
                                 }
                                 }).catch(function (error)
                                 {
                                     var elementHtml = document.getElementById("textoResultCadastro");
                                     elementHtml.style.display = "block";
-                                    elementHtml.innerText= error.substring(0,7);
+                                    elementHtml.innerText= error;
                                 })
 
                         }

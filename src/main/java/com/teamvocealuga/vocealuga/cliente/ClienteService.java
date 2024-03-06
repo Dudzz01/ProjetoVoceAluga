@@ -57,9 +57,19 @@ public class ClienteService
         filialService.findFilialById(clienteDTO.getFilial().getId()); // verifica se existe filial
         clienteDTO.setId(null);
         Cliente cliente = clienteDTO.converterDtoParaCliente();
-        cliente = clienteRepository.save(cliente);
-        clienteDTO = cliente.converterClienteParaDto();
-        return clienteDTO;
+
+        if(clienteRepository.findByCpf(cliente.getCpf()) == null)
+        {
+            cliente = clienteRepository.save(cliente);
+            clienteDTO = cliente.converterClienteParaDto();
+            return clienteDTO;
+        }
+        else
+        {
+            return null;
+        }
+
+
     }
     @Transactional
     public ClienteDTO updateTelefoneCliente(ClienteDTO clienteDTO)

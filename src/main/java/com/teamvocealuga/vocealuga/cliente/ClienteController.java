@@ -39,8 +39,16 @@ public class ClienteController
     {
         System.out.println("ID FILIAL CLIENTE: " + clienteDTO.getFilial().getId());
         ClienteDTO clienteDTONew = clienteService.createCliente(clienteDTO);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(clienteDTONew.getId()).toUri();
-        return ResponseEntity.created(uri).build();
+        if(clienteDTONew != null)
+        {
+            URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(clienteDTONew.getId()).toUri();
+            return ResponseEntity.created(uri).build();
+        }
+
+        String msgError = "Cliente já cadastrado";
+
+        return ResponseEntity.status(409).build();
+
     }
 
     @PutMapping("/telefone/{id}")
