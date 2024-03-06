@@ -19,7 +19,7 @@ public class FilialService
 
             if(filial.isEmpty()) // como estou usando o Optional, a minha filial só pode ser vazia, não há chance de ser nula
             {
-                throw new RuntimeException("Filial não encontrada");
+                return new FilialDTO();
             }
             else
             {
