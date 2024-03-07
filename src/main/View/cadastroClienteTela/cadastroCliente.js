@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                     if(response.status === 409)
                                     {
                                         console.log("Cadastro ENTROU NO 409");
-                                        throw new Error("Cpf já cadastrado no sistema.");
+                                        throw new Error("Cpf e/ou Telefone já cadastrado(s) no sistema.");
                                     }
                                     else
                                     {

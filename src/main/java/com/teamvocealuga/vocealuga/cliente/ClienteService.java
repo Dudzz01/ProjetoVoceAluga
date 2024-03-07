@@ -58,7 +58,7 @@ public class ClienteService
         clienteDTO.setId(null);
         Cliente cliente = clienteDTO.converterDtoParaCliente();
 
-        if(clienteRepository.findByCpf(cliente.getCpf()) == null)
+        if(clienteRepository.findByCpf(cliente.getCpf()) == null && clienteRepository.findByTelefone(cliente.getTelefone()) == null)
         {
             cliente = clienteRepository.save(cliente);
             clienteDTO = cliente.converterClienteParaDto();

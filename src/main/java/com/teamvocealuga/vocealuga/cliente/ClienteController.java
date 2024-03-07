@@ -45,7 +45,7 @@ public class ClienteController
             return ResponseEntity.created(uri).build();
         }
 
-        String msgError = "Cliente já cadastrado";
+
 
         return ResponseEntity.status(409).build();
 
