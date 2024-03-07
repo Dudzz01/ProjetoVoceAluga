@@ -26,7 +26,7 @@ body
 .space-busca-cliente
 {
     width: 28vw;
-    height: 23vh;
+    height: 38vh;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -44,9 +44,38 @@ body
     padding-bottom: 50px;
     color: #FFC107;
 }
+.bar-busca-cliente-cpf
+{
+    padding-left: 65px;
+}
 
 .bar-busca-cliente-cpf > input
 {
+    text-align: center;
     width: 250px;
 
+}
+
+.botao-busca-cliente
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 26px;
+    font-family: Arvo;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto; /* Define três colunas de largura automática */
+    background-color: rgba(255, 255, 255, 0.82); /* Define a cor de fundo da grid */
+    padding: 10px; /* Adiciona preenchimento interno à grid */
+    margin-top: 10px;
+}
+.grid-item {
+    background-color: rgba(246, 245, 245, 0.8); /* Define a cor de fundo das células */
+    border: 1px solid #000; /* Adiciona uma borda às células */
+    padding: 20px; /* Adiciona preenchimento interno às células */
+    text-align: center; /* Centraliza o texto nas células */
 }

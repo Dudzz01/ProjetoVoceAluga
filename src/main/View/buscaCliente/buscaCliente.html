@@ -16,11 +16,41 @@
         <div class="space-busca-cliente">
             <h1>Digite o cpf do cliente!</h1>
 
-            <form action="http://localhost:8080" method="get">
+            <form id="busca-cliente-form">
 
             <div class="bar-busca-cliente-cpf">
-                 <input type="text" name="cpf" placeholder="Insira o nome do cpf que deseja buscar">
+                 <input type="text" name="cpf" placeholder="Insira cpf do cliente que deseja buscar">
             </div>
+
+                <div class="botao-busca-cliente">
+
+                    <button type="submit">Buscar</button>
+
+                </div>
+                <div class="grid-container">
+                    <table border="1">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Sobrenome</th>
+                            <th>Idade</th>
+                        </tr>
+                        <tr>
+                            <td>João</td>
+                            <td>Silva</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Maria</td>
+                            <td>Santos</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>Carlos</td>
+                            <td>Almeida</td>
+                            <td>40</td>
+                        </tr>
+                    </table>
+                </div>
 
             </form>
 
