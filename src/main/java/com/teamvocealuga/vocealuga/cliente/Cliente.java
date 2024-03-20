@@ -1,5 +1,6 @@
 package com.teamvocealuga.vocealuga.cliente;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
@@ -44,6 +45,7 @@ public class Cliente
     @NotNull
     @NotEmpty
     private String telefone;
+
 
     @Column(name = "data_cadastro",unique = false,nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -129,7 +131,11 @@ public class Cliente
         this.telefone = telefone;
     }
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     public Date getDataCadastro() {
+
+        System.out.println("DEBUG DATACADASTRO: "+dataCadastro);
+
         return dataCadastro;
     }
 

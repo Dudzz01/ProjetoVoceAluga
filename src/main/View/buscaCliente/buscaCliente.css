@@ -46,7 +46,10 @@ body
 }
 .bar-busca-cliente-cpf
 {
-    padding-left: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .bar-busca-cliente-cpf > input
@@ -59,19 +62,19 @@ body
 .botao-busca-cliente
 {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top: 26px;
+    padding-bottom: 26px;
     font-family: Arvo;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto; /* Define três colunas de largura automática */
-    background-color: rgba(255, 255, 255, 0.82); /* Define a cor de fundo da grid */
-    padding: 10px; /* Adiciona preenchimento interno à grid */
-    margin-top: 10px;
+.grid-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 .grid-item {
     background-color: rgba(246, 245, 245, 0.8); /* Define a cor de fundo das células */

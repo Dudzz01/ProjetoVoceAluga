@@ -26,6 +26,13 @@ public class ClienteController
         return ResponseEntity.ok().body(clienteDTO); 
     }
 
+    @GetMapping("/cpf/{cpf}")
+    public ResponseEntity<ClienteDTO> findClienteByCpf(@PathVariable String cpf)
+    {
+        ClienteDTO clienteDTO = clienteService.findClienteByCpf(cpf);
+        return ResponseEntity.ok(clienteDTO);
+    }
+
     @GetMapping("/filial/{id}")
     public ResponseEntity<List<ClienteDTO>> findClientesByFilialId(@PathVariable Long id)
     {

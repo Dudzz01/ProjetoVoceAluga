@@ -30,6 +30,21 @@ public class ClienteService
 
     }
 
+    public ClienteDTO findClienteByCpf(String cpf)
+    {
+        Cliente cliente = clienteRepository.findByCpf(cpf);
+
+        if(cliente == null || cliente.getCpf().isEmpty())
+        {
+            return null;
+        }
+
+        ClienteDTO clienteDTO = cliente.converterClienteParaDto();
+
+        return clienteDTO;
+
+    }
+
     public List<ClienteDTO> findClientesByFilialId(Long id)
     {
         filialService.findFilialById(id); // verifica se existe filial

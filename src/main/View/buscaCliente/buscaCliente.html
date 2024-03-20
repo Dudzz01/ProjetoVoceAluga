@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="buscaCliente.css">
+    <script src="buscaCliente.js"></script>
     <title>BuscaCliente VoceAluga</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
             <form id="busca-cliente-form">
 
             <div class="bar-busca-cliente-cpf">
-                 <input type="text" name="cpf" placeholder="Insira cpf do cliente que deseja buscar">
+                 <input type="text" id="cpf" name="cpf" placeholder="Insira cpf do cliente que deseja buscar">
             </div>
 
                 <div class="botao-busca-cliente">
@@ -30,24 +31,18 @@
                 <div class="grid-container">
                     <table border="1">
                         <tr>
+                            <th>Filial</th>
                             <th>Nome</th>
-                            <th>Sobrenome</th>
-                            <th>Idade</th>
+                            <th>Cpf</th>
+                            <th>Telefone</th>
+                            <th>DataCadastro</th>
                         </tr>
                         <tr>
-                            <td>João</td>
-                            <td>Silva</td>
-                            <td>30</td>
-                        </tr>
-                        <tr>
-                            <td>Maria</td>
-                            <td>Santos</td>
-                            <td>25</td>
-                        </tr>
-                        <tr>
-                            <td>Carlos</td>
-                            <td>Almeida</td>
-                            <td>40</td>
+                            <td id="filial_name"> </td>
+                            <td id="cliente_name"> </td>
+                            <td id="cliente_cpf"> </td>
+                            <td id="cliente_telefone"> </td>
+                            <td id="cliente_dtCadastro"> </td>
                         </tr>
                     </table>
                 </div>
