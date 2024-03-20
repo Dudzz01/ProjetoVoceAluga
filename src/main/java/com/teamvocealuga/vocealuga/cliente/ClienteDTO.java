@@ -1,6 +1,8 @@
 package com.teamvocealuga.vocealuga.cliente;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
 import com.teamvocealuga.vocealuga.motorista.Motorista;
@@ -19,6 +21,7 @@ public class ClienteDTO
     private String nome;
     private String cpf;
     private String telefone;
+    @JsonSerialize(using = CustomDateSerializer.class)
     private Date dataCadastro;
     private double totalFidelidade;
 

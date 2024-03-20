@@ -23,6 +23,7 @@ public class ClienteController
     public ResponseEntity<ClienteDTO> findClientById(@PathVariable Long id)
     {
         ClienteDTO clienteDTO = clienteService.findClienteById(id);
+
         return ResponseEntity.ok().body(clienteDTO); 
     }
 
@@ -30,6 +31,7 @@ public class ClienteController
     public ResponseEntity<ClienteDTO> findClienteByCpf(@PathVariable String cpf)
     {
         ClienteDTO clienteDTO = clienteService.findClienteByCpf(cpf);
+        System.out.println("DATACADASTRO CLIENTEE CONTROLLER:"+ clienteDTO.getDataCadastro());
         return ResponseEntity.ok(clienteDTO);
     }
 
