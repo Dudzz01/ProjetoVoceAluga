@@ -16,10 +16,47 @@
     <div class="space-busca-locacao">
         <h1>Digite o Código da locação!</h1>
 
-        <form action="http://localhost:8080" method="get">
+        <form id="buscaLocacao">
 
             <div class="bar-busca-locacao-codigo">
-                <input type="text" name="id" placeholder="Insira código da locação">
+                <input type="text" id="id" name="id" placeholder="Insira código da locação">
+            </div>
+
+            <div class="botao-busca-locacao">
+                <button type="submit"> Buscar </button>
+            </div>
+
+            <div class="grid-container-locacao">
+                <table border="1">
+                    <tr>
+                        <th>Código</th>
+                        <th>Motorista</th>
+                        <th>Funcionário</th>
+                        <th>Cliente</th>
+                        <th>Veiculo</th>
+                        <th>Data Locacao</th>
+                        <th>Data Inicio</th>
+                        <th>Data fim</th>
+                        <th>Endereco retirada</th>
+                        <th>Endereco Devolucao</th>
+                        <th>Status Locacao</th>
+
+                    </tr>
+                    <tr>
+                        <td id="codigo"> </td>
+                        <td id="motorista"> </td>
+                        <td id="funcionario"> </td>
+                        <td id="cliente"> </td>
+                        <td id="veiculo"> </td>
+                        <td id="data locacao"> </td>
+                        <td id="data inicio"> </td>
+                        <td id="data fim"> </td>
+                        <td id="endereco retirada"> </td>
+                        <td id="endereco devolucao"> </td>
+                        <td id="Status Locacao"> </td>
+
+                    </tr>
+                </table>
             </div>
 
         </form>

@@ -35,7 +35,7 @@ public class ClienteController
         return ResponseEntity.ok(clienteDTO);
     }
 
-    @GetMapping("/filial/{id}")
+    @GetMapping("/filial/{id}") 
     public ResponseEntity<List<ClienteDTO>> findClientesByFilialId(@PathVariable Long id)
     {
         filialService.findFilialById(id);

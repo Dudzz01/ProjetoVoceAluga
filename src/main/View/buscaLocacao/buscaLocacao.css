@@ -25,7 +25,7 @@ body
 
 .space-busca-locacao
 {
-    width: 28vw;
+    width: 40vw;
     height: 23vh;
     background-color: #FFFFFF;
     display: flex;
@@ -40,6 +40,7 @@ body
 
 .space-busca-locacao > h1
 {
+
     font-family: Arvo;
     padding-bottom: 50px;
     color: #FFC107;
@@ -47,6 +48,24 @@ body
 
 .bar-busca-locacao-codigo > input
 {
+
+    margin-left: 355px;
     width: 250px;
+
+}
+
+.botao-busca-locacao
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    font-family: Arvo;
+}
+
+.grid-container-locacao
+{
+
 
 }
