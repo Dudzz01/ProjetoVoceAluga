@@ -14,23 +14,23 @@ document.addEventListener("DOMContentLoaded", function (ev)
 
                 {
 
-                    document.getElementById("codigo").value = locacaoObject.id;
-                    document.getElementById("motorista").value = locacaoObject.motorista;
-                    document.getElementById("funcionario").value = locacaoObject.funcionario;
-                    document.getElementById("cliente").value = locacaoObject.cliente;
-                    document.getElementById("veiculo").value = locacaoObject.veiculo;
-                    document.getElementById("data locacao").value = locacaoObject.dataLocacao;
-                    document.getElementById("data inicio").value = locacaoObject.dataInicio;
-                    document.getElementById("data fim").value = locacaoObject.dataFim;
-                    document.getElementById("endereco retirada").value = locacaoObject.enderecoRetirada;
-                    document.getElementById("endereco devolucao").value = locacaoObject.enderecoDevolucao;
-                    document.getElementById("Status Locacao").value = locacaoObject.statusLocacao;
+                    document.getElementById("codigo").innerText = locacaoObject.id;
+                   document.getElementById("motorista").innerText = locacaoObject.motorista.nome;
+                    document.getElementById("funcionario").innerText = locacaoObject.funcionario.nome;
+                    document.getElementById("cliente").innerText = locacaoObject.cliente.nome;
+                    document.getElementById("veiculo").innerText = locacaoObject.veiculo;
+                    document.getElementById("data locacao").innerText = locacaoObject.dataLocacao;
+                    document.getElementById("data inicio").innerText = locacaoObject.dataInicio;
+                    document.getElementById("data fim").innerText = locacaoObject.dataFim;
+                    document.getElementById("endereco retirada").innerText = locacaoObject.enderecoRetirada;
+                    document.getElementById("endereco devolucao").innerText = locacaoObject.enderecoDevolucao;
+                    document.getElementById("Status Locacao").innerText = locacaoObject.statusLocacao;
                 }
 
             ).catch(function (error)
 
                 {
-                    
+                    console.log(error)
                 }
 
             )

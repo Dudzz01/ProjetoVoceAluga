@@ -27,7 +27,7 @@ public class Locacao
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "motorista_id")
     private Motorista motorista;
 

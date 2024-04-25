@@ -28,6 +28,7 @@ public class Funcionario
     @JoinColumn(name = "filial_id")
     private Filial filial;
 
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionario")
     private List<Locacao> locacaoList = new ArrayList<Locacao>();
 
@@ -143,11 +144,11 @@ public class Funcionario
         this.status = status;
     }
 
-
+    @JsonIgnore
     public List<Locacao> getLocacaoList() {
         return locacaoList;
     }
-
+    @JsonIgnore
     public void setLocacaoList(List<Locacao> locacaoList) {
         this.locacaoList = locacaoList;
     }
