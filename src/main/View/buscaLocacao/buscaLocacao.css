@@ -25,8 +25,8 @@ body
 
 .space-busca-locacao
 {
-    width: 40vw;
-    height: 23vh;
+    width: 55vw;
+    height: 33vh;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -46,10 +46,17 @@ body
     color: #FFC107;
 }
 
+.bar-busca-locacao-codigo
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .bar-busca-locacao-codigo > input
 {
 
-    margin-left: 355px;
+    text-align: center;
     width: 250px;
 
 }

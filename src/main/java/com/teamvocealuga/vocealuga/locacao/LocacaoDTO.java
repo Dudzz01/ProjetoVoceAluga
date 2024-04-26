@@ -1,6 +1,8 @@
 package com.teamvocealuga.vocealuga.locacao;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.teamvocealuga.vocealuga.cliente.Cliente;
+import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.funcionario.Funcionario;
 import com.teamvocealuga.vocealuga.motorista.Motorista;
@@ -17,87 +19,54 @@ public class LocacaoDTO
 {
     public static final String LOCACAO_TABLE_NAME = "locacao";
 
-    @Id
-    @Column(name = "id",unique = true,nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "motorista_id")
+
     private Motorista motorista;
 
-    @ManyToOne
-    @JoinColumn(name = "funcionario_id")
+
     private Funcionario funcionario;
 
-    @ManyToOne
-    @JoinColumn(name = "cliente_id")
+
     private Cliente cliente;
 
-    @OneToOne(mappedBy = "locacao")
+
     private Veiculo veiculo;
 
-    @Column(name = "codLocacao",nullable = false, unique = true)
-    @NotNull
-    @NotEmpty
+
     private int codLocacao;
 
-    @Column(name = "dataLocacao", nullable = false,unique = false)
-    @Temporal(value = TemporalType.TIMESTAMP)
-    @NotNull
-    @NotEmpty
+    @JsonSerialize(using = CustomDateSerializer.class)
     private Date dataLocacao;
 
-    @Column(name = "categoriaVeiculo", nullable = false, unique = false)
-    @NotNull
-    @NotEmpty
-    @Size(min = 0, max = 255)
+
     private String categoriaVeiculo;
 
 
-    @Column(name = "cnhMotorista",nullable = false,unique = false)
-    @NotNull
-    @NotEmpty
-    @Size(min = 0,max = 255)
+
     private String cnhMotorista;
 
-    @Column(name = "dataPedido",nullable = false,unique = false)
-    @Temporal(value = TemporalType.TIMESTAMP)
-    @NotNull
-    @NotEmpty
+    @JsonSerialize(using = CustomDateSerializer.class)
     private Date dataPedido;
 
 
-    @Column(name = "dataInicio",nullable = false, unique = false)
-    @Temporal(value = TemporalType.TIMESTAMP)
-    @NotNull
-    @NotEmpty
+    @JsonSerialize(using = CustomDateSerializer.class)
     private Date dataInicio;
 
-    @Column(name = "dataFim",nullable = false, unique = false)
-    @Temporal(value = TemporalType.TIMESTAMP)
-    @NotNull
-    @NotEmpty
+    @JsonSerialize(using = CustomDateSerializer.class)
     private Date dataFim;
 
-    @Column(name = "enderecoRetirada",nullable = false, unique = false)
-    @NotNull
-    @NotEmpty
+
     private String  enderecoRetirada;
 
-    @Column(name = "enderecoDevolucao",nullable = false, unique = false)
-    @NotNull
-    @NotEmpty
+
     private String  enderecoDevolucao;
 
-    @Column(name = "statusLocacao",nullable = false,unique = false)
-    @NotNull
-    @NotEmpty
+
     private String statusLocacao;
 
-    @Column(name = "contratolocacao",nullable = false,unique = false)
-    @NotNull
-    @NotEmpty
+
     private boolean contratoLocacao;
 
     public LocacaoDTO()

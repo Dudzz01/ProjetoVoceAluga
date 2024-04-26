@@ -1,6 +1,8 @@
 package com.teamvocealuga.vocealuga.locacao;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.teamvocealuga.vocealuga.cliente.Cliente;
+import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.funcionario.Funcionario;
 import com.teamvocealuga.vocealuga.motorista.Motorista;
@@ -47,6 +49,7 @@ public class Locacao
     @NotEmpty
     private int codLocacao;
 
+    @JsonSerialize(using = CustomDateSerializer.class)
     @Column(name = "dataLocacao", nullable = false,unique = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     @NotNull
@@ -66,19 +69,21 @@ public class Locacao
     @Size(min = 0,max = 255)
     private String cnhMotorista;
 
+    @JsonSerialize(using = CustomDateSerializer.class)
     @Column(name = "dataPedido",nullable = false,unique = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     @NotNull
     @NotEmpty
     private Date dataPedido;
 
-
+    @JsonSerialize(using = CustomDateSerializer.class)
     @Column(name = "dataInicio",nullable = false, unique = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     @NotNull
     @NotEmpty
     private Date dataInicio;
 
+    @JsonSerialize(using = CustomDateSerializer.class)
     @Column(name = "dataFim",nullable = false, unique = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     @NotNull
