@@ -41,7 +41,8 @@ public class Locacao
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    @OneToOne(mappedBy = "locacao")
+    @OneToOne
+    @JoinColumn(name = "veiculo_id")
     private Veiculo veiculo;
 
     @Column(name = "codLocacao",nullable = false, unique = true)

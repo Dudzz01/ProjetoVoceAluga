@@ -11,7 +11,7 @@ public class VeiculoDTO
     private Long id;
 
 
-    private Locacao locacao;
+
 
 
     private Filial filial;
@@ -25,28 +25,32 @@ public class VeiculoDTO
 
     private double kmTotal;
 
+    private String nome;
+
     public VeiculoDTO()
     {
 
     }
 
-    public VeiculoDTO(Long id, Locacao locacao, Filial filial, String status, String categoria, double kmTotal) {
+    public VeiculoDTO(Long id, Filial filial, String nome,String status, String categoria, double kmTotal) {
         this.id = id;
-        this.locacao = locacao;
+
         this.filial = filial;
         this.status = status;
         this.categoria = categoria;
         this.kmTotal = kmTotal;
+        this.nome = nome;
     }
 
     public VeiculoDTO(Veiculo veiculo)
     {
         this.id = veiculo.getId();
-        this.locacao = veiculo.getLocacao();
+
         this.filial = veiculo.getFilial();
         this.status = veiculo.getStatus();
         this.categoria = veiculo.getCategoria();
         this.kmTotal = veiculo.getKmTotal();
+        this.nome = veiculo.getNome();
     }
 
     public Veiculo converterDTOParaVeiculo()
@@ -62,13 +66,7 @@ public class VeiculoDTO
         this.id = id;
     }
 
-    public Locacao getLocacao() {
-        return locacao;
-    }
 
-    public void setLocacao(Locacao locacao) {
-        this.locacao = locacao;
-    }
 
     public Filial getFilial() {
         return filial;
@@ -100,6 +98,14 @@ public class VeiculoDTO
 
     public void setKmTotal(double kmTotal) {
         this.kmTotal = kmTotal;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
 
@@ -135,7 +141,7 @@ public class VeiculoDTO
 
         }
 
-        return Objects.equals(this.id,other.id) && Objects.equals(this.locacao,other.locacao) && Objects.equals(this.filial, other.filial) && Objects.equals(this.status, other.status) && Objects.equals(this.categoria, other.categoria) && Objects.equals(this.kmTotal, other.kmTotal);
+        return Objects.equals(this.id,other.id) && Objects.equals(this.filial, other.filial) && Objects.equals(this.status, other.status) && Objects.equals(this.categoria, other.categoria) && Objects.equals(this.kmTotal, other.kmTotal)  && Objects.equals(this.nome, other.nome);
     }
 
     @Override

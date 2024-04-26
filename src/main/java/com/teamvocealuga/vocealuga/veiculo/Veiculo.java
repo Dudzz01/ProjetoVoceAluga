@@ -23,10 +23,6 @@ public class Veiculo
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "locacao_id")
-    private Locacao locacao;
-
 
     @ManyToOne
     @JoinColumn(name = "filial_id")
@@ -36,6 +32,13 @@ public class Veiculo
     @NotNull
     @NotEmpty
     private String status;
+
+
+
+    @Column(name = "nome",unique = false, nullable = false)
+    @NotNull
+    @NotEmpty
+    private String nome;
 
     @Column(name = "categoria",unique = false,nullable = false)
     @NotNull
@@ -52,23 +55,25 @@ public class Veiculo
 
     }
 
-    public Veiculo(Long id, Locacao locacao, Filial filial, String status, String categoria, double kmTotal) {
+    public Veiculo(Long id, Filial filial,String nome, String status, String categoria, double kmTotal) {
         this.id = id;
-        this.locacao = locacao;
+
         this.filial = filial;
         this.status = status;
         this.categoria = categoria;
         this.kmTotal = kmTotal;
+        this.nome = nome;
     }
 
     public Veiculo(VeiculoDTO veiculoDTO)
     {
         this.id = veiculoDTO.getId();
-        this.locacao = veiculoDTO.getLocacao();
+
         this.filial = veiculoDTO.getFilial();
         this.status = veiculoDTO.getStatus();
         this.categoria = veiculoDTO.getCategoria();
         this.kmTotal = veiculoDTO.getKmTotal();
+        this.nome = veiculoDTO.getNome();
     }
 
     public VeiculoDTO converterVeiculoParaDTO()
@@ -84,13 +89,7 @@ public class Veiculo
         this.id = id;
     }
 
-    public Locacao getLocacao() {
-        return locacao;
-    }
 
-    public void setLocacao(Locacao locacao) {
-        this.locacao = locacao;
-    }
 
     public Filial getFilial() {
         return filial;
@@ -122,6 +121,14 @@ public class Veiculo
 
     public void setKmTotal(double kmTotal) {
         this.kmTotal = kmTotal;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
 
@@ -157,7 +164,7 @@ public class Veiculo
 
         }
 
-        return Objects.equals(this.id,other.id) && Objects.equals(this.locacao,other.locacao) && Objects.equals(this.filial, other.filial) && Objects.equals(this.status, other.status) && Objects.equals(this.categoria, other.categoria) && Objects.equals(this.kmTotal, other.kmTotal);
+        return Objects.equals(this.id,other.id)  && Objects.equals(this.filial, other.filial) && Objects.equals(this.status, other.status) && Objects.equals(this.categoria, other.categoria) && Objects.equals(this.kmTotal, other.kmTotal) && Objects.equals(this.nome, other.nome);
     }
 
     @Override

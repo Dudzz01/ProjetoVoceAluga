@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="telaDevolucao.css">
+    <script src="telaDevolucao.js"></script>
     <title>Devolucao Carro VoceAluga</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
         <h1>Defina a devolução do carro</h1>
         <div class="card-devolucao-left">
             <h2>Insira os dados</h2>
-            <form action="http://localhost:8080" method="post">
+            <form id="criarDevolucao">
                 <div class="textfield">
                     <label for="cliente">CPF cliente</label>
                     <input type="text" id="cliente" name="cliente" placeholder="Insira o cpf do cliente" required>
@@ -45,7 +46,11 @@
                 </div>
 
                 <div class="button-devolucao">
-                    <button type="button">Salvar📤</button>
+                    <button type="submit">Salvar📤</button>
+                </div>
+
+                <div class="textfield">
+                    <p id="textoDevolucao" style="display: none;">Não autorizado</p>
                 </div>
             </form>
         </div>
