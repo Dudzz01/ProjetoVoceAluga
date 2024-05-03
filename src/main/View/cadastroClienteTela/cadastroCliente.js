@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function (ev)
 
                                 }
 
+                                console.log(dataJsonCliente.dataCadastro);
+
                             fetch("http://localhost:8080/cliente",
                                 {
                                     method: "POST",

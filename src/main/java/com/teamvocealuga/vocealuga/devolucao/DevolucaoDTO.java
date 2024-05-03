@@ -1,6 +1,8 @@
 package com.teamvocealuga.vocealuga.devolucao;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.teamvocealuga.vocealuga.cliente.Cliente;
+import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
 import com.teamvocealuga.vocealuga.transacao.Transacao;
 import com.teamvocealuga.vocealuga.veiculo.Veiculo;
@@ -30,13 +32,13 @@ public class DevolucaoDTO
 
     private Transacao transacao;
 
-
+    @JsonSerialize(using = CustomDateSerializer.class)
     private Date dataPedido;
 
-
+    @JsonSerialize(using = CustomDateSerializer.class)
     private Date dataFimEsperado;
 
-
+    @JsonSerialize(using = CustomDateSerializer.class)
     private Date dataDevolucao;
 
 

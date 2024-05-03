@@ -27,6 +27,12 @@ public class DevolucaoController
     @PostMapping
     public ResponseEntity<Void> createDevolucao(DevolucaoDTO devolucaoDTO)
     {
+        System.out.println(devolucaoDTO);
+        System.out.println("DATA FIM ESPERADO: " + devolucaoDTO.getDataFimEsperado());
+        System.out.println("DATA DataPedido: " + devolucaoDTO.getDataPedido());
+        System.out.println("DATA DataDevolucao: " + devolucaoDTO.getDataDevolucao());
+
+
         devolucaoDTO = devolucaoService.createDevolucao(devolucaoDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(devolucaoDTO.getId()).toUri();
         return ResponseEntity.created(uri).build();

@@ -11,30 +11,38 @@ document.addEventListener("DOMContentLoaded", function (ev)
         var codVeiculo = document.getElementById("veiculo").value;
         var cpfCliente = document.getElementById("cliente").value;
         var codTransacao = document.getElementById("transacao").value;
+        console.log("http://localhost:8080/locacao/"+codLocacao);
 
 
 
-
-        fetch("http://localhost:8080/locacao/"+codLocacao).then(function (locacaoObject)
+        fetch("http://localhost:8080/locacao/"+codLocacao).then(response => response.json()).then(function (locacaoObject)
 
             {
-                if(locacaoObject.id != null || locacaoObject.cliente.id != null)
+                console.log("VALOR DO ID DA LOCACAO OBJECT: " | locacaoObject.id );
+                if(locacaoObject.id != null && locacaoObject.cliente.id != null)
                 {
-
-                    fetch("http://localhost:8080/cliente/cpf/"+cpfCliente).then(function (clienteObject)
+                    console.log("locacao é diferente de nulo, valor: " | locacaoObject.id);
+                    fetch("http://localhost:8080/cliente/cpf/"+cpfCliente).then(response => response.json()).then(function (clienteObject)
                     {
-                        if(clienteObject.id != null || clienteObject.id !== locacaoObject.cliente.id)
+                        if(clienteObject.id != null && clienteObject.id === locacaoObject.cliente.id)
                         {
-                            fetch("http://localhost:8080/veiculo/"+codVeiculo).then(function (veiculoObject)
+                            fetch("http://localhost:8080/veiculo/"+codVeiculo).then(response => response.json()).then(function (veiculoObject)
 
                                 {
-                                    if(veiculoObject.id != null || locacaoObject.veiculo.id !== veiculoObject.id|| veiculoObject.filial.id !== null)
+                                    if(veiculoObject.id != null && veiculoObject.filial.id !== null && locacaoObject.veiculo.id === veiculoObject.id)
                                     {
-                                        fetch("http://localhost:8080/veiculo/"+codTransacao).then(function (transacaoObject)
+                                        fetch("http://localhost:8080/transacao/"+codTransacao).then(response => response.json()).then(function (transacaoObject)
 
                                             {
-                                                if(transacaoObject.cliente.id !== locacaoObject.cliente.id || transacaoObject.locacao.id !== locacaoObject.id)
+                                                console.log("transacaoObject.cliente.id: " + transacaoObject.cliente.id);
+                                                console.log("locacaoObject.cliente.id: " + locacaoObject.cliente.id);
+                                                console.log("transacaoObject.locacao.id: " + transacaoObject.locacao.id);
+                                                console.log("locacaoObject.id: " + locacaoObject.id);
+
+                                                if(transacaoObject.cliente.id === locacaoObject.cliente.id && transacaoObject.locacao.id === locacaoObject.id)
                                                 {
+                                                    var dataPedidoFormated = new Date(locacaoObject.dataPedido);
+                                                    var dataFimEsperadoFormated = new Date(locacaoObject.dataFim);
 
                                                     var dataJsonDevolucao = {
 
@@ -43,15 +51,26 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                                         veiculo: veiculoObject,
                                                         locacao: locacaoObject,
                                                         transacao: transacaoObject,
-                                                        dataPedido: locacaoObject.dataPedido,
-                                                        dataFimEsperado: locacaoObject.dataFim,
-                                                        dataDevolucao:  document.getElementById("dataFim").value,
+                                                        dataPedido: new Date(),
+                                                        dataFimEsperado: new Date(),
+                                                        dataDevolucao:  new Date(),
                                                         valorMulta: document.getElementById("valorMulta").value
 
 
 
                                                     }
+                                                    console.log("clienteObject: " +  dataJsonDevolucao.cliente);
+                                                    console.log("veiculoObject: " +  dataJsonDevolucao.veiculo);
+                                                    console.log("locacaoObject: " +  dataJsonDevolucao.locacao);
+                                                    console.log("transacaoObject: " +  dataJsonDevolucao.transacao);
 
+
+                                                    console.log("DATA PEDIDO: " + dataJsonDevolucao.dataPedido);
+                                                    console.log("DATA FIM: " + dataJsonDevolucao.dataFimEsperado);
+                                                    console.log("DATA DEVOLUCAO: " + dataJsonDevolucao.dataDevolucao);
+                                                    console.log("valorMulta: " + dataJsonDevolucao.valorMulta);
+
+                                                    console.log("body: " + dataJsonDevolucao);
                                                     fetch("http://localhost:8080/devolucao",
                                                         {
                                                             method: "POST",
@@ -64,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                                             var elementHtml = document.getElementById("textoDevolucao")
                                                             elementHtml.style.display = "block";
                                                             elementHtml.innerText = "Devolução cadastrada.";
+                                                            console.log("FINALIZADO COM SUCESSO");
                                                         }
 
                                                     })
