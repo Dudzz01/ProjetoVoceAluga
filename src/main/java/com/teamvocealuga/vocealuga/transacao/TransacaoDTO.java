@@ -1,6 +1,10 @@
 package com.teamvocealuga.vocealuga.transacao;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.teamvocealuga.vocealuga.cliente.Cliente;
+import com.teamvocealuga.vocealuga.configs.CustomDateDeserializer;
+import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
 import java.util.Date;
@@ -19,7 +23,8 @@ public class TransacaoDTO
 
     private double valorTotal;
 
-
+    @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonDeserialize(using = CustomDateDeserializer.class)
     private Date dataPagamento;
 
 

@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
                         {
 
                             console.log("Entrando no post");
+                            var dataCadastroJson = moment(new Date()).format("YYYY-MM-DD HH:mm:ss.SSS");
 
                             var dataJsonCliente =
                                 {
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                     nome: document.getElementById("nome").value,
                                     cpf: document.getElementById("cpf").value ,
                                     telefone: document.getElementById("telefone").value,
-                                    dataCadastro: new Date(),
+                                    dataCadastro: dataCadastroJson,
                                     totalFidelidade: 0
 
                                 }

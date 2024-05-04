@@ -1,7 +1,9 @@
 package com.teamvocealuga.vocealuga.devolucao;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.teamvocealuga.vocealuga.cliente.Cliente;
+import com.teamvocealuga.vocealuga.configs.CustomDateDeserializer;
 import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.funcionario.Funcionario;
@@ -43,18 +45,21 @@ public class Devolucao
     private Transacao transacao;
 
     @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonDeserialize(using = CustomDateDeserializer.class)
     @Column(name = "datapedido",unique = false,nullable = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     @NotNull
     private Date dataPedido;
 
     @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonDeserialize(using = CustomDateDeserializer.class)
    @Column(name = "datafimesperado",unique = false,nullable = false)
    @Temporal(value = TemporalType.TIMESTAMP)
    @NotNull
    private Date dataFimEsperado;
 
     @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonDeserialize(using = CustomDateDeserializer.class)
     @Column(name = "datadevolucao",unique = false,nullable = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     @NotNull

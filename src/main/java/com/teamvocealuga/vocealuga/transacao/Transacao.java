@@ -1,6 +1,10 @@
 package com.teamvocealuga.vocealuga.transacao;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.teamvocealuga.vocealuga.cliente.Cliente;
+import com.teamvocealuga.vocealuga.configs.CustomDateDeserializer;
+import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
 import com.teamvocealuga.vocealuga.motorista.Motorista;
@@ -35,10 +39,11 @@ public class Transacao
     @NotEmpty
     private double valorTotal;
 
+    @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonDeserialize(using = CustomDateDeserializer.class)
     @Column(name = "data_pagamento",unique = false,nullable = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     @NotNull
-    @NotEmpty
     private Date dataPagamento;
 
     @Column(name = "forma_pagamento",unique = false,nullable = false)

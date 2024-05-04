@@ -2,7 +2,9 @@ package com.teamvocealuga.vocealuga.cliente;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.teamvocealuga.vocealuga.configs.CustomDateDeserializer;
 import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
@@ -50,6 +52,7 @@ public class Cliente
 
 
     @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonDeserialize(using = CustomDateDeserializer.class)
     @Column(name = "data_cadastro",unique = false,nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @NotNull

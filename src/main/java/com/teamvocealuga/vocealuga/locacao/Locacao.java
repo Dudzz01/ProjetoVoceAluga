@@ -1,7 +1,9 @@
 package com.teamvocealuga.vocealuga.locacao;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.teamvocealuga.vocealuga.cliente.Cliente;
+import com.teamvocealuga.vocealuga.configs.CustomDateDeserializer;
 import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.funcionario.Funcionario;
@@ -51,10 +53,10 @@ public class Locacao
     private int codLocacao;
 
     @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonDeserialize(using = CustomDateDeserializer.class)
     @Column(name = "dataLocacao", nullable = false,unique = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     @NotNull
-    @NotEmpty
     private Date dataLocacao;
 
     @Column(name = "categoriaVeiculo", nullable = false, unique = false)
@@ -71,24 +73,24 @@ public class Locacao
     private String cnhMotorista;
 
     @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonDeserialize(using = CustomDateDeserializer.class)
     @Column(name = "dataPedido",nullable = false,unique = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     @NotNull
-    @NotEmpty
     private Date dataPedido;
 
     @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonDeserialize(using = CustomDateDeserializer.class)
     @Column(name = "dataInicio",nullable = false, unique = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     @NotNull
-    @NotEmpty
     private Date dataInicio;
 
     @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonDeserialize(using = CustomDateDeserializer.class)
     @Column(name = "dataFim",nullable = false, unique = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     @NotNull
-    @NotEmpty
     private Date dataFim;
 
     @Column(name = "enderecoRetirada",nullable = false, unique = false)

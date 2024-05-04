@@ -25,7 +25,7 @@ public class DevolucaoController
     }
 
     @PostMapping
-    public ResponseEntity<Void> createDevolucao(DevolucaoDTO devolucaoDTO)
+    public ResponseEntity<Void> createDevolucao(@RequestBody DevolucaoDTO devolucaoDTO)
     {
         System.out.println(devolucaoDTO);
         System.out.println("DATA FIM ESPERADO: " + devolucaoDTO.getDataFimEsperado());

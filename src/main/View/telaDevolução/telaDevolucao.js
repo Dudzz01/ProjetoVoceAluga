@@ -39,11 +39,17 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                                 console.log("transacaoObject.locacao.id: " + transacaoObject.locacao.id);
                                                 console.log("locacaoObject.id: " + locacaoObject.id);
 
+
+
+
                                                 if(transacaoObject.cliente.id === locacaoObject.cliente.id && transacaoObject.locacao.id === locacaoObject.id)
                                                 {
-                                                    var dataPedidoFormated = new Date(locacaoObject.dataPedido);
-                                                    var dataFimEsperadoFormated = new Date(locacaoObject.dataFim);
 
+
+                                                    var pedidoData = moment(locacaoObject.dataPedido).format("YYYY-MM-DD HH:mm:ss.SSS");
+                                                    var fimData = moment(locacaoObject.dataFim).format("YYYY-MM-DD HH:mm:ss.SSS");
+                                                    var devolucaoData = moment(document.getElementById("dataFim").value).format("YYYY-MM-DD HH:mm:ss.SSS");
+                                                    console.log("valor data devolucao document id" + document.getElementById("dataFim").value);
                                                     var dataJsonDevolucao = {
 
                                                         id: 0,
@@ -51,9 +57,9 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                                         veiculo: veiculoObject,
                                                         locacao: locacaoObject,
                                                         transacao: transacaoObject,
-                                                        dataPedido: new Date(),
-                                                        dataFimEsperado: new Date(),
-                                                        dataDevolucao:  new Date(),
+                                                        dataPedido: pedidoData,
+                                                        dataFimEsperado: fimData,
+                                                        dataDevolucao:  devolucaoData,
                                                         valorMulta: document.getElementById("valorMulta").value
 
 
