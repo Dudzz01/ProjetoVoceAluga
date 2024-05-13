@@ -5,14 +5,11 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.teamvocealuga.vocealuga.cliente.Cliente;
 import com.teamvocealuga.vocealuga.configs.CustomDateDeserializer;
 import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
-import com.teamvocealuga.vocealuga.filial.Filial;
-import com.teamvocealuga.vocealuga.funcionario.Funcionario;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
 import com.teamvocealuga.vocealuga.transacao.Transacao;
 import com.teamvocealuga.vocealuga.veiculo.Veiculo;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;

@@ -9,12 +9,6 @@ import com.teamvocealuga.vocealuga.locacao.Locacao;
 import com.teamvocealuga.vocealuga.transacao.Transacao;
 import com.teamvocealuga.vocealuga.veiculo.Veiculo;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
 

@@ -1,6 +1,5 @@
 package com.teamvocealuga.vocealuga.cliente;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.teamvocealuga.vocealuga.configs.CustomDateDeserializer;
@@ -11,7 +10,6 @@ import com.teamvocealuga.vocealuga.motorista.Motorista;
 import com.teamvocealuga.vocealuga.transacao.Transacao;
 
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;

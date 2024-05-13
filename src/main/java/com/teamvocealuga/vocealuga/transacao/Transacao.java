@@ -7,7 +7,6 @@ import com.teamvocealuga.vocealuga.configs.CustomDateDeserializer;
 import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
-import com.teamvocealuga.vocealuga.motorista.Motorista;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

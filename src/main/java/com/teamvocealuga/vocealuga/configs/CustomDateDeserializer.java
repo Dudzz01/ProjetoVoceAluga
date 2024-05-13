@@ -11,16 +11,19 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class CustomDateDeserializer extends JsonDeserializer<Date> {
-    private SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-DD HH:mm:ss.SSS");
+    private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+
 
     @Override
     public Date deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
             throws IOException {
         String dateAsString = jsonParser.getText();
         try {
+            formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
             return formatter.parse(dateAsString);
         } catch (ParseException e) {
             throw new IOException("Erro ao desserializar a data", e);
         }
     }
 }
+

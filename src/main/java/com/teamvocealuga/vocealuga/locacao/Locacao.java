@@ -8,16 +8,13 @@ import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.funcionario.Funcionario;
 import com.teamvocealuga.vocealuga.motorista.Motorista;
-import com.teamvocealuga.vocealuga.transacao.Transacao;
 import com.teamvocealuga.vocealuga.veiculo.Veiculo;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
