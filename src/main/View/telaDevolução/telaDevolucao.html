@@ -62,9 +62,9 @@
         <h1>Encontre a devolução por seu código</h1>
         <div class="card-devolucao">
             <h2>Insira o código de uma devolução existente</h2>
-            <form >
+            <form id="devolucaoBusca" >
 
-                <div class="textfield">
+                <div class="bar-busca-devolucao">
                     <label for="buscaDevolucao">Código Devolução</label>
                     <input type="text" id="buscaDevolucao" name="buscaDevolucao" placeholder="Insira o código da devolução para encontra-lá" required>
                 </div>
@@ -72,6 +72,48 @@
                 <div class="button-devolucao">
                     <button type="button">Buscar📤</button>
                 </div>
+
+                <div class="grid-container">
+                    <table border="1">
+                        <tr>
+                            <th>Cod Devol</th>
+                            <th>Cpf Cliente</th>
+                            <th>Cpf Motorista</th>
+                            <th>Código Veiculo</th>
+                            <th>Nome Veiculo</th>
+                            <th>Data Pedido</th>
+
+                        <tr>
+                            <td id="cod_devol"> </td>
+                            <td id="cpf_cliente"> </td>
+                            <td id="cpf_motorista"> </td>
+                            <td id="codigo_veiculo"> </td>
+                            <td id="nome_veiculo"> </td>
+                            <td id="data_pedido"> </td>
+                        </tr>
+                        </tr>
+                        <tr>
+                            <th>Cod locacao</th>
+                            <th>Endereco retirada</th>
+                            <th>Endereco devolucao</th>
+                            <th>Cod transacao</th>
+                            <th>Data Fim Esperado</th>
+                            <th>Data Devolucao</th>
+                        <tr>
+                            <td id="cod_locacao"> </td>
+                            <td id="end_retirada"> </td>
+                            <td id="end_devolucao"> </td>
+                            <td id="cod_transacao"> </td>
+                            <td id="data_fim_esperado"> </td>
+                            <td id="data_devolucao"> </td>
+                        </tr>
+                        </tr>
+
+
+                    </table>
+                </div>
+
+
             </form>
         </div>
     </div>

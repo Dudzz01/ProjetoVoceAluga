@@ -69,7 +69,7 @@ body
 
 .card-devolucao-left
 {
-    width: 14vw;
+    width: 20vw;
     height: 60vh;
     display: flex;
     flex-direction: column;
@@ -144,9 +144,27 @@ body
     justify-content: center;
 }
 
+.bar-busca-devolucao
+{
 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+}
 
 .textfield > label
+{
+    font-family: Arvo;
+    margin-bottom: 10px;
+    color: #FFC107;
+
+}
+
+
+.bar-busca-devolucao > label
 {
     font-family: Arvo;
     margin-bottom: 10px;
@@ -171,6 +189,15 @@ body
     justify-content: center;
     align-items: center;
     font-family: Arvo;
+    padding-bottom: 25px;
     margin-top: 50px;
 }
 
+
+.grid-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
