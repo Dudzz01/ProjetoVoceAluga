@@ -19,7 +19,7 @@ public class CustomDateDeserializer extends JsonDeserializer<Date> {
             throws IOException {
         String dateAsString = jsonParser.getText();
         try {
-            formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+            //formatter.setTimeZone(TimeZone.getTimeZone("Etc/GMT+3"));
             return formatter.parse(dateAsString);
         } catch (ParseException e) {
             throw new IOException("Erro ao desserializar a data", e);

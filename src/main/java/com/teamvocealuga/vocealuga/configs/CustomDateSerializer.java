@@ -19,7 +19,7 @@ public class CustomDateSerializer extends JsonSerializer<Date> {
     @Override
     public void serialize(Date value, JsonGenerator gen, SerializerProvider serializers)
             throws IOException, JsonProcessingException {
-        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        //formatter.setTimeZone(TimeZone.getTimeZone("Etc/GMT+3"));
         gen.writeString(formatter.format(value));
     }
 
