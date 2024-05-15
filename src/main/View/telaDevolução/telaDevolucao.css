@@ -52,7 +52,7 @@ body
 
 .card-devolucao
 {
-    width: 20vw;
+    width: 28vw;
     height: 40vh;
     display: flex;
     flex-direction: column;
@@ -155,6 +155,11 @@ body
 
 }
 
+.bar-busca-devolucao > input
+{
+    text-align: center;
+}
+
 .textfield > label
 {
     font-family: Arvo;
@@ -180,6 +185,7 @@ body
 .textfield input#buscaDevolucao
 {
     width: 300px;
+    text-align: center;
 }
 
 .button-devolucao
