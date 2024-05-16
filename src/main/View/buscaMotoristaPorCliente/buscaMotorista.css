@@ -25,8 +25,8 @@ body
 
 .space-busca-motorista
 {
-    width: 28vw;
-    height: 23vh;
+    width: 33vw;
+    height: 38vh;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -45,8 +45,33 @@ body
     color: #FFC107;
 }
 
+.bar-busca-motorista-cpf
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
 .bar-busca-motorista-cpf > input
 {
     width: 250px;
 
+
+}
+
+.grid-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.button-buscar-motorista
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
 }

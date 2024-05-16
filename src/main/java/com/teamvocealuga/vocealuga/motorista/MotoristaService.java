@@ -26,6 +26,20 @@ public class MotoristaService
         return motoristaDTO;
     }
 
+    public MotoristaDTO findMotoristaByCpf(String cpf)
+    {
+        Optional<Motorista> motorista = motoristaRepository.findByCpf(cpf);
+
+        if(motorista.isEmpty() || motorista == null)
+        {
+            return null;
+        }
+
+        MotoristaDTO motoristaDTO = motorista.get().converterMotoristaParaDTO();
+
+        return motoristaDTO;
+    }
+
     public List<MotoristaDTO> findMotoristasByClientId(Long id)
     {
         List<Motorista> motoristaList = motoristaRepository.findByCliente_Id(id);

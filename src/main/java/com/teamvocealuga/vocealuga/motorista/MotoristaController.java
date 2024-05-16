@@ -21,6 +21,14 @@ public class MotoristaController
         MotoristaDTO motoristaDTO = motoristaService.findMotoristaById(id);
         return ResponseEntity.ok().body(motoristaDTO);
     }
+
+    @GetMapping("/cpf/{cpf}")
+    public ResponseEntity<MotoristaDTO> findMotoristaByCpf(@PathVariable String cpf)
+    {
+        MotoristaDTO motoristaDTO = motoristaService.findMotoristaByCpf(cpf);
+        return ResponseEntity.ok().body(motoristaDTO);
+    }
+
     @GetMapping("/cliente/{id}")
     public ResponseEntity<List<MotoristaDTO>> findMotoristasByClienteId(@PathVariable Long id)
     {
