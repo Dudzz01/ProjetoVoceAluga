@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                                 if(transacaoObject.cliente.id === locacaoObject.cliente.id && transacaoObject.locacao.id === locacaoObject.id)
                                                 {
 
-
                                                     var pedidoData = moment(locacaoObject.dataPedido).format("YYYY-MM-DD HH:mm:ss.SSS");
                                                     var fimData = moment(locacaoObject.dataFim).format("YYYY-MM-DD HH:mm:ss.SSS");
                                                     var devolucaoData = moment(document.getElementById("dataFim").value).format("YYYY-MM-DD HH:mm:ss.SSS");

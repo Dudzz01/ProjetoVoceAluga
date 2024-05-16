@@ -11,7 +11,7 @@ public interface MotoristaRepository extends JpaRepository<Motorista,Long>
 {
     List<Motorista> findByCliente_Id(Long id);
 
-    Optional<Motorista> findByCpf(String cpf);
+    Optional<Motorista> findByCnh(String cnh);
 
 
 }

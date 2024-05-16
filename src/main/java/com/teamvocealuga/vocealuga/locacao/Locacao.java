@@ -44,9 +44,9 @@ public class Locacao
     @JoinColumn(name = "veiculo_id")
     private Veiculo veiculo;
 
-    @Column(name = "codLocacao",nullable = false, unique = true)
+    @Column(name = "codLocacao",nullable = false, unique = false)
     @NotNull
-    @NotEmpty
+
     private int codLocacao;
 
     @JsonSerialize(using = CustomDateSerializer.class)
@@ -107,7 +107,7 @@ public class Locacao
 
     @Column(name = "contratolocacao",nullable = false,unique = false)
     @NotNull
-    @NotEmpty
+
     private boolean contratoLocacao;
 
     public Locacao()

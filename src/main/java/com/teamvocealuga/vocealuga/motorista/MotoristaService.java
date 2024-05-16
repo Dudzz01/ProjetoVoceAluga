@@ -26,9 +26,9 @@ public class MotoristaService
         return motoristaDTO;
     }
 
-    public MotoristaDTO findMotoristaByCpf(String cpf)
+    public MotoristaDTO findMotoristaByCnh(String cnh)
     {
-        Optional<Motorista> motorista = motoristaRepository.findByCpf(cpf);
+        Optional<Motorista> motorista = motoristaRepository.findByCnh(cnh);
 
         if(motorista.isEmpty() || motorista == null)
         {

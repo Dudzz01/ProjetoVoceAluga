@@ -22,10 +22,10 @@ public class MotoristaController
         return ResponseEntity.ok().body(motoristaDTO);
     }
 
-    @GetMapping("/cpf/{cpf}")
-    public ResponseEntity<MotoristaDTO> findMotoristaByCpf(@PathVariable String cpf)
+    @GetMapping("/cnh/{cnh}")
+    public ResponseEntity<MotoristaDTO> findMotoristaByCpf(@PathVariable String cnh)
     {
-        MotoristaDTO motoristaDTO = motoristaService.findMotoristaByCpf(cpf);
+        MotoristaDTO motoristaDTO = motoristaService.findMotoristaByCnh(cnh);
         return ResponseEntity.ok().body(motoristaDTO);
     }
 

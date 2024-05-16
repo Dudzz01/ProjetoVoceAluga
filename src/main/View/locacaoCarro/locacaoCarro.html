@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="locacaoCarro.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="cadastroLocacaoCarro.js"></script>
     <title>LocacaoCarro VoceAluga</title>
 </head>
 <body>
@@ -15,7 +17,7 @@
         <h1>Cadastro da locação de carro</h1>
         <div class="card-locacao-left">
             <h2>Insira os dados</h2>
-            <form action="http://localhost:8080" method="post">
+            <form id="cadastroLocacao">
                 <div class="textfield">
                     <label for="motorista">CNH(Motorista)</label>
                     <input type="text" id="motorista" name="motorista" placeholder="Insira o CNH do motorista" required>
@@ -52,8 +54,13 @@
                 </div>
 
                 <div class="button-locacao">
-                    <button type="button">Cadastrar📤</button>
+                    <button type="submit">Cadastrar📤</button>
                 </div>
+
+                <div>
+                    <p id="texto-resultado-locacao"> </p>
+                </div>
+
             </form>
         </div>
     </div>
