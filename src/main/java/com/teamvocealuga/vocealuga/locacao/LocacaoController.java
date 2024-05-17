@@ -23,13 +23,13 @@ public class LocacaoController
     }
 
     @PostMapping
-    public ResponseEntity<Void> createLocacao(@RequestBody LocacaoDTO locacaoDTO)
+    public ResponseEntity<LocacaoDTO> createLocacao(@RequestBody LocacaoDTO locacaoDTO)
     {
         LocacaoDTO locacaoDTO1 = locacaoService.createLocacao(locacaoDTO);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(locacaoDTO1.getId()).toUri();
 
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.created(uri).body(locacaoDTO1);
     }
 
     @DeleteMapping("/{id}")

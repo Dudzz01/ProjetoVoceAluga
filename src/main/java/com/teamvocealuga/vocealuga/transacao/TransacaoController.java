@@ -36,7 +36,7 @@ public class TransacaoController
     @PostMapping
     public ResponseEntity<Void> createTransacao(@RequestBody TransacaoDTO transacaoDTO)
     {
-        clienteService.findClienteById(transacaoDTO.getCliente().getId());
+
         //FALTA VERIFICAR SE A LOCACAO EXISTE
         TransacaoDTO transacaoDTO1 = transacaoService.createTransacao(transacaoDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(transacaoDTO1.getId()).toUri();

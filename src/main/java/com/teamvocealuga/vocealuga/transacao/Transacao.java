@@ -35,7 +35,7 @@ public class Transacao
 
     @Column(name = "valor_total",unique = false,nullable = false)
     @NotNull
-    @NotEmpty
+
     private double valorTotal;
 
     @JsonSerialize(using = CustomDateSerializer.class)
@@ -62,7 +62,7 @@ public class Transacao
 
     @Column(name = "cod_transacao",unique = true,nullable = false)
     @NotNull
-    @NotEmpty
+
     private Long codTransacao;
 
     public Transacao()

@@ -70,7 +70,7 @@
         <h1>Informações Transacionais</h1>
         <div class="card-locacao">
             <h2>Informe os dados</h2>
-            <form action="http://localhost:8080" method="post">
+            <form id="transacaoLocacao">
                 <div class="textfield">
                     <label for="locacao">Código Locação</label>
                     <input type="text" id="locacao" name="locacao" placeholder="Insira o código da locação" required>
@@ -99,8 +99,12 @@
                     <input type="text" id="numNotaFiscal" name="numNotaFiscal" placeholder="Número nota fiscal" required>
                 </div>
 
-                <div class="button-locacao">
-                    <button type="button">Salvar📤</button>
+                <div class="textfield">
+
+                    <p id="textoTransacao">
+                        Insira todos os dados transacionais <br>
+                        para que possa <strong>cadastrar</strong> a locação com sucesso.
+                    </p>
                 </div>
             </form>
         </div>

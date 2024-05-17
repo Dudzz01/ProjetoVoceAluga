@@ -59,7 +59,7 @@ body
     background-color: #FFFFFF;
     justify-content: center;
     align-items: center;
-    padding: 60px 25px 60px 25px;
+    padding: 75px 35px 75px 35px;
     border-radius: 20px;
     box-shadow: 0px 0px 0px 15px rgba(255, 255, 0, 0.91);
     margin-bottom: 270px;
@@ -128,7 +128,7 @@ body
     color: #FFC107;
     font-family: Arvo;
     font-size: 42px;
-    margin-top: 60px;
+    margin-top: 90px;
     margin-bottom: 100px;
 }
 
@@ -138,7 +138,7 @@ body
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 }
 
@@ -165,4 +165,9 @@ body
     align-items: center;
     font-family: Arvo;
     margin-top: 20px;
+}
+
+#textoTransacao
+{
+    margin: 0;
 }
