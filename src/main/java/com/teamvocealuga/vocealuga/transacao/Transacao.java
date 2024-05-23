@@ -60,7 +60,7 @@ public class Transacao
     @NotEmpty
     private String status;
 
-    @Column(name = "cod_transacao",unique = true,nullable = false)
+    @Column(name = "cod_transacao",unique = false,nullable = false)
     @NotNull
 
     private Long codTransacao;
