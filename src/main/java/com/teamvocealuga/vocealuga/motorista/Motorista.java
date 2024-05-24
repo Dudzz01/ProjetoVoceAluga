@@ -1,6 +1,10 @@
 package com.teamvocealuga.vocealuga.motorista;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.teamvocealuga.vocealuga.cliente.Cliente;
+import com.teamvocealuga.vocealuga.configs.CustomDateDeserializer;
+import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
 
@@ -42,8 +46,11 @@ public class Motorista
     @NotEmpty
     private String cnh;
 
+    @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonDeserialize(using = CustomDateDeserializer.class)
     @Column(name = "dt_nascimento",unique = false,nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
+    @NotNull
     private Date dataNascimento;
 
     public Motorista()

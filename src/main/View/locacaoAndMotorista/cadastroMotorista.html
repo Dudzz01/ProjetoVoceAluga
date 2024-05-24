@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="cadastroMotorista.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="cadastroMotorista.js"></script>
   <title>Cadastro Motorista VoceAluga</title>
 </head>
 <body>
@@ -19,35 +21,39 @@
 
     <h2>Cadastro do motorista</h2>
 
-    <form action="http://localhost:8080" method="post">
+    <form id="cadast_motorista">
 
       <div class="style-field">
         <label for="cpf">CPF</label>
-        <input type="text" id="cpf" name="cpf" placeholder="Insira o CPF do motorista">
+        <input type="text" id="cpf" name="cpf" placeholder="Insira o CPF do motorista" required>
       </div>
 
       <div class="style-field">
         <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" placeholder="Insira o nome do motorista">
+        <input type="text" id="nome" name="nome" placeholder="Insira o nome do motorista"  required>
       </div>
 
       <div class="style-field">
         <label for="cnh">CNH</label>
-        <input type="text" id="cnh" name="cnh" placeholder="CNH do motorista">
+        <input type="text" id="cnh" name="cnh" placeholder="CNH do motorista"  required>
       </div>
 
       <div class="style-field">
         <label for="dataNascimento">Data de nascimento</label>
-        <input type="text" id="dataNascimento" name="dataNascimento" placeholder="Data nascimento motorista">
+        <input type="date" id="dataNascimento" name="dataNascimento" placeholder="Data nascimento motorista"  required>
       </div>
 
       <div class="style-field">
         <label for="CodigoDoCliente">Código do Cliente</label>
-        <input type="text" id="CodigoDoCliente" name="cliente" placeholder="Código do Cliente Vinculado ao Motorista">
+        <input type="text" id="CodigoDoCliente" name="cliente" placeholder="Código do Cliente Vinculado ao Motorista"  required>
       </div>
 
       <div class="button-cadastro">
-        <button type="button">Cadastrar📤</button>
+        <button type="submit">Cadastrar📤</button>
+      </div>
+
+      <div class="style-field">
+        <p id="textCadastro" style="display: none; margin: 0;"></p>
       </div>
 
     </form>

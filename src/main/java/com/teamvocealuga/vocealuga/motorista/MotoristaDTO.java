@@ -1,6 +1,10 @@
 package com.teamvocealuga.vocealuga.motorista;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.teamvocealuga.vocealuga.cliente.Cliente;
+import com.teamvocealuga.vocealuga.configs.CustomDateDeserializer;
+import com.teamvocealuga.vocealuga.configs.CustomDateSerializer;
 import com.teamvocealuga.vocealuga.filial.Filial;
 import com.teamvocealuga.vocealuga.locacao.Locacao;
 
@@ -28,7 +32,8 @@ public class MotoristaDTO
 
     private String cnh;
 
-
+    @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonDeserialize(using = CustomDateDeserializer.class)
     private Date dataNascimento;
 
     public MotoristaDTO()
