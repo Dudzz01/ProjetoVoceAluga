@@ -58,6 +58,7 @@ public class VeiculoService
         VeiculoDTO veiculoDTONew = findVeiculoById(veiculoDTO.getId());
         Veiculo veiculo = veiculoDTONew.converterDTOParaVeiculo();
         veiculo.setStatus(veiculoDTO.getStatus());
+        veiculo.setPreco(veiculoDTO.getPreco());
         veiculoDTO = veiculo.converterVeiculoParaDTO();
         return veiculoDTO;
     }

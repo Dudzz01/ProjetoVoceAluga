@@ -62,7 +62,6 @@ public class Transacao
 
     @Column(name = "cod_transacao",unique = false,nullable = false)
     @NotNull
-
     private Long codTransacao;
 
     public Transacao()

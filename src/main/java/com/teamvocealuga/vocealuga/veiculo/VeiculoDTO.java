@@ -27,12 +27,16 @@ public class VeiculoDTO
 
     private String nome;
 
+
+
+    private double preco;
+
     public VeiculoDTO()
     {
 
     }
 
-    public VeiculoDTO(Long id, Filial filial, String nome,String status, String categoria, double kmTotal) {
+    public VeiculoDTO(Long id, Filial filial, String nome,String status, String categoria, double kmTotal, double preco) {
         this.id = id;
 
         this.filial = filial;
@@ -40,6 +44,7 @@ public class VeiculoDTO
         this.categoria = categoria;
         this.kmTotal = kmTotal;
         this.nome = nome;
+        this.preco = preco;
     }
 
     public VeiculoDTO(Veiculo veiculo)
@@ -108,6 +113,13 @@ public class VeiculoDTO
         this.nome = nome;
     }
 
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
 
 
     @Override

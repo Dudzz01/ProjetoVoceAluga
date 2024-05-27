@@ -8,12 +8,18 @@ document.addEventListener("DOMContentLoaded", function (ev) {
         var rightForm = document.getElementById("transacaoLocacao");
 
         var cnhMotorista = document.getElementById("motorista").value;
+        console.log("CNH: " + cnhMotorista)
         if (leftForm.checkValidity() && rightForm.checkValidity()) {
             fetch("http://localhost:8080/motorista/cnh/" + cnhMotorista)
                 .then(response => response.json())
                 .then(function (motoristaObject) {
                     var cpfCliente = document.getElementById("cliente").value;
-                    if (motoristaObject.cliente.id != null && motoristaObject.id != null && motoristaObject.cliente.cpf === cpfCliente) {
+                    console.log("CNH: " + cnhMotorista);
+                    console.log("motoristaObject.cliente.id: " + motoristaObject.cliente.id);
+                    console.log("motoristaObject.id: " + motoristaObject.id);
+                    console.log("motoristaObject.cliente.cpf: " + motoristaObject.cliente.cpf);
+                    console.log("cpfCliente: " + cpfCliente)
+                    if (motoristaObject.cliente.id != null && motoristaObject.id != null && motoristaObject.cliente.cpf == cpfCliente) {
                         var codVeiculo = document.getElementById("veiculo").value;
                         fetch("http://localhost:8080/veiculo/" + codVeiculo)
                             .then(response => response.json())

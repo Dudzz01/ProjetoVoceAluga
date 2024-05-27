@@ -42,7 +42,7 @@ public class VeiculoController
          return ResponseEntity.created(uri).build();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/att/{id}")
     public ResponseEntity<Void> updateStatusVeiculo(@RequestBody VeiculoDTO veiculoDTO, @PathVariable Long id)
     {
         veiculoDTO.setId(id);

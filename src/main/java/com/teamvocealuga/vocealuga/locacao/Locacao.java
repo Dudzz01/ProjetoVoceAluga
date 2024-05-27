@@ -46,7 +46,6 @@ public class Locacao
 
     @Column(name = "codLocacao",nullable = false, unique = false)
     @NotNull
-
     private int codLocacao;
 
     @JsonSerialize(using = CustomDateSerializer.class)

@@ -65,3 +65,9 @@ body
     font-family: Arvo;
     color: #FFC107;
 }
+
+.img_car
+{
+    width: 10vw;
+    height: 15vh;
+}

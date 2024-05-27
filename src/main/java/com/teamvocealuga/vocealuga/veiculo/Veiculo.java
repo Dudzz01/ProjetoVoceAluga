@@ -50,12 +50,17 @@ public class Veiculo
     @NotEmpty
     private double kmTotal;
 
+    @Column(name = "preco",unique = false,nullable = false)
+    @NotNull
+    @NotEmpty
+    private double preco;
+
     public Veiculo()
     {
 
     }
 
-    public Veiculo(Long id, Filial filial,String nome, String status, String categoria, double kmTotal) {
+    public Veiculo(Long id, Filial filial,String nome, String status, String categoria, double kmTotal, double preco) {
         this.id = id;
 
         this.filial = filial;
@@ -63,6 +68,7 @@ public class Veiculo
         this.categoria = categoria;
         this.kmTotal = kmTotal;
         this.nome = nome;
+        this.preco = preco;
     }
 
     public Veiculo(VeiculoDTO veiculoDTO)
@@ -74,6 +80,7 @@ public class Veiculo
         this.categoria = veiculoDTO.getCategoria();
         this.kmTotal = veiculoDTO.getKmTotal();
         this.nome = veiculoDTO.getNome();
+        this.preco = veiculoDTO.getPreco();
     }
 
     public VeiculoDTO converterVeiculoParaDTO()
@@ -131,7 +138,13 @@ public class Veiculo
         this.nome = nome;
     }
 
+    public double getPreco() {
+        return preco;
+    }
 
+    public void setPreco( double preco) {
+        this.preco = preco;
+    }
 
     @Override
     public boolean equals(Object obj)
@@ -164,7 +177,7 @@ public class Veiculo
 
         }
 
-        return Objects.equals(this.id,other.id)  && Objects.equals(this.filial, other.filial) && Objects.equals(this.status, other.status) && Objects.equals(this.categoria, other.categoria) && Objects.equals(this.kmTotal, other.kmTotal) && Objects.equals(this.nome, other.nome);
+        return Objects.equals(this.id,other.id)  && Objects.equals(this.filial, other.filial) && Objects.equals(this.status, other.status) && Objects.equals(this.categoria, other.categoria) && Objects.equals(this.kmTotal, other.kmTotal) && Objects.equals(this.nome, other.nome) && Objects.equals(this.preco, other.preco);
     }
 
     @Override
