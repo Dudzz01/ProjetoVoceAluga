@@ -56,6 +56,7 @@ public class VeiculoDTO
         this.categoria = veiculo.getCategoria();
         this.kmTotal = veiculo.getKmTotal();
         this.nome = veiculo.getNome();
+        this.preco = veiculo.getPreco();
     }
 
     public Veiculo converterDTOParaVeiculo()
@@ -153,7 +154,7 @@ public class VeiculoDTO
 
         }
 
-        return Objects.equals(this.id,other.id) && Objects.equals(this.filial, other.filial) && Objects.equals(this.status, other.status) && Objects.equals(this.categoria, other.categoria) && Objects.equals(this.kmTotal, other.kmTotal)  && Objects.equals(this.nome, other.nome);
+        return Objects.equals(this.id,other.id) && Objects.equals(this.filial, other.filial) && Objects.equals(this.status, other.status) && Objects.equals(this.categoria, other.categoria) && Objects.equals(this.kmTotal, other.kmTotal)  && Objects.equals(this.nome, other.nome) && Objects.equals(this.preco, other.preco);
     }
 
     @Override

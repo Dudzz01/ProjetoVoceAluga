@@ -82,3 +82,13 @@ body
     padding: 20px; /* Adiciona preenchimento interno às células */
     text-align: center; /* Centraliza o texto nas células */
 }
+
+.textofield
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+}

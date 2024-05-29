@@ -47,10 +47,12 @@ document.addEventListener("DOMContentLoaded",function (ev)
                 const categElem = document.getElementById("categ_" + count_id);
                 const precoElem = document.getElementById("preco_" + count_id);
                 const carroElem = document.getElementById("carro" + count_id);
+                const nomeCarroElem = document.getElementById("nome_carro"+ count_id)
 
                 if (categElem) categElem.innerText = veiculoObject.categoria;
                 if (precoElem) precoElem.innerText = veiculoObject.preco;
                 if (carroElem) carroElem.innerText = veiculoObject.id;
+                if(nomeCarroElem) nomeCarroElem.innerText = veiculoObject.nome;
 
                 if (count_id === 6) {
                     break;

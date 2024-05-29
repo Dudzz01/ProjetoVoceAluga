@@ -75,3 +75,13 @@ body
     align-items: center;
     padding-bottom: 20px;
 }
+
+.textofield
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+}

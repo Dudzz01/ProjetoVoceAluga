@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                     console.log(response.ok);
                                     var elementHtml = document.getElementById("textoResultCadastro");
                                     elementHtml.style.display = "block";
+                                    elementHtml.style.color = "rgb(13,188,57)";
                                     elementHtml.innerText="Cliente cadastrado com sucesso";
                                 }
                                 else
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                     if(response.status === 409)
                                     {
                                         console.log("Cadastro ENTROU NO 409");
-                                        throw new Error("Cpf e/ou Telefone já cadastrado(s) no sistema.");
+                                        throw new Error("Cpf e/ou Telefone já cadastrado(s)");
                                     }
                                     else
                                     {
@@ -65,22 +66,26 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                 }
                                 }).catch(function (error)
                                 {
-                                    var elementHtml = document.getElementById("textoResultCadastro");
+                                    let elementHtml = document.getElementById("textoResultCadastro");
+                                    elementHtml.innerText = error;
                                     elementHtml.style.display = "block";
-                                    elementHtml.innerText= error;
+                                    elementHtml.style.color = "rgb(219, 0, 0)"
+
+
                                 })
 
                         }
                         else
                         {
-                            throw new Error();
+                            throw new Error("Erro de Cadastro: Filial Inexistente");
                         }
                     }
 
-                    ).catch(function (){
+                    ).catch(function (error){
                         var elementHtml = document.getElementById("textoResultCadastro");
                         elementHtml.style.display = "block";
-                        elementHtml.innerText = "Erro ao cadastrar: Filial Inexistente";
+                        elementHtml.style.color = "rgb(219, 0, 0)"
+                        elementHtml.innerText = error;
                     })
 
                 }
