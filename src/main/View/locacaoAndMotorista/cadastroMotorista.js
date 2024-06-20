@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
                 ev.preventDefault();
                 var idCliente = document.getElementById("CodigoDoCliente").value;
                 var dataNascimentoJson = moment(document.getElementById("dataNascimento").value).format("YYYY-MM-DD HH:mm:ss.SSS");
+                let elementHtml = document.getElementById("textCadastro");
 
                 fetch("http://localhost:8080/cliente/"+idCliente).then(response => response.json()).then(function (clienteObject)
                     {
@@ -32,12 +33,17 @@ document.addEventListener("DOMContentLoaded", function (ev)
                             {
                                 if(response.ok)
                                 {
-                                   var elementHtml = document.getElementById("textCadastro");
+
                                     elementHtml.style.display = "block";
+                                    elementHtml.style.color = "rgb(13,188,57)";
                                     elementHtml.innerText = "Cadastro com sucesso";
                                 }
                                 else
                                 {
+
+                                    elementHtml.style.display = "block";
+                                    elementHtml.style.color = "rgb(219, 0, 0)"
+                                    elementHtml.innerText = "Cpf/Cnh já cadastrado no sistema";
                                     throw new Error("Informações inválidas sobre o motorista");
                                 }
                             })
@@ -51,6 +57,8 @@ document.addEventListener("DOMContentLoaded", function (ev)
 
                 ).catch(function (error)
                 {
+
+                    console.log("Log erro cliente");
                     var elementHtml = document.getElementById("textCadastro");
                     elementHtml.style.display = "block";
                     elementHtml.innerText = error;
