@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function (ev) {
         var rightForm = document.getElementById("transacaoLocacao");
 
         var cnhMotorista = document.getElementById("motorista").value;
+        let elementHtml = document.getElementById("texto-resultado-locacao");
         console.log("CNH: " + cnhMotorista)
         if (leftForm.checkValidity() && rightForm.checkValidity()) {
             fetch("http://localhost:8080/motorista/cnh/" + cnhMotorista)
@@ -83,39 +84,55 @@ document.addEventListener("DOMContentLoaded", function (ev) {
                                                             body: JSON.stringify(dataJsonTransacao)
                                                         }).then(function (response) {
                                                             if (response.ok) {
-                                                                var elementHtml = document.getElementById("texto-resultado-locacao");
+                                                               /* var elementHtml = document.getElementById("texto-resultado-locacao");*/
                                                                 elementHtml.style.display = "block";
+                                                                elementHtml.style.color = "rgb(13,188,57)";
                                                                 elementHtml.innerText = "Locacao cadastrada com sucesso";
                                                             } else {
-                                                                throw new Error('Erro ao salvar Transacao');
+                                                                elementHtml.style.display = "block";
+                                                                elementHtml.style.color = "rgb(219, 0, 0)";
+                                                                elementHtml.innerText = "Erro ao salvar Transacao";
+
                                                             }
                                                         });
                                                     })
                                                     .catch(function (error) {
-                                                        var elementHtml = document.getElementById("texto-resultado-locacao");
+                                                       /* var elementHtml = document.getElementById("texto-resultado-locacao");*/
                                                         elementHtml.style.display = "block";
+                                                        elementHtml.style.color = "rgb(219, 0, 0)"
                                                         elementHtml.innerText = "Erro ao salvar Locacao: " + error.message;
                                                     });
                                             } else {
-                                                throw new Error("Funcionário em conflito");
+                                                elementHtml.style.display = "block";
+                                                elementHtml.style.color = "rgb(219, 0, 0)"
+                                                elementHtml.innerText = "Funcionário em conflito";
+
                                             }
                                         });
                                 } else {
-                                    throw new Error("Veículo não encontrado");
+                                    elementHtml.style.display = "block";
+                                    elementHtml.style.color = "rgb(219, 0, 0)"
+                                    elementHtml.innerText = "Veículo não encontrado";
+
                                 }
                             });
                     } else {
-                        throw new Error("Motorista e/ou Cliente inexistente(s)");
+                        elementHtml.style.display = "block";
+                        elementHtml.style.color = "rgb(219, 0, 0)"
+                        elementHtml.innerText = "Motorista e/ou Cliente inexistente(s)";
+
                     }
                 })
                 .catch(function (error) {
-                    var elementHtml = document.getElementById("texto-resultado-locacao");
+                   /* var elementHtml = document.getElementById("texto-resultado-locacao");*/
                     elementHtml.style.display = "block";
-                    elementHtml.innerText = error.message;
+                    elementHtml.style.color = "rgb(219, 0, 0)"
+                    elementHtml.innerText = "CNH INVÁLIDA";
                 });
         } else {
-            var elementHtml = document.getElementById("texto-resultado-locacao");
+           /* var elementHtml = document.getElementById("texto-resultado-locacao"); */
             elementHtml.style.display = "block";
+            elementHtml.style.color = "rgb(219, 0, 0)"
             elementHtml.innerText = "Preencha o formulário de transação";
         }
     });

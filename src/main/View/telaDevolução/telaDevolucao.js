@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
         var codVeiculo = document.getElementById("veiculo").value;
         var cpfCliente = document.getElementById("cliente").value;
         var codTransacao = document.getElementById("transacao").value;
+        let elementHtml = document.getElementById("textoDevolucao")
         console.log("http://localhost:8080/locacao/"+codLocacao);
 
 
@@ -35,10 +36,8 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                         fetch("http://localhost:8080/transacao/"+codTransacao).then(response => response.json()).then(function (transacaoObject)
 
                                             {
-                                                console.log("transacaoObject.cliente.id: " + transacaoObject.cliente.id);
-                                                console.log("locacaoObject.cliente.id: " + locacaoObject.cliente.id);
-                                                console.log("transacaoObject.locacao.id: " + transacaoObject.locacao.id);
-                                                console.log("locacaoObject.id: " + locacaoObject.id);
+
+
 
 
 
@@ -86,8 +85,9 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                                     ).then(response => {
                                                         if(response.ok)
                                                         {
-                                                            var elementHtml = document.getElementById("textoDevolucao")
+                                                            /*var elementHtml = document.getElementById("textoDevolucao")*/
                                                             elementHtml.style.display = "block";
+                                                            elementHtml.style.color = "rgb(13,188,57)";
                                                             elementHtml.innerText = "Devolução cadastrada.";
                                                             console.log("FINALIZADO COM SUCESSO");
                                                         }
@@ -98,7 +98,10 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                                 }
                                                 else
                                                 {
-                                                    throw new Error("Falha na transação");
+                                                    elementHtml.style.display = "block";
+                                                    elementHtml.style.color = "rgb(219, 0, 0)"
+                                                    elementHtml.innerText = "Falha na transação";
+                                                    /*throw new Error("Falha na transação");*/
                                                 }
                                             }
 
@@ -106,11 +109,20 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                     }
                                     else
                                     {
-                                        throw new Error("Veiculo Inválido");
+                                        elementHtml.style.display = "block";
+                                        elementHtml.style.color = "rgb(219, 0, 0)"
+                                        elementHtml.innerText = "Veiculo Inválido";
+                                        /*throw new Error("Veiculo Inválido");*/
                                     }
                                 }
 
                             )
+                        }
+                        else
+                        {
+                            elementHtml.style.display = "block";
+                            elementHtml.style.color = "rgb(219, 0, 0)"
+                            elementHtml.innerText = "Cliente inválido";
                         }
 
 
@@ -121,7 +133,10 @@ document.addEventListener("DOMContentLoaded", function (ev)
 
                 else
                 {
-                    throw new Error("Locação Inexistente");
+                    elementHtml.style.display = "block";
+                    elementHtml.style.color = "rgb(219, 0, 0)"
+                    elementHtml.innerText = "Locação Inexistente";
+                    /*throw new Error("Locação Inexistente");*/
                 }
             }
 
