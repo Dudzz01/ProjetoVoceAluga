@@ -38,7 +38,7 @@ public class Devolucao
     private Locacao locacao;
 
     @OneToOne
-    @JoinColumn(name = "transacao_id")
+    @JoinColumn(name = "transacao_id", unique = true)
     private Transacao transacao;
 
     @JsonSerialize(using = CustomDateSerializer.class)

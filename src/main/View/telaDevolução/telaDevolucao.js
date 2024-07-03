@@ -69,6 +69,14 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                     elementHtml.innerText = "Devolução cadastrada.";
                                     console.log("FINALIZADO COM SUCESSO");
                                 }
+                                else
+                                {
+                                    console.log("entrou no erro");
+                                    elementHtml.style.display = "block";
+                                    elementHtml.style.color = "rgb(219, 0, 0)"
+                                    elementHtml.innerText = "Transação sem devoluções pendentes";
+                                }
+
 
                             })
 
