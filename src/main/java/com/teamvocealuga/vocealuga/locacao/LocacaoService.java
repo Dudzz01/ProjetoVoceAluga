@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
+
 
 @Service
 public class LocacaoService
@@ -27,9 +29,38 @@ public class LocacaoService
     @Transactional
     public LocacaoDTO createLocacao(LocacaoDTO locacaoDTO)
     {
-
+        boolean canCreateLocacao = true;
         locacaoDTO.setId(null);
         Locacao locacao = locacaoDTO.converterDtoParaLocacao();
+
+        List<Locacao> locacaoListVerifyDates = locacaoRepository.findByMotoristaId(locacao.getMotorista().getId());
+
+        if(!locacaoListVerifyDates.isEmpty())
+        {
+            for(Locacao locacaoExistente: locacaoListVerifyDates)
+            {
+                if(locacao.getDataInicio().after(locacaoExistente.getDataFim()))
+                {
+                    canCreateLocacao = true;
+                }
+                else
+                {
+                    canCreateLocacao = false;
+                    break;
+                }
+            }
+        }
+
+        if(locacao.getDataInicio().before(locacao.getDataFim()))
+        {
+            canCreateLocacao = false;
+        }
+
+        if(!canCreateLocacao)
+        {
+            return null;
+        }
+
         locacao = locacaoRepository.save(locacao);
         return locacao.converterLocacaoParaDTO();
     }

@@ -27,9 +27,19 @@ public class LocacaoController
     {
         LocacaoDTO locacaoDTO1 = locacaoService.createLocacao(locacaoDTO);
 
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(locacaoDTO1.getId()).toUri();
+        //URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(locacaoDTO1.getId()).toUri();
 
-        return ResponseEntity.created(uri).body(locacaoDTO1);
+        if(locacaoDTO1 != null)
+        {
+            URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(locacaoDTO1.getId()).toUri();
+            return ResponseEntity.created(uri).body(locacaoDTO1);
+        }
+
+
+
+        return ResponseEntity.status(422).build();
+
+
     }
 
     @DeleteMapping("/{id}")
