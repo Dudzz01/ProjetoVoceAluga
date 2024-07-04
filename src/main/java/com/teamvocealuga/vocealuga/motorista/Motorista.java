@@ -16,6 +16,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = Motorista.MOTORISTA_TABLE_NAME)
+
 public class Motorista
 {
     public static final String MOTORISTA_TABLE_NAME = "motorista";
@@ -36,12 +37,12 @@ public class Motorista
     @NotEmpty
     private String nome;
 
-    @Column(name = "cpf",unique = true,nullable = false)
+    @Column(name = "cpf",unique = false,nullable = false)
     @NotNull
     @NotEmpty
     private String cpf;
 
-    @Column(name = "cnh",unique = true,nullable = false)
+    @Column(name = "cnh",unique = false,nullable = false)
     @NotNull
     @NotEmpty
     private String cnh;

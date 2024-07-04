@@ -1,5 +1,6 @@
 package com.teamvocealuga.vocealuga.motorista;
 
+import com.teamvocealuga.vocealuga.cliente.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +25,20 @@ public class MotoristaService
         MotoristaDTO motoristaDTO = motorista.get().converterMotoristaParaDTO();
 
         return motoristaDTO;
+    }
+
+    public boolean findMotoristaByCpfAndCnhAndCliente(String cpf, String cnh, Long cliente_id)
+    {
+        Optional<Motorista> motorista = motoristaRepository.findByCpfAndCnhAndCliente_Id(cpf,cnh, cliente_id);
+
+        if(motorista.isEmpty())
+        {
+            return false;
+        }
+
+            return true;
+
+
     }
 
     public MotoristaDTO findMotoristaByCnh(String cnh)

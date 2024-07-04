@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/motorista")
@@ -20,6 +22,23 @@ public class MotoristaController
     {
         MotoristaDTO motoristaDTO = motoristaService.findMotoristaById(id);
         return ResponseEntity.ok().body(motoristaDTO);
+    }
+
+    @GetMapping
+    public ResponseEntity<Map<String, Object>> checkMotoristaExist(@RequestParam String cpf, @RequestParam String cnh, @RequestParam Long clienteId)
+    {
+        boolean checkMotoristaExist = motoristaService.findMotoristaByCpfAndCnhAndCliente(cpf, cnh, clienteId);
+
+        Map<String, Object> responseBody = new HashMap<>();
+
+
+        if(!checkMotoristaExist)
+        {
+            responseBody.put("status: ",  200);
+            return ResponseEntity.ok().body(responseBody);
+        }
+            responseBody.put("status: ",  409);
+            return ResponseEntity.status(409).body(responseBody);
     }
 
     @GetMapping("/cnh/{cnh}")
