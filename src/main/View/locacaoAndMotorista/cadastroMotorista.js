@@ -13,11 +13,14 @@ document.addEventListener("DOMContentLoaded", function (ev)
 
                 fetch("http://localhost:8080/cliente/"+idCliente).then(response => response.json()).then(function (clienteObject)
                     {
-                        fetch("http://localhost:8080/motorista?cpf="+document.getElementById("cpf").value+"&cnh="+document.getElementById("cnh").value+"&clienteId="+idCliente).then(response => response.json()).then(function (responseBody)
+                        fetch("http://localhost:8080/motorista?cpf="+document.getElementById("cpf").value+"&cnh="+document.getElementById("cnh").value+"&clienteId="+idCliente).then(response => response.json()).then(function (objJson)
                         {
-                            if(responseBody.ok) {
 
+                            console.log("STATUS CODE: " + objJson.status );
+                            
+                            if(objJson.status >= 200 &&  objJson.status <= 299) {
 
+                                console.log("RESPOSTA 200 CRIAR MOTORISTA");
                                 if (clienteObject.id != null) {
                                     var dataJsonMotorista = {
                                         id: 0,
@@ -54,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
                             }
                             else
                             {
+
                                 console.log("URL: http://localhost:8080/motorista?cpf="+document.getElementById("cpf").value+"&cnh="+document.getElementById("cnh").value+"&clienteId="+idCliente);
                                 var elementHtml = document.getElementById("textCadastro");
                                 elementHtml.style.display = "block";

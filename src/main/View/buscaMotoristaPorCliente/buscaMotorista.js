@@ -20,8 +20,6 @@ document.addEventListener("DOMContentLoaded",function (ev)
                 elementHTML.style.display = "block";
                 elementHTML.style.color = "rgb(13,188,57)";
                 elementHTML.innerText = "Motorista encontrada!";
-
-
             }
 
         ).catch(function (error)

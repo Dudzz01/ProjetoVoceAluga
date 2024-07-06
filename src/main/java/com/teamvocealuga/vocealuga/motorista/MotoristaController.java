@@ -38,7 +38,7 @@ public class MotoristaController
             return ResponseEntity.ok().body(responseBody);
         }
             responseBody.put("status: ",  409);
-            return ResponseEntity.status(409).body(responseBody);
+            return ResponseEntity.ok().body(responseBody);
     }
 
     @GetMapping("/cnh/{cnh}")
