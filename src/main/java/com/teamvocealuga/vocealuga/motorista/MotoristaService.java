@@ -55,6 +55,47 @@ public class MotoristaService
         return motoristaDTO;
     }
 
+    public boolean checkMotoristaCanCreate(String cpf, String cnh)
+    {
+        MotoristaDTO motoristaCpf = this.findMotoristaByCpf(cpf);
+        MotoristaDTO motoristaCnh = this.findMotoristaByCnh(cnh);
+
+        if(motoristaCpf == null && motoristaCnh == null)
+        {
+            return true;
+        }
+        else
+        {
+            if(motoristaCpf != null && motoristaCpf.getCnh().equals(cnh))
+            {
+                return true;
+            }
+
+            if(motoristaCnh != null && motoristaCnh.getCpf().equals(cpf))
+            {
+                return true;
+            }
+        }
+
+        return false;
+
+
+    }
+
+    public MotoristaDTO findMotoristaByCpf(String cpf)
+    {
+        Optional<Motorista> motorista = motoristaRepository.findByCpf(cpf);
+
+        if(motorista.isEmpty() || motorista == null)
+        {
+            return null;
+        }
+
+        MotoristaDTO motoristaDTO = motorista.get().converterMotoristaParaDTO();
+
+        return motoristaDTO;
+    }
+
     public List<MotoristaDTO> findMotoristasByClientId(Long id)
     {
         List<Motorista> motoristaList = motoristaRepository.findByCliente_Id(id);

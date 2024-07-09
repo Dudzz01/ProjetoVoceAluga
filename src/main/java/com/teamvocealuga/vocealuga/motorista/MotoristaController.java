@@ -41,6 +41,26 @@ public class MotoristaController
             return ResponseEntity.ok().body(responseBody);
     }
 
+    @GetMapping("/canCreate")
+    public ResponseEntity<Map<String, Object>> checkMotoristaCanCreate(@RequestParam String cpf, @RequestParam String cnh)
+    {
+        boolean checkMotoristaCreate = motoristaService.checkMotoristaCanCreate(cpf,cnh);
+
+        Map<String, Object> responseBody = new HashMap<>();
+
+
+        if(!checkMotoristaCreate)
+        {
+            responseBody.put("status",  200);
+            return ResponseEntity.ok().body(responseBody);
+        }
+        responseBody.put("status",  422);
+        return ResponseEntity.ok().body(responseBody);
+    }
+
+
+
+
     @GetMapping("/cnh/{cnh}")
     public ResponseEntity<MotoristaDTO> findMotoristaByCpf(@PathVariable String cnh)
     {

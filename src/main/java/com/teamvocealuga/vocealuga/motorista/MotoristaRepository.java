@@ -15,5 +15,9 @@ public interface MotoristaRepository extends JpaRepository<Motorista,Long>
 
     Optional<Motorista> findByCnh(String cnh);
 
+    Optional<Motorista> findByCpf(String cnh);
+
+    Optional<Motorista> findByCpfAndCnh(String cpf, String cnh);
+
 
 }
