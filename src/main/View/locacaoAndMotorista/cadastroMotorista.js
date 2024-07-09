@@ -16,7 +16,16 @@ document.addEventListener("DOMContentLoaded", function (ev)
                         fetch("http://localhost:8080/motorista?cpf="+document.getElementById("cpf").value+"&cnh="+document.getElementById("cnh").value+"&clienteId="+idCliente).then(response => response.json()).then(function (objJson)
                         {
 
-                            console.log("STATUS CODE: " + objJson.status );
+                            console.log("JSON RESPONSE: ", objJson);
+
+                            if (objJson.hasOwnProperty("status")) {
+                                console.log("STATUS CODE: " + objJson.status);
+
+                            }
+                            else
+                            {
+                                console.log("Não achei o status do objeto json");
+                            }
                             
                             if(objJson.status >= 200 &&  objJson.status <= 299) {
 
@@ -39,9 +48,11 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                         }).then(function (response) {
                                         if (response.ok) {
 
-                                            elementHtml.style.display = "block";
-                                            elementHtml.style.color = "rgb(13,188,57)";
-                                            elementHtml.innerText = "Cadastro com sucesso";
+                                                elementHtml.style.display = "block";
+                                                elementHtml.style.color = "rgb(13,188,57)";
+                                                elementHtml.innerText = "Cadastro com sucesso";
+
+
                                         } else {
 
                                             elementHtml.style.display = "block";
@@ -59,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
                             {
 
                                 console.log("URL: http://localhost:8080/motorista?cpf="+document.getElementById("cpf").value+"&cnh="+document.getElementById("cnh").value+"&clienteId="+idCliente);
-                                var elementHtml = document.getElementById("textCadastro");
+
                                 elementHtml.style.display = "block";
                                 elementHtml.style.color = "rgb(219, 0, 0)"
                                 elementHtml.innerText = "Motorista já está cadastrado atrelado a esse cliente.";
