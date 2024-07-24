@@ -14,6 +14,19 @@ public class TransacaoService
     @Autowired
     private TransacaoRepository transacaoRepository;
 
+    public TransacaoDTO findTransacaoByLocacaoId(Long locacaoId)
+    {
+        Optional<Transacao> transacao = transacaoRepository.findByLocacaoId(locacaoId);
+
+        if(transacao.isEmpty())
+        {
+            return null;
+        }
+
+        TransacaoDTO transacaoDTO = transacao.get().converterTransacaoParaDTO();
+        return transacaoDTO;
+    }
+
     public TransacaoDTO findTransacaoById(Long id)
     {
         Optional<Transacao> transacao = transacaoRepository.findById(id);

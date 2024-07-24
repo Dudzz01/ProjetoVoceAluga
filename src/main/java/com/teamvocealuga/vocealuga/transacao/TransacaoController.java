@@ -33,6 +33,24 @@ public class TransacaoController
         return ResponseEntity.ok().body(transacaoDTOList);
     }
 
+    @GetMapping("/locacao/{id}")
+    public ResponseEntity<TransacaoDTO> findTransacaoByLocacaoId(@PathVariable Long id)
+    {
+
+        TransacaoDTO transacaoDTO = transacaoService.findTransacaoByLocacaoId(id);
+
+        if(transacaoDTO != null)
+        {
+            return ResponseEntity.ok().body(transacaoDTO);
+        }
+        else
+        {
+            return ResponseEntity.notFound().build();
+        }
+
+
+    }
+
     @PostMapping
     public ResponseEntity<Void> createTransacao(@RequestBody TransacaoDTO transacaoDTO)
     {

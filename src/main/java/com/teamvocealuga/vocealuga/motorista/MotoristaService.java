@@ -31,7 +31,7 @@ public class MotoristaService
 
     public MotoristaDTO findMotoristaByCnh(String cnh)
     {
-        Optional<Motorista> motorista = motoristaRepository.findByCnh(cnh);
+        Optional<Motorista> motorista = motoristaRepository.findFirstByCnh(cnh);
 
         if(motorista.isEmpty() || motorista == null)
         {

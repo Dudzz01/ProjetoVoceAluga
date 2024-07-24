@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", function (ev)
 
                 {
 
+                    fetch("http://localhost:8080/transacao/locacao/"+codLocacao).then(response => response.json()).then(function (transacaoObject)
+                    {
+
+
+
                     document.getElementById("codigo").innerText = locacaoObject.id;
                    document.getElementById("motorista").innerText = locacaoObject.motorista.nome;
                     document.getElementById("funcionario").innerText = locacaoObject.funcionario.nome;
@@ -26,9 +31,12 @@ document.addEventListener("DOMContentLoaded", function (ev)
                     document.getElementById("endereco retirada").innerText = locacaoObject.enderecoRetirada;
                     document.getElementById("endereco devolucao").innerText = locacaoObject.enderecoDevolucao;
                     document.getElementById("Status Locacao").innerText = locacaoObject.statusLocacao;
+                    document.getElementById("Código Transação").innerText = transacaoObject.id;
                     elementHTML.style.display = "block";
                     elementHTML.style.color = "rgb(13,188,57)";
                     elementHTML.innerText = "Locação encontrada!"
+
+                    })
                 }
 
             ).catch(function (error)

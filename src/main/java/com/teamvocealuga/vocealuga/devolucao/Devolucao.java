@@ -34,7 +34,7 @@ public class Devolucao
     private Veiculo veiculo;
 
     @ManyToOne
-    @JoinColumn(name = "locacao_id")
+    @JoinColumn(name = "locacao_id", unique = true)
     private Locacao locacao;
 
     @OneToOne
