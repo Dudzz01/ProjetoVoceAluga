@@ -27,19 +27,7 @@ public class MotoristaService
         return motoristaDTO;
     }
 
-    public boolean findMotoristaByCpfAndCnhAndCliente(String cpf, String cnh, Long cliente_id)
-    {
-        Optional<Motorista> motorista = motoristaRepository.findByCpfAndCnhAndCliente_Id(cpf,cnh, cliente_id);
 
-        if(motorista.isEmpty())
-        {
-            return false;
-        }
-
-            return true;
-
-
-    }
 
     public MotoristaDTO findMotoristaByCnh(String cnh)
     {
@@ -55,32 +43,7 @@ public class MotoristaService
         return motoristaDTO;
     }
 
-    public boolean checkMotoristaCanCreate(String cpf, String cnh)
-    {
-        MotoristaDTO motoristaCpf = this.findMotoristaByCpf(cpf);
-        MotoristaDTO motoristaCnh = this.findMotoristaByCnh(cnh);
 
-        if(motoristaCpf == null && motoristaCnh == null)
-        {
-            return true;
-        }
-        else
-        {
-            if(motoristaCpf != null && motoristaCpf.getCnh().equals(cnh))
-            {
-                return true;
-            }
-
-            if(motoristaCnh != null && motoristaCnh.getCpf().equals(cpf))
-            {
-                return true;
-            }
-        }
-
-        return false;
-
-
-    }
 
     public MotoristaDTO findMotoristaByCpf(String cpf)
     {

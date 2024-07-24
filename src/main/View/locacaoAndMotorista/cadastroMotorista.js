@@ -13,22 +13,8 @@ document.addEventListener("DOMContentLoaded", function (ev)
 
                 fetch("http://localhost:8080/cliente/"+idCliente).then(response => response.json()).then(function (clienteObject)
                     {
-                        fetch("http://localhost:8080/motorista?cpf="+document.getElementById("cpf").value+"&cnh="+document.getElementById("cnh").value+"&clienteId="+idCliente).then(response => response.json()).then(function (objJson)
-                        {
 
-                            console.log("JSON RESPONSE: ", objJson);
-
-                            if (objJson.hasOwnProperty("status")) {
-                                console.log("STATUS CODE: " + objJson.status);
-
-                            }
-                            else
-                            {
-                                console.log("Não achei o status do objeto json");
-                            }
-                            
-                            if(objJson.status >= 200 &&  objJson.status <= 299) {
-
+                        
                                 console.log("RESPOSTA 200 CRIAR MOTORISTA");
                                 if (clienteObject.id != null) {
                                     var dataJsonMotorista = {
@@ -65,18 +51,10 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                 } else {
                                     throw new Error("Código Cliente inválido");
                                 }
-                            }
-                            else
-                            {
 
-                                console.log("URL: http://localhost:8080/motorista?cpf="+document.getElementById("cpf").value+"&cnh="+document.getElementById("cnh").value+"&clienteId="+idCliente);
 
-                                elementHtml.style.display = "block";
-                                elementHtml.style.color = "rgb(219, 0, 0)"
-                                elementHtml.innerText = "Motorista já está cadastrado atrelado a esse cliente.";
-                            }
-                        }
-                     )/*.catch(function (error)
+
+                     /*.catch(function (error)
                         {
 
                             console.log("URL: http://localhost:8080/motorista?cpf="+document.getElementById("cpf").value+"&cnh="+document.getElementById("cnh").value+"&clienteId="+idCliente);
