@@ -47,9 +47,16 @@ public class MotoristaController
     {
         MotoristaDTO motoristaDTO1 = motoristaService.createMotorista(motoristaDTO);
 
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(motoristaDTO1.getId()).toUri();
+        if(motoristaDTO1 != null)
+        {
+            URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(motoristaDTO1.getId()).toUri();
 
-        return ResponseEntity.created(uri).build();
+            return ResponseEntity.created(uri).build();
+        }
+
+        return ResponseEntity.status(409).build();
+
+
     }
 
     @DeleteMapping("/{id}")

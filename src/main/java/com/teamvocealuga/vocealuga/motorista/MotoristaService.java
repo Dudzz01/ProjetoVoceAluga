@@ -78,6 +78,23 @@ public class MotoristaService
     {
         motoristaDto.setId(null);
         Motorista motorista = motoristaDto.converterDTOParaMotorista();
+
+
+
+        if (motoristaRepository.findByCpfMotoristaAndCnhMotoristaAndClienteId(motorista.getCpf(), motorista.getCnh(), motorista.getCliente().getId()).isPresent()) {
+            return null;
+        }
+
+        // Verificar se o CPF está associado a múltiplas CNHs
+        if (motoristaRepository.existsByCpfMotoristaAndCnhMotoristaNot(motorista.getCpf(), motorista.getCnh())) {
+            return null;
+        }
+
+        // Verificar se a CNH está associada a múltiplos CPFs
+        if (motoristaRepository.existsByCnhMotoristaAndCpfMotoristaNot(motorista.getCnh(), motorista.getCpf())) {
+            return null;
+        }
+
         motorista = motoristaRepository.save(motorista);
         motoristaDto = motorista.converterMotoristaParaDTO();
         return motoristaDto;

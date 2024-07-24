@@ -52,6 +52,15 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                     throw new Error("Código Cliente inválido");
                                 }
 
+<<<<<<< Updated upstream
+=======
+                                    elementHtml.style.display = "block";
+                                    elementHtml.style.color = "rgb(219, 0, 0)"
+                                    elementHtml.innerText = "Motorista já atrelado a esse cliente ou Cpf/Cnh atrelado a outro Cpf/Cnh";
+                                    throw new Error("Informações inválidas sobre o motorista");
+                                }
+                            })
+>>>>>>> Stashed changes
 
 
                      /*.catch(function (error)
