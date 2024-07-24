@@ -81,17 +81,17 @@ public class MotoristaService
 
 
 
-        if (motoristaRepository.findByCpfMotoristaAndCnhMotoristaAndClienteId(motorista.getCpf(), motorista.getCnh(), motorista.getCliente().getId()).isPresent()) {
+        if (motoristaRepository.findByCpfAndCnhAndClienteId(motorista.getCpf(), motorista.getCnh(), motorista.getCliente().getId()).isPresent()) {
             return null;
         }
 
         // Verificar se o CPF está associado a múltiplas CNHs
-        if (motoristaRepository.existsByCpfMotoristaAndCnhMotoristaNot(motorista.getCpf(), motorista.getCnh())) {
+        if (motoristaRepository.existsByCpfAndCnhNot(motorista.getCpf(), motorista.getCnh())) {
             return null;
         }
 
         // Verificar se a CNH está associada a múltiplos CPFs
-        if (motoristaRepository.existsByCnhMotoristaAndCpfMotoristaNot(motorista.getCnh(), motorista.getCpf())) {
+        if (motoristaRepository.existsByCnhAndCpfNot(motorista.getCnh(), motorista.getCpf())) {
             return null;
         }
 

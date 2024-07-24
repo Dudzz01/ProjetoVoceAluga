@@ -11,20 +11,21 @@ public interface MotoristaRepository extends JpaRepository<Motorista,Long>
 {
     List<Motorista> findByCliente_Id(Long id);
 
-    Optional<Motorista> findByCpfAndCnhAndCliente_Id(String cpf, String cnh, Long cliente_id);
+    //Optional<Motorista> findByCpfAndCnhAndCliente_Id(String cpf, String cnh, Long cliente_id);
 
     Optional<Motorista> findByCnh(String cnh);
 
-<<<<<<< Updated upstream
+
     Optional<Motorista> findByCpf(String cnh);
 
     Optional<Motorista> findByCpfAndCnh(String cpf, String cnh);
-=======
-    Optional<Motorista> findByCpfMotoristaAndCnhMotoristaAndClienteId(String cpfMotorista, String cnhMotorista, Long clienteId);
-    boolean existsByCpfMotoristaAndCnhMotorista(String cpfMotorista, String cnhMotorista);
-    boolean existsByCpfMotoristaAndCnhMotoristaNot(String cpfMotorista, String cnhMotorista);
-    boolean existsByCnhMotoristaAndCpfMotoristaNot(String cnhMotorista, String cpfMotorista);
->>>>>>> Stashed changes
+
+    Optional<Motorista> findByCpfAndCnhAndClienteId(String cpfMotorista, String cnhMotorista, Long clienteId);
+
+    boolean existsByCpfAndCnh(String cpfMotorista, String cnhMotorista);
+    boolean existsByCpfAndCnhNot(String cpfMotorista, String cnhMotorista);
+    boolean existsByCnhAndCpfNot(String cnhMotorista, String cpfMotorista);
+
 
 
 }
