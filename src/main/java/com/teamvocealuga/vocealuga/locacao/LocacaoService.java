@@ -39,7 +39,7 @@ public class LocacaoService
         {
             for(Locacao locacaoExistente: locacaoListVerifyDates)
             {
-                if(locacao.getDataInicio().after(locacaoExistente.getDataFim()))
+               /* if(locacao.getDataInicio().after(locacaoExistente.getDataFim()) || locacao.getDataInicio().before(locacaoExistente.getDataInicio()) )
                 {
                     canCreateLocacao = true;
                 }
@@ -47,11 +47,27 @@ public class LocacaoService
                 {
                     canCreateLocacao = false;
                     break;
+                }*/
+
+                if ((locacao.getDataInicio().before(locacaoExistente.getDataFim()) && locacao.getDataInicio().after(locacaoExistente.getDataInicio())) ||
+                        (locacao.getDataFim().before(locacaoExistente.getDataFim()) && locacao.getDataFim().after(locacaoExistente.getDataInicio())) ||
+                        locacao.getDataInicio().equals(locacaoExistente.getDataInicio()) ||
+                        locacao.getDataFim().equals(locacaoExistente.getDataFim()) ||
+                        locacao.getDataInicio().equals(locacaoExistente.getDataFim()) ||
+                        locacao.getDataFim().equals(locacaoExistente.getDataInicio()) ||
+                        (locacaoExistente.getDataInicio().before(locacao.getDataFim()) && locacaoExistente.getDataInicio().after(locacao.getDataInicio())) ||
+                        (locacaoExistente.getDataFim().before(locacao.getDataFim()) && locacaoExistente.getDataFim().after(locacao.getDataInicio()))) {
+                    canCreateLocacao = false;
+                    break;
+                }
+                else
+                {
+                    canCreateLocacao = true;
                 }
             }
         }
 
-        if(locacao.getDataInicio().before(locacao.getDataFim()))
+        if(locacao.getDataInicio().after(locacao.getDataFim()))
         {
             canCreateLocacao = false;
         }

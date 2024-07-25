@@ -20,11 +20,11 @@
             <form id="cadastroLocacao">
                 <div class="textfield">
                     <label for="motorista">CNH(Motorista)</label>
-                    <input type="text" id="motorista" name="motorista" placeholder="Insira o CNH do motorista" required>
+                    <input type="text" id="motorista" name="motorista" pattern="\d{11}" maxlength="11" placeholder="Insira o CNH do motorista" required>
                 </div>
                 <div class="textfield">
                     <label for="cliente">CPF cliente</label>
-                    <input type="text" id="cliente" name="cliente" placeholder="Insira o cpf do cliente" required>
+                    <input type="text" id="cliente" name="cliente" pattern="\d{11}" maxlength="11" placeholder="Insira o cpf do cliente" required>
                 </div>
                 <div class="textfield">
                     <label for="veiculo">Código do veiculo</label>
