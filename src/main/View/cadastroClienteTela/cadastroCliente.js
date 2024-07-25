@@ -22,6 +22,21 @@ function validarCPF(cpf) {
     return regexCPF.test(cpf);
 }
 
+function validarTelefone(telefone)
+{
+    console.log("Valor CPF Formatado na validacao: " + cpf)
+    // Verifica se o valor possui 17 caracteres
+    if (telefone.length !== 9) {
+        return false;
+    }
+
+    // Expressão regular para verificar o formato num1num2num3.num4num5num6.num7num8num9num10num11num12-num13num14
+    const regexTelefone = /^\d{9}$/;
+
+    // Verifica se o valor corresponde ao padrão da expressão regular
+    return regexTelefone.test(telefone);
+}
+
 
 document.addEventListener("DOMContentLoaded", function (ev)
 
@@ -38,7 +53,8 @@ document.addEventListener("DOMContentLoaded", function (ev)
                     var idFilial = document.getElementById("filial").value;
                     var cpfFormatado = mascaraCPF(document.getElementById("cpf"));
                     let checkCpf = validarCPF(cpfFormatado);
-                    if(checkCpf) {
+                    let checkTelefone = validarTelefone(document.getElementById("telefone").value)
+                    if(checkCpf && checkTelefone) {
 
                         console.log("Id filial javascript: " + idFilial);
                         fetch("http://localhost:8080/filial/" + idFilial).then(response => response.json()).then(function (filialObject) {
@@ -114,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
                         var elementHtml = document.getElementById("textoResultCadastro");
                         elementHtml.style.display = "block";
                         elementHtml.style.color = "rgb(219, 0, 0)"
-                        elementHtml.innerText = "Cpf Inválido";
+                        elementHtml.innerText = "Cpf e/ou telefone inválido";
                     }
 
                 }
