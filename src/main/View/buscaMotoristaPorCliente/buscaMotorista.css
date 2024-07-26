@@ -1,4 +1,4 @@
-body
+/*body
 {
     margin: 0px;
 }
@@ -85,3 +85,216 @@ body
     padding: 20px;
 
 }
+
+ */
+
+body {
+    margin: 0;
+    font-family: Arvo, sans-serif;
+}
+
+.main-busca-motorista {
+    width: 100vw;
+    height: 100vh;
+    background-color: #222222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Adicionado padding para evitar cortes */
+    box-sizing: border-box; /* Inclui padding e borda na largura e altura total */
+}
+
+.main-busca-motorista > h1 {
+    font-size: 4vw; /* Usa unidade relativa para responsividade */
+    color: #FFC107;
+    margin: 0;
+    padding-bottom: 5vh; /* Usa unidade relativa para margem inferior */
+    text-align: center;
+}
+
+.space-busca-motorista {
+    width: 80vw; /* Largura adaptável */
+    max-width: 600px; /* Limite máximo de largura */
+    height: auto;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 15px rgba(255, 255, 0, 0.91);
+    margin-bottom: 5vh; /* Margem adaptável */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.space-busca-motorista > h1 {
+    color: #FFC107;
+    font-size: 2.5vw; /* Usa unidade relativa para responsividade */
+    margin: 0;
+    padding-bottom: 3vh; /* Usa unidade relativa para margem inferior */
+    text-align: center;
+}
+
+.bar-busca-motorista-cpf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2vh; /* Usa unidade relativa para padding inferior */
+}
+
+.bar-busca-motorista-cpf > input {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+}
+
+.button-buscar-motorista {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2vh; /* Usa unidade relativa para padding inferior */
+}
+
+.textofield {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Media queries para responsividade */
+
+/* Telas grandes e monitores */
+@media (min-width: 1920px) {
+    .main-busca-motorista > h1 {
+        font-size: 3.5vw;
+        padding-bottom: 10vh;
+    }
+
+    .space-busca-motorista {
+        width: 60vw;
+        max-width: 600px;
+        margin-bottom: 6vh;
+    }
+
+    .space-busca-motorista > h1 {
+        font-size: 2vw;
+        padding-bottom: 4vh;
+    }
+}
+
+/* Telas muito grandes */
+@media (min-width: 1400px) {
+    .main-busca-motorista > h1 {
+        font-size: 3.8vw;
+        padding-bottom: 23vh;
+    }
+
+    .space-busca-motorista {
+        width: 65vw;
+        max-width: 550px;
+        margin-bottom: 5vh;
+    }
+
+    .space-busca-motorista > h1 {
+        font-size: 2.2vw;
+        padding-bottom: 3vh;
+    }
+}
+
+/* Notebooks e tablets grandes */
+@media (max-width: 1366px) and (min-width: 1200px) {
+    .main-busca-motorista > h1 {
+        font-size: 4.5vw;
+        padding-bottom: 6vh;
+    }
+
+    .space-busca-motorista {
+        width: 75vw;
+        max-width: 450px;
+        margin-bottom: 4vh;
+    }
+
+    .space-busca-motorista > h1 {
+        font-size: 2.4vw;
+        padding-bottom: 2vh;
+    }
+}
+
+/* Tablets e dispositivos móveis maiores */
+@media (max-width: 992px) {
+    .main-busca-motorista > h1 {
+        font-size: 5vw;
+        padding-bottom: 4vh;
+    }
+
+    .space-busca-motorista {
+        width: 80vw;
+        max-width: 400px;
+        margin-bottom: 3vh;
+    }
+
+    .space-busca-motorista > h1 {
+        font-size: 2.8vw;
+        padding-bottom: 1.5vh;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+    .main-busca-motorista > h1 {
+        font-size: 6vw;
+        padding-bottom: 3vh;
+    }
+
+    .space-busca-motorista {
+        width: 85vw;
+        max-width: 350px;
+        margin-bottom: 2vh;
+    }
+
+    .space-busca-motorista > h1 {
+        font-size: 3vw;
+        padding-bottom: 1vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-busca-motorista > h1 {
+        font-size: 7vw;
+        padding-bottom: 2vh;
+    }
+
+    .space-busca-motorista {
+        width: 90vw;
+        max-width: 300px;
+        margin-bottom: 1vh;
+    }
+
+    .space-busca-motorista > h1 {
+        font-size: 3.5vw;
+        padding-bottom: 1vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-busca-motorista > h1 {
+        font-size: 8vw;
+        padding-bottom: 1vh;
+    }
+
+    .space-busca-motorista {
+        width: 95vw;
+        max-width: 280px;
+        margin-bottom: 0;
+    }
+
+    .space-busca-motorista > h1 {
+        font-size: 4vw;
+        padding-bottom: 0.5vh;
+    }
+}
+

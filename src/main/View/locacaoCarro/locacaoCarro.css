@@ -1,4 +1,4 @@
-body
+/*body
 {
     margin: 0;
 }
@@ -171,3 +171,201 @@ body
 {
     margin: 0;
 }
+
+*/
+
+/* Estilos globais */
+
+/* Estilos globais */
+body {
+    margin: 0;
+    background-color: #222222;
+}
+
+.main-locacao {
+    width: 100vw;
+    height: 100vh;
+    background-color: #222222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 200px;
+    margin-top: 200px;
+}
+
+.left-locacao {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-locacao > h1 {
+    font-family: Arvo;
+    color: #FFC107;
+}
+
+.img-locacao {
+    transition: transform 0.3s ease;
+}
+
+.img-locacao:hover {
+    transform: scale(1.5);
+}
+
+.right-locacao {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-locacao {
+    width: 14vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    padding: 75px 35px 75px 35px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 0px 15px rgba(255, 255, 0, 0.91);
+    margin-bottom: 270px;
+}
+
+.card-locacao-left {
+    width: 14vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 25px 60px 25px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 0px 15px rgba(255, 255, 0, 0.91);
+    margin-bottom: 60px;
+}
+
+.card-locacao > h1 {
+    color: #FFC107;
+    font-family: Arvo;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.card-locacao > h2 {
+    color: #FFC107;
+    font-family: Arvo;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.card-locacao-left > h1 {
+    color: #FFC107;
+    font-family: Arvo;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.card-locacao-left > h2 {
+    color: #FFC107;
+    font-family: Arvo;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.left-locacao > h1 {
+    color: #FFC107;
+    font-family: Arvo;
+    font-size: 42px;
+    margin-bottom: 100px;
+}
+
+.right-locacao > h1 {
+    color: #FFC107;
+    font-family: Arvo;
+    font-size: 42px;
+    margin-top: 90px;
+    margin-bottom: 100px;
+}
+
+.textfield {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.textfield > label {
+    font-family: Arvo;
+    margin-bottom: 10px;
+    color: #FFC107;
+}
+
+.textfield > input {}
+
+.button-locacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arvo;
+    margin-top: 20px;
+}
+
+#textoTransacao {
+    margin: 0;
+}
+
+/* Media queries para diferentes tamanhos de tela */
+
+/* Para largura de 1366px */
+@media (min-width: 1366px) and (max-width: 1399px) {
+    .card-locacao, .card-locacao-left {
+        width: 18vw;
+        height: auto;
+        padding: 50px 30px;
+    }
+
+    .left-locacao > h1, .right-locacao > h1 {
+        font-size: 36px;
+    }
+}
+
+/* Para largura acima de 1400px */
+@media (min-width: 1400px) and (max-width: 1919px) {
+    .card-locacao, .card-locacao-left {
+        width: 16vw;
+        height: auto;
+        padding: 65px 35px;
+    }
+
+    .left-locacao > h1, .right-locacao > h1 {
+        font-size: 38px;
+    }
+}
+
+/* Para largura de 1920px */
+@media (min-width: 1920px) {
+    .card-locacao, .card-locacao-left {
+        width: 14vw;
+        height: auto;
+        padding: 75px 40px;
+    }
+
+    .left-locacao > h1, .right-locacao > h1 {
+        font-size: 42px;
+    }
+}
+
+
+
+
+

@@ -1,6 +1,7 @@
-body
+/*body
 {
     margin: 0;
+    background-color: #222222;
 }
 
 
@@ -12,8 +13,9 @@ body
     background-color: #222222;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+
 }
 
 .main-cadastro-cliente > h1
@@ -38,6 +40,7 @@ body
     align-items: center;
     border-radius: 10px;
     box-shadow: 0px 0px 0px 15px rgba(255, 255, 0, 0.91);
+    margin-bottom: 40px;
 
 }
 
@@ -89,5 +92,187 @@ body
     padding: 20px;
 
 }
+*/
+
+body {
+    margin: 0;
+    background-color: #222222;
+}
+
+.main-cadastro-cliente {
+    width: 100vw;
+    height: 100vh;
+    background-color: #222222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    padding: 20px; /* Add padding to avoid content touching the edges */
+}
+
+.main-cadastro-cliente > h1 {
+    font-family: Arvo;
+    font-size: 2.5rem; /* Use rem for better scalability */
+    color: #FFC107;
+    padding-top: 2vh; /* Reduce padding to avoid cutting off */
+    padding-bottom: 4vh;
+    text-align: center; /* Ensure text is centered */
+    margin: 0; /* Remove default margin */
+}
+
+.cadastro-cliente {
+    width: 90vw; /* Adjust width for better fit on smaller screens */
+    max-width: 500px; /* Set a max-width to avoid being too wide on larger screens */
+    height: auto; /* Allow height to adjust based on content */
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px; /* Curved borders */
+    box-shadow: 0px 0px 0px 15px rgba(255, 255, 0, 0.91);
+    margin-bottom: 5vh; /* Use viewport units */
+    padding: 20px; /* Add padding for content spacing */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.cadastro-cliente > h2 {
+    padding-bottom: 1rem;
+    font-family: Arvo;
+    color: #FFC107;
+    font-size: 1.5rem; /* Use rem for better scalability */
+    margin: 0; /* Remove default margin */
+}
+
+.style-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem; /* Use rem for better scalability */
+}
+
+.style-field > label {
+    font-family: Arvo;
+    color: #FFC107;
+    font-size: 1rem; /* Use rem for better scalability */
+}
+
+.style-field > input {
+    width: 100%; /* Ensure inputs take up full width */
+    padding: 0.5rem; /* Add padding for better usability */
+    margin-top: 0.5rem; /* Add margin between input fields */
+    border-radius: 8px; /* Curved borders */
+    border: 1px solid #ccc; /* Default border color */
+}
+
+.button-cadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1.5rem; /* Use rem for better scalability */
+    font-family: Arvo;
+}
+
+.textofield {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem; /* Use rem for better scalability */
+}
+
+/* Media Queries */
+
+/* Resolução de 1400px e acima */
+@media (min-width: 1400px) {
+    .main-cadastro-cliente {
+        padding: 40px; /* Increase padding to ensure content fits well */
+    }
+
+    .main-cadastro-cliente > h1 {
+        font-size: 3.5rem; /* Aumentar o tamanho da fonte para maior resolução */
+        padding-top: 12vh;
+        padding-bottom: 4vh;
+    }
+
+    .cadastro-cliente {
+        width: 50vw; /* Ajustar largura para melhor visualização em telas muito grandes */
+    }
+}
+
+/* Resolução de 1300px e acima (anteriormente definida, para referencia) */
+@media (min-width: 1300px) {
+    .main-cadastro-cliente {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding: 30px; /* Ajustar padding para melhor visualização */
+    }
+
+    .main-cadastro-cliente > h1 {
+
+        font-size: 3rem; /* Aumentar o tamanho da fonte para maior resolução */
+        padding-top: 2vh;
+        padding-bottom: 4vh;
+    }
+
+    .cadastro-cliente {
+        width: 60vw; /* Ajustar largura para melhor visualização em telas grandes */
+    }
+}
+
+/* Tablets (Portrait and Landscape) */
+@media (min-width: 600px) and (max-width: 900px) {
+    .main-cadastro-cliente > h1 {
+        font-size: 2rem;
+        padding-top: 4vh;
+        padding-bottom: 8vh;
+    }
+
+    .cadastro-cliente {
+        width: 80vw;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 599px) {
+    .main-cadastro-cliente > h1 {
+        font-size: 1.5rem;
+        padding-top: 3vh;
+        padding-bottom: 6vh;
+    }
+
+    .cadastro-cliente {
+        width: 95vw;
+    }
+
+    .style-field {
+        padding: 0.5rem;
+    }
+
+    .style-field > label {
+        font-size: 0.875rem;
+    }
+
+    .style-field > input {
+        padding: 0.375rem;
+        margin-top: 0.375rem;
+    }
+
+    .button-cadastro {
+        padding-top: 1rem;
+    }
+
+    .textofield {
+        padding: 0.5rem;
+    }
+}
+
+
+
+
+
 
 

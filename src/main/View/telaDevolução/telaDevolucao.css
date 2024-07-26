@@ -1,6 +1,7 @@
 body
 {
     margin: 0;
+    background-color: #222222;
 }
 
 .main-devolucao
@@ -11,6 +12,8 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 200px;
+    margin-bottom: 200px;
 }
 
 .left-devolucao
@@ -48,6 +51,7 @@ body
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 150px;
 }
 
 .card-devolucao
