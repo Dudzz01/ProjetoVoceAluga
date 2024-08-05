@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function (ev)
                     {
 
 
-
                     document.getElementById("codigo").innerText = locacaoObject.id;
                    document.getElementById("motorista").innerText = locacaoObject.motorista.nome;
                     document.getElementById("funcionario").innerText = locacaoObject.funcionario.nome;
@@ -36,12 +35,34 @@ document.addEventListener("DOMContentLoaded", function (ev)
                     elementHTML.style.color = "rgb(13,188,57)";
                     elementHTML.innerText = "Locação encontrada!"
 
-                    })
+                    }).catch(function (error)
+
+                    {
+                        console.log("NAO ACHO LOCACAO")
+                        document.getElementById("codigo").innerText = "";
+                        document.getElementById("motorista").innerText = "";
+                        document.getElementById("funcionario").innerText = "";
+                        document.getElementById("cliente").innerText = "";
+                        document.getElementById("veiculo").innerText = "";
+                        document.getElementById("data locacao").innerText = "";
+                        document.getElementById("data inicio").innerText = "";
+                        document.getElementById("data fim").innerText = "";
+                        document.getElementById("endereco retirada").innerText = "";
+                        document.getElementById("endereco devolucao").innerText = "";
+                        document.getElementById("Status Locacao").innerText = "";
+                        elementHTML.style.display = "block";
+                        elementHTML.style.color = "rgb(219, 0, 0)";
+                        elementHTML.innerText = "Locação inexistente."
+                    }
+
+                )
+
                 }
 
             ).catch(function (error)
 
                 {
+                    console.log("NAO ACHO LOCACAO")
                     document.getElementById("codigo").innerText = "";
                     document.getElementById("motorista").innerText = "";
                     document.getElementById("funcionario").innerText = "";
