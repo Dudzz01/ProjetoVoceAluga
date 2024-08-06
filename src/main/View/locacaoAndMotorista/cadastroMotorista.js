@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
 
                                         elementHtml.style.display = "block";
                                         elementHtml.style.color = "rgb(219, 0, 0)"
-                                        elementHtml.innerText = "Motorista já atrelado a esse cliente ou Cpf/Cnh atrelado a outro Cpf/Cnh";
+                                        elementHtml.innerText = "Erro ao cadastrar";
                                         throw new Error("Informações inválidas sobre o motorista");
                                     }
                                 })
