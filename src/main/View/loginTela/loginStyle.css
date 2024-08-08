@@ -55,7 +55,7 @@ body
 .card-login
 {
     width: 14vw;
-    height: 20vh;
+    height: 35vh;
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF;

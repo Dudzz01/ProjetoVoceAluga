@@ -20,7 +20,7 @@
         <form id="buscaMotorista">
 
             <div class="bar-busca-motorista-cpf">
-                <input type="text" id="cnh_mot" name="cpf" placeholder="Insira o cnh do motorista que deseja buscar" required>
+                <input type="text" id="cnh_mot" name="cpf" pattern="\d{11}" maxlength="11" placeholder="Insira o cnh do motorista que deseja buscar" required>
             </div>
 
             <div class="button-buscar-motorista">

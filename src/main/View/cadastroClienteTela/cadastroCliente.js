@@ -8,23 +8,24 @@ function mascaraCPF(campo) {
     return v; // Retorna o valor formatado
 }
 
-function validarCPF(cpf) {
-    console.log("Valor CPF Formatado na validacao: " + cpf)
+function validarCPF(cpf)
+{
+
     // Verifica se o valor possui 17 caracteres
-    if (cpf.length !== 14) {
+    if (cpf.length !== 11) {
         return false;
     }
 
     // Expressão regular para verificar o formato num1num2num3.num4num5num6.num7num8num9num10num11num12-num13num14
-    const regexCPF = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+    const regexCnh = /^\d{11}$/;
 
     // Verifica se o valor corresponde ao padrão da expressão regular
-    return regexCPF.test(cpf);
+    return regexCnh.test(cpf);
 }
 
 function validarTelefone(telefone)
 {
-    console.log("Valor CPF Formatado na validacao: " + cpf)
+    //console.log("Valor CPF Formatado na validacao: " + cpf)
     // Verifica se o valor possui 17 caracteres
     if (telefone.length !== 9) {
         return false;
@@ -51,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
                 {
                     ev.preventDefault();
                     var idFilial = document.getElementById("filial").value;
-                    var cpfFormatado = mascaraCPF(document.getElementById("cpf"));
+                    var cpfFormatado = document.getElementById("cpf").value;
                     let checkCpf = validarCPF(cpfFormatado);
                     let checkTelefone = validarTelefone(document.getElementById("telefone").value)
                     if(checkCpf && checkTelefone) {

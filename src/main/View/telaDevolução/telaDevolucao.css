@@ -56,8 +56,8 @@ body
 
 .card-devolucao
 {
-    width: 28vw;
-    height: 40vh;
+    width: 35vw;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF;

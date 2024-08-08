@@ -8,19 +8,21 @@ function mascaraCPF(campo) {
     return v; // Retorna o valor formatado
 }
 
-function validarCPF(cpf) {
-    console.log("Valor CPF Formatado na validacao: " + cpf)
+function validarCPF(cpf)
+{
+
     // Verifica se o valor possui 17 caracteres
-    if (cpf.length !== 14) {
+    if (cpf.length !== 11) {
         return false;
     }
 
     // Expressão regular para verificar o formato num1num2num3.num4num5num6.num7num8num9num10num11num12-num13num14
-    const regexCPF = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+    const regexCnh = /^\d{11}$/;
 
     // Verifica se o valor corresponde ao padrão da expressão regular
-    return regexCPF.test(cpf);
+    return regexCnh.test(cpf);
 }
+
 
 function validarCNH(cnh)
 {
@@ -47,14 +49,15 @@ document.addEventListener("DOMContentLoaded", function (ev)
             {
                 ev.preventDefault();
                 var idCliente = document.getElementById("CodigoDoCliente").value;
+                var checkCpfCliente = validarCPF(idCliente);
                 var dataNascimentoJson = moment(document.getElementById("dataNascimento").value).format("YYYY-MM-DD HH:mm:ss.SSS");
                 let elementHtml = document.getElementById("textCadastro");
-                var cpfFormatado = mascaraCPF(document.getElementById("cpf"));
+                var cpfFormatado = document.getElementById("cpf").value;
                 let checkCpf = validarCPF(cpfFormatado);
                 let checkCnh = validarCNH(document.getElementById("cnh").value);
-                if(checkCpf && checkCnh) {
+                if(checkCpf && checkCnh && checkCpfCliente) {
 
-                    fetch("http://localhost:8080/cliente/" + idCliente).then(response => response.json()).then(function (clienteObject) {
+                    fetch("http://localhost:8080/cliente/cpf/" + idCliente).then(response => response.json()).then(function (clienteObject) {
 
 
                             console.log("RESPOSTA 200 CRIAR MOTORISTA");

@@ -1,3 +1,19 @@
+
+function validarCPF(cpf)
+{
+
+    // Verifica se o valor possui 17 caracteres
+    if (cpf.length !== 11) {
+        return false;
+    }
+
+    // Expressão regular para verificar o formato num1num2num3.num4num5num6.num7num8num9num10num11num12-num13num14
+    const regexCnh = /^\d{11}$/;
+
+    // Verifica se o valor corresponde ao padrão da expressão regular
+    return regexCnh.test(cpf);
+}
+
 document.addEventListener("DOMContentLoaded", function (ev)
 
 {
@@ -9,7 +25,11 @@ document.addEventListener("DOMContentLoaded", function (ev)
 
 
         var cpf = document.getElementById("cpf").value;
+        var checkCpf = validarCPF(cpf);
         let elementHTML = document.getElementById("resultadoBusca");
+
+        if (checkCpf)
+        {
 
 
         fetch("http://localhost:8080/cliente/cpf/"+cpf).then(response => response.json()).then
@@ -39,7 +59,18 @@ document.addEventListener("DOMContentLoaded", function (ev)
             elementHTML.innerText = "Cliente não existente."
         })
 
-
+        }
+        else
+        {
+            document.getElementById("filial_name").innerText = "";
+            document.getElementById("cliente_name").innerText = "";
+            document.getElementById("cliente_cpf").innerText = "";
+            document.getElementById("cliente_telefone").innerText = "";
+            document.getElementById("cliente_dtCadastro").innerText = "";
+            elementHTML.style.display = "block";
+            elementHTML.style.color = "rgb(219, 0, 0)";
+            elementHTML.innerText = "Cpf inválido."
+        }
 
     }
     )

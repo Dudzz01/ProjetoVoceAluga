@@ -17,6 +17,7 @@ body
 {
     width: 100vw;
     height: 100vh;
+    flex-wrap: nowrap;
     background-color: #222222;
 }
 
