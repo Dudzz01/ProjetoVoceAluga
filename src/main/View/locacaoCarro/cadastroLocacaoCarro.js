@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", function (ev) {
                         console.log("motoristaObject.cliente.id: " + motoristaObject.cliente.id);
                         console.log("motoristaObject.id: " + motoristaObject.id);
                         console.log("motoristaObject.cliente.cpf: " + motoristaObject.cliente.cpf);
-                        console.log("cpfCliente: " + cpfFormatado)
+
                         if (motoristaObject.cliente.id != null && motoristaObject.id != null) {
-                            if (motoristaObject.cliente.cpf === cpfFormatado) {
+                            if (motoristaObject.cliente.cpf === cpfCliente) {
                                 var codVeiculo = document.getElementById("veiculo").value;
                                 fetch("http://localhost:8080/veiculo/" + codVeiculo)
                                     .then(response => response.json())
