@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                     /*var elementHtml = document.getElementById("textoDevolucao")*/
                                     elementHtml.style.display = "block";
                                     elementHtml.style.color = "rgb(13,188,57)";
-                                    elementHtml.innerText = "Devolução cadastrada.";
+                                    elementHtml.innerText = "Devolução cadastrada. Cod Loc ";
                                     console.log("FINALIZADO COM SUCESSO");
                                 }
                                 else
