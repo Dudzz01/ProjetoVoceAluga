@@ -52,13 +52,13 @@ public class TransacaoController
     }
 
     @PostMapping
-    public ResponseEntity<Void> createTransacao(@RequestBody TransacaoDTO transacaoDTO)
+    public ResponseEntity<TransacaoDTO> createTransacao(@RequestBody TransacaoDTO transacaoDTO)
     {
 
         //FALTA VERIFICAR SE A LOCACAO EXISTE
         TransacaoDTO transacaoDTO1 = transacaoService.createTransacao(transacaoDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(transacaoDTO1.getId()).toUri();
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.created(uri).body(transacaoDTO1);
     }
 
     @DeleteMapping("/{id}")

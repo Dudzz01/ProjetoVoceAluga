@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function (ev) {
         //var cpfFormatado = mascaraCPF(document.getElementById("cliente"));
         let checkCpf = validarCPF(cpfCliente);
         let checkCnh = validarCNH(cnhMotorista);
-
+        let statusTransacao;
         let elementHtml = document.getElementById("texto-resultado-locacao");
         console.log("CNH: " + cnhMotorista)
         if (leftForm.checkValidity() && rightForm.checkValidity()) {
@@ -135,16 +135,36 @@ document.addEventListener("DOMContentLoaded", function (ev) {
                                                                     body: JSON.stringify(dataJsonTransacao)
                                                                 }).then(function (response) {
                                                                     if (response.ok) {
+
+                                                                        statusTransacao = true;
+                                                                    } else {
+
+                                                                        statusTransacao = false;
+                                                                    }
+                                                                    return response.json();
+                                                                }).then(function (transacaoObject) {
+                                                                    if (statusTransacao === true) {
                                                                         /* var elementHtml = document.getElementById("texto-resultado-locacao");*/
                                                                         elementHtml.style.display = "block";
                                                                         elementHtml.style.color = "rgb(13,188,57)";
-                                                                        elementHtml.innerText = "Locacao cadastrada com sucesso";
+                                                                        //Cod locação("+locacaoObjectJson.id+")
+                                                                        elementHtml.innerText = "Locacao cadastrada com sucesso.";
+                                                                        quebraLinha = document.createElement("br");
+                                                                        elementHtml.appendChild(quebraLinha);
+                                                                        elementHtml.innerText+= "Cod locação("+locacaoObjectJson.id+")";
+                                                                        elementHtml.appendChild(quebraLinha);
+                                                                        elementHtml.innerText+= "Cod transação("+transacaoObject.id+")";
                                                                     } else {
                                                                         elementHtml.style.display = "block";
                                                                         elementHtml.style.color = "rgb(219, 0, 0)";
                                                                         elementHtml.innerText = "Erro ao salvar Transacao";
 
                                                                     }
+                                                                }).catch(function ()
+                                                                {
+                                                                    elementHtml.style.display = "block";
+                                                                    elementHtml.style.color = "rgb(219, 0, 0)";
+                                                                    elementHtml.innerText = "Falha na transação";
                                                                 });
                                                             })
                                                             .catch(function (error) {
