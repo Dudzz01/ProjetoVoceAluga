@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function (ev)
 
                 var codTransacao = document.getElementById("transacao").value;
                 let elementHtml = document.getElementById("textoDevolucao")
-
+                let statusHttpDevolucao;
 
 
 
@@ -63,11 +63,31 @@ document.addEventListener("DOMContentLoaded", function (ev)
                             ).then(response => {
                                 if(response.ok)
                                 {
+
+                                    statusHttpDevolucao = true;
+
+                                }
+                                else
+                                {
+
+                                    statusHttpDevolucao = false;
+                                }
+
+                                    return response.text();
+                            }).then(function (codDevolucao)
+                            {
+                                if(statusHttpDevolucao === true)
+                                {
                                     /*var elementHtml = document.getElementById("textoDevolucao")*/
                                     elementHtml.style.display = "block";
                                     elementHtml.style.color = "rgb(13,188,57)";
-                                    elementHtml.innerText = "Devolução cadastrada. Cod Loc ";
+                                    elementHtml.innerText = "Devolução cadastrada.";
+                                    quebrarLinha = document.createElement("br");
+                                    elementHtml.appendChild(quebrarLinha);
+                                    elementHtml.innerText += "Cod Devolução("+codDevolucao+")";
                                     console.log("FINALIZADO COM SUCESSO");
+
+
                                 }
                                 else
                                 {
@@ -75,9 +95,13 @@ document.addEventListener("DOMContentLoaded", function (ev)
                                     elementHtml.style.display = "block";
                                     elementHtml.style.color = "rgb(219, 0, 0)"
                                     elementHtml.innerText = "Transação sem devoluções pendentes";
+
                                 }
-
-
+                            }).catch(function ()
+                            {
+                                elementHtml.style.display = "block";
+                                elementHtml.style.color = "rgb(219, 0, 0)"
+                                elementHtml.innerText = "Falha na devolução";
                             })
 
 
