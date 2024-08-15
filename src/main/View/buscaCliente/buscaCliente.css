@@ -100,13 +100,15 @@ body {
     padding: 0;
     max-height: 100vh;
     max-width: 100vw;
+    background-color: #222222;
 }
 
 .main-busca-cliente {
     width: 100%;
     height: 100vh;
     background-color: #222222;
-
+    margin-bottom: 200px;
+    margin-top: 200px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-evenly;
